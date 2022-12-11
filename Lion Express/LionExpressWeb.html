@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Homepage</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .hero-col {
+            margin: 10rem 0;
+        }
+
+        .image {
+            background-size: cover;
+            background-image: url("Pictures/hero-image.jpg");
+        }
+
+        .inner-col .column i {
+            width: 100%;
+            font-size: 100px;
+            text-align: center;
+        }
+
+        .inner-col .column button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .cn-tss {
+            background-attachment: fixed;
+            background-size: 17%;
+            background-position-x: 13%;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            background-image: url('/Lion Express/Pictures/bronze_110.png');
+        }
+
+        .cn-tss:nth-child(2) {
+            background-attachment: fixed;
+            background-size: 17%;
+            background-position-x: 86%;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            background-image: url('/Lion Express/Pictures/bronze_110.png');
+        }
+
+        hr {
+            margin-bottom: 5px;
+            border-top: 1px solid black;
+        }
+
+        .hero-img {
+            position: relative;
+        }
+
+        #stckImgHere {
+            width: 100%;
+            height: 100%;
+            /*right: -50px;*/
+            bottom: 0;
+            position: absolute;
+            background-size: 90% 1000px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-image: url("Pictures/escanor.png");
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#load-header").load("header.html"); 
+            $("#load-footer").load("footer.html"); 
+        })
+    </script>
+</head>
+
+<body>
+    <main>
+        <div id="load-header">
+            <!-- LOAD HEADER.html HERE -->
+        </div>
+
+        <section class="section mt-0 py-0 mb-5">
+            <div class="container">
+                <div class="columns" style="background-color: rgba(255, 100, 100, 0.5);">
+                    <div class="column is-5 ml-6  hero-col">
+                        <h1 class="title">
+                            Good Service and Security,
+                            <p class="ml-5"><em class="title is-5">with a</em> Lionheart's Integrity</p>
+                        </h1>
+                        <p class="subtitle mt-3 mr-3">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book.
+                        </p>
+                    </div>
+                    <div class="column image">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="level py-5" style="padding: 0 20%;">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Staff</p>
+                <p class="title">31</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Registered Users</p>
+                <p class="title">338</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Business Partners</p>
+                <p class="title">110</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Million Fans Around the World</p>
+                <p class="title">1,000,000</p>
+              </div>
+            </div>
+        </nav>
+
+        <section class="section pt-2 pb-5">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="/Lion Express/Pictures/pogoy.jpg"
+                                        alt="Placeholder image">
+                                </figure>
+                            </div>
+
+                            <div class="content p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                                <a href="#">#css</a> <a href="#">#responsive</a>
+                                <br>
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="/Lion Express/Pictures/bank-interior.jpg"
+                                        alt="Placeholder image">
+                                </figure>
+                            </div>
+
+                            <div class="content p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                                <a href="#">#css</a> <a href="#">#responsive</a>
+                                <br>
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="/Lion Express/Pictures/cust-service.jpeg"
+                                        alt="Placeholder image">
+                                </figure>
+                            </div>
+
+                            <div class="content p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                                <a href="#">#css</a> <a href="#">#responsive</a>
+                                <br>
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="m-0" style="border-top: 3px dashed black;"></div>
+
+        <section class="section">
+            <div class="container">
+                <div class="columns is-multiline">
+                    <div class="column is-4 p-3 has-text-centered cn-tss">
+                        <span class="title is-2 has-text-weight-light" 
+                        style="padding: 10px 20px !important; background-color: white;">
+                            Good Service
+                        </span>
+                    </div>
+                    <div class="column">
+                        <div class="columns p-3 inner-col" style="max-width: 100%;">
+                            <div class="column mr-2 is-4 has-background-white">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <button class="button is-info">Normal</button>
+                            </div>
+                            <div class="column mr-2 is-4 has-background-white">
+                                <i class="fa-solid fa-piggy-bank"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <button class="button is-link">Normal</button>
+                            </div>
+                            <div class="column mr-2 is-4 has-background-white">
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <button class="button is-primary">Normal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="columns is-multiline">
+                    <div class="column">
+                        <div class="columns p-3 inner-col" style="max-width: 100%;">
+                            <div class="column mr-2 is-6 has-background-white">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <button class="button is-info">Normal</button>
+                            </div>
+                            <div class="column mr-2 is-6 has-background-white">
+                                <i class="fa-solid fa-piggy-bank"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <button class="button is-link">Normal</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4 p-3 has-text-centered cn-tss">
+                        <span class="title is-2 has-text-weight-light"
+                        style="padding: 10px 20px !important; background-color: white;">
+                            Good Security
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero is-medium is-link hero-img">
+            <div class="hero-body has-text-centered is-flex is-flex-direction-column is-align-items-center" style="padding: 10rem 3rem; position: relative; z-index: 1; gap: 10px; text-shadow: 1px 1px black;">
+                <p class="title is-1">
+                    Lionheart's Integrity
+                </p>
+                <p class="subtitle" style="max-width: 70%;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                <!--    <div class="column has-text-black">
+                        <div class="columns p-3" style="max-width: 100%; min-height: 300px; text-shadow: none;">
+                            <div class="column mr-5 is-6 has-background-white">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="column mr-5 is-6 has-background-white">
+                                <i class="fa-solid fa-piggy-bank"></i>
+                                <hr>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </p>
+            </div>
+            <div id="stckImgHere">
+
+            </div>
+        </section>
+        
+        <div id="load-footer">
+            <!-- LOAD FOOTER.html HERE -->
+        </div>
+    </main>
+    <script>
+        let getElem;
+        let startNum = 110;
+        
+        window.onscroll = function() {
+            if (startNum <= 110)
+                startNum -= 11;
+            
+            if (startNum == 0)
+                startNum = 110;
+            
+            document.getElementsByClassName("cn-tss")[0].style.backgroundImage = "url(Pictures/bronze_" + startNum.toString() + ".png)";
+            document.getElementsByClassName("cn-tss")[1].style.backgroundImage = "url(Pictures/bronze_" + startNum.toString() + ".png)";
+        };
+    </script>
+</body>
+
+</html>

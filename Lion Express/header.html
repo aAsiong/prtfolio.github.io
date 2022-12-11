@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .navbar {
+            height: 5rem;
+            border-bottom: 3px solid black;
+        }
+
+        .navbar-brand {
+            height: 100%;
+        }
+
+        .navbar-brand a {
+            height: 100%;
+        }
+
+        .navbar-brand .navbar-item {
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("Pictures/LE-logo.png");
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar px-5" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io"></a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/Lion Express/LionExpressWeb.html">
+                    Home
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Services
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/Lion Express/LE-Credit.html">
+                            Credit Cards
+                        </a>
+                        <!-- <hr class="navbar-divider"> -->
+                        <a class="navbar-item" href="/Lion Express/LE-Investing.html">
+                            Investing
+                        </a>
+                    </div>
+                </div>
+
+                <a class="navbar-item" href="/Lion Express/LE-About.html">
+                    Why Lion Express
+                </a>
+            </div>
+
+            <div class="navbar-end">
+          <!--  <a class="navbar-item">
+                    <div class="icon-text">
+                        <span class="icon has-text-info">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        <span>Search Branches</span>
+                    </div>
+                </a> -->
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="/Lion Express/LE-Register.html">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="/Lion Express/LE-Login.html">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

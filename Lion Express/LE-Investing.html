@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Investments</title>
+    <style>
+        .container {
+            position: relative;
+            height: 100vh;
+        }
+
+        .sect-bckgrnd {
+            width: 100%;
+            height: 160vh;
+            position: absolute;
+            top: -620px;
+            left: 275px;
+            z-index: -1;
+            background-color: #f2faff;
+            transform: rotate(-50deg);
+            content: '';
+        }
+
+        .switch {
+            width: 60px;
+            height: 34px;
+            margin-left: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .crd-hldr {
+            height: 400px;
+            margin-top: 15px;
+            gap: 20px;
+        }
+
+        .accordion {
+            width: 60%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            background-color: #F2FAFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            border: 1px solid black;
+            overflow: hidden;
+            /* font-family: 'Times New Roman', Times, serif;
+            background: #3CB371; */
+        }
+
+        .accordion-label {
+            /* 1st value Top-Down, 2nd value Left-Right */
+            padding: 14px 20px;
+        }
+
+        .accordion-label {
+            margin: 0px;
+            display: flex;
+            justify-content: left;
+            align-content: center;
+            align-items: center;
+            color: black;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            position: relative;
+            height: 80px;
+        }
+
+        .accordion-label:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-label::after {
+            width: 12px;
+            height: 6px;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+            background-size: contain;
+            content: "";
+            transform: translateY(-50%);
+            transition: transform 0.4s;
+        }
+
+        .accordion-content {
+            background: white;
+            line-height: 1.6;
+            font-size: 0.85em;
+            display: none;
+            border-top: none;
+            overflow: auto;
+            min-height: 200px;
+        }
+
+        .accordion-input {
+            display: none;
+        }
+
+        .accordion-input:checked~.accordion-content {
+            display: block;
+        }
+
+        .accordion-input:checked~.accordion-label::after {
+            transform: translateY(-50%) rotate(0.5turn);
+        }
+
+        .box-container h1 {
+            margin: 0 !important;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .box-container p {
+            margin: 0;
+            font-size: 10px;
+            font-weight: light;
+            color: #4c525a;
+        }
+
+        .frst-sect .container .box {
+            min-height: 500px;
+            height: fit-content;
+        }
+
+        .price-box {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: center;
+            border-bottom: 1px solid #00b289;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 13px; 
+            font-weight: 400; 
+            list-style: square; 
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#load-header").load("header.html");
+            $("#load-footer").load("footer.html");
+        })
+    </script>
+</head>
+
+<body>
+    <main>
+        <div id="load-header">
+            <!-- LOAD HEADER.html HERE -->
+        </div>
+
+        <section class="section frst-sect">
+            <div class="container" style="height: 500px;">
+                <div class="columns is-gapless is-multiline">
+                    <!-- Upper Div -->
+                    <div class="column" style="display: none;">
+                        <div class="is-flex is-flex-direction-row mx-auto has-text-centered"
+                            style="width: 40%; margin-top: 20px;">
+                            <div>
+                                <h1 class="title is-4">Plans & Pricing</h1>
+                            </div>
+                            <div class="is-flex is-align-items-center is-justify-content-center">
+                                <h1 class="title is-5 ml-5">MONTHLY</h3>
+                            </div>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="is-flex is-align-items-center is-justify-content-center">
+                                <h1 class="title is-5 ml-5">yearly</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lower Div with Three Cards -->
+                    <div class="column is-full box-container">
+                        <div class="is-flex is-flex-direction-row mx-auto crd-hldr" style="width: 50%;">
+                            <div class="box">
+                                <h1 class="title">Starter</h1>
+                                <p>Ideal for freelancers and contractors just starting out.</p>
+                                <div class="price-box">
+                                    <span style="margin-right: 5px; padding-bottom: 28px;">$ </span>
+                                    <span style="font-size: 40px;">24</span>
+                                    <span style="position: relative; top: -6px">/MONTH</span>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <ul>
+                                        <li>All Templates</li>
+                                        <li>Unlimited Clients & Projects</li>
+                                        <li>Invoicing & Payments</li>
+                                        <li>Proposals & Contracts</li>
+                                        <li>Tasks & Time Tracking</li>
+                                        <li>Client CRM</li>
+                                        <li>Expense Tracking</li>
+                                        <li>Up to 5 Project Collaborators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <h1 class="title">Professional</h1>
+                                <p>Everything a growing independent business needs to thrive.</p>
+                                <div class="price-box">
+                                    <span style="margin-right: 5px; padding-bottom: 28px;">$ </span>
+                                    <span style="font-size: 40px;">39</span>
+                                    <span style="position: relative; top: -6px;">/MONTH</span>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <ul>
+                                        <li>All Templates</li>
+                                        <li>Unlimited Clients & Projects</li>
+                                        <li>Invoicing & Payments</li>
+                                        <li>Proposals & Contracts</li>
+                                        <li>Tasks & Time Tracking</li>
+                                        <li>Client CRM</li>
+                                        <li>Expense Tracking</li>
+                                        <li>Up to 5 Project Collaborators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <h1 class="title">Business</h1>
+                                <p>The perfect package for small businesses and agencies.</p>
+                                <div class="price-box">
+                                    <span style="margin-right: 5px; padding-bottom: 28px;">$ </span>
+                                    <span style="font-size: 40px;">79</span>
+                                    <span style="position: relative; top: -6px;">/MONTH</span>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <ul>
+                                        <li>All Templates</li>
+                                        <li>Unlimited Clients & Projects</li>
+                                        <li>Invoicing & Payments</li>
+                                        <li>Proposals & Contracts</li>
+                                        <li>Tasks & Time Tracking</li>
+                                        <li>Client CRM</li>
+                                        <li>Expense Tracking</li>
+                                        <li>Up to 5 Project Collaborators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sect-bckgrnd">
+
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="hero-body">
+                <p class="title has-text-centered has-text-weight-light" style="font-size: 32px; color: #00b289;">
+                    Invest in your Future Investments
+                </p>
+            </div>
+        </section>
+
+        <section class="section" style="height: max-content">
+            <div class="container is-flex is-flex-direction-column"
+                style="width: 70%; height: max-content; margin: 0 auto;">
+                <div class="box">
+                    <div class="columns">
+                        <div class="column p-3">
+                            <span class="title is-4 has-text-weight-medium">Collaborators</span>
+                            <p class="title is-6 has-text-weight-light">Invite other users to specific projects for
+                                limited access and functionality.</p>
+                        </div>
+                        <div class="column is-one-fifth is-flex is-align-items-center is-justify-content-center">
+                            Free
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="columns">
+                        <div class="column p-3">
+                            <span class="title is-4 has-text-weight-medium">Partners</span>
+                            <p class="title is-6 has-text-weight-light">Invite other users for full account access and
+                                company management.</p>
+                        </div>
+                        <div
+                            class="column is-one-fifth is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+                            $9
+                            <p class="title is-6 has-text-weight-light">/ MONTH</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="columns">
+                        <div class="column p-3">
+                            <span class="title is-4 has-text-weight-medium">Bonsai Tax</span>
+                            <p class="title is-6 has-text-weight-light">Track expenses, identify write-offs, and
+                                estimate quarterly taxes easily.</p>
+                        </div>
+                        <div
+                            class="column is-one-fifth is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+                            $10
+                            <p class="title is-6 has-text-weight-light">/ MONTH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="hero-body pb-0">
+                <p class="title has-text-centered has-text-weight-light" style="font-size: 32px; color: #00b289;">
+                    Frequently Asked Questions
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container" style="min-height: 500px; height: fit-content;">
+                <div class="accordion">
+                    <div>
+                        <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section1" />
+                        <label for="section1" class="accordion-label">Trust Lion Express PROTECHTION</label>
+                        <div class="accordion-content">
+                            <span>
+                                Mobile and Online Banking with Santander® PROTECHTION gives you secure access to your
+                                accounts, so you can bank from anywhere.
+                            </span>
+                            <p>Digital security features:</p>
+                            <ol>
+                                <li>Santander® Instant Card Hold†</li>
+                                <li>Account activity alerts</li>
+                                <li>Fraud protection1</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <div>
+                        <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section2" />
+                        <label for="section2" class="accordion-label">Easy Management</label>
+                        <div class="accordion-content">
+                            <span>
+                                Activate your card, manage your account, and set alerts all from our highly-rated Mobile
+                                Banking App.
+                                You can also make purchases with chip-enabled contactless payments, connect with Apple
+                                Pay, Google Pay, or Samsung Pay for instant purchases, or schedule bill payments with
+                                Online Bill Pay.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <div>
+                        <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section3" />
+                        <label for="section3" class="accordion-label">Eco-Friendly: Paperless</label>
+                        <div class="accordion-content">
+                            <span>
+                                Declutter and save on fees by accessing all your statements electronically instead of
+                                receiving them by mail.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="load-footer">
+            <!-- LOAD FOOTER.html HERE -->
+        </div>
+    </main>
+</body>
+
+</html>

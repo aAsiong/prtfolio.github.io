@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Credit Offers</title>
+    <style>
+        .hero-col {
+            margin: 8rem 5rem;
+        }
+
+        .image {
+            background-size: cover;
+            background-position: 0%;
+            background-repeat: no-repeat;
+            background-image: url("/Lion Express/Pictures/credit-image.jpg");
+        }
+
+        .bf-header {
+            width: 60%;
+            height: 100%;
+            margin: 0 auto !important;
+            margin-top: -80px !important;
+            position: relative;
+            background-color: white;
+        }
+
+            .bf-header .column {
+                padding: 10px;
+                margin: auto 0;
+            }
+
+                .bf-header .column .box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                    color: #ec0000;
+                    box-shadow: none;
+                    border-radius: 0;
+                    border-right: 1px solid black;
+                }
+            
+        .single-out {
+            font-size: 40px !important;
+            color: #474747 !important;
+            border-right: none !important;
+        }
+        
+        .wth-lst .columns .column h1 {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        ul li { margin: 13px 0; }
+        li:first-child { border-top: 1px solid black; padding-top: 10px; }
+        li { list-style: square; color: red; line-height: 1.5 ;}
+        li span { color: black; }
+
+        .hero-image {
+            height: 400px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('/Lion Express/Pictures/credit-image-2.jpg');
+        }
+
+        .col-image-cont {
+            position: relative;
+            transition: transform 0.5s;
+            z-index: 0;
+        }
+
+            .col-image-cont:hover {
+                transform: scale(1.2);
+                transition: transform 0.5s;
+            }
+
+        .col-image {
+            height: 300px;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            background-size: 250px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("Pictures/credit-card.png");
+            background-color: transparent;
+        }
+
+            .col-image:hover {
+                animation: wobble 5s ease infinite;
+            }
+        
+        @keyframes wobble {
+            0%, 100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+            }
+
+            15% {
+                -webkit-transform: translateX(-32px) rotate(-10deg);
+                transform: translateX(-32px) rotate(-10deg);
+            }
+
+            30% {
+                -webkit-transform: translateX(calc(32px / 2)) rotate(10deg);
+                transform: translateX(calc(32px / 2)) rotate(10deg);
+            }
+
+            45% {
+                -webkit-transform: translateX(calc(-32px / 2)) rotate(calc(-10deg / 1.8));
+                transform: translateX(calc(-32px / 2)) rotate(calc(-10deg / 1.8));
+            }
+
+            60% {
+                -webkit-transform: translateX(calc(32px / 3.3)) rotate(calc(10deg / 3));
+                transform: translateX(calc(32px / 3.3)) rotate(calc(10deg / 3));
+            }
+
+            75% {
+                -webkit-transform: translateX(calc(-32px / 5.5)) rotate(calc(-10deg / 5));
+                transform: translateX(calc(-32px / 5.5)) rotate(calc(-10deg / 5));
+            }
+        }
+        
+        .accordion {
+            width: 100%;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            background-color: #474747;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            border: 1px solid black;
+            overflow: hidden;
+            /* font-family: 'Times New Roman', Times, serif;
+            background: #3CB371; */
+        }
+
+        .accordion-label {
+            /* 1st value Top-Down, 2nd value Left-Right */
+            padding: 14px 20px;
+        }
+
+        .accordion-label {
+            margin: 0px;
+            display: flex;
+            justify-content: left;
+            align-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            height: 100px;
+        }
+
+            .accordion-label:hover {
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+            .accordion-label::after {
+                width: 12px;
+                height: 6px;
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+                background-size: contain;
+                content: "";
+                transform: translateY(-50%);
+                transition: transform 0.4s;
+            }
+
+        .accordion-content {
+            background: white;
+            line-height: 1.6;
+            font-size: 0.85em;
+            display: none;
+            border-top: none;
+            overflow: auto;
+            min-height: 400px;
+            max-height: 500px;
+        }
+
+        .accordion-input {
+            display: none;
+        }
+
+            .accordion-input:checked ~ .accordion-content {
+                display: block;
+            }
+
+            .accordion-input:checked ~ .accordion-label::after {
+                transform: translateY(-50%) rotate(0.5turn);
+            }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#load-header").load("header.html"); 
+            $("#load-footer").load("footer.html"); 
+        })
+    </script>
+</head>
+<body>
+    <main>
+        <div id="load-header">
+            <!-- LOAD HEADER.html HERE -->
+        </div>
+
+        <section class="section py-0 mb-0">
+            <div class="container">
+                <div class="columns is-multiline" style="background-color: rgba(100, 100, 100, 0.6);">
+                    <div class="column auto hero-col">
+                        <h1 class="title is-1 has-text-weight-light">
+                            Lion Express'
+                            <p>Cash Bank Card</p>
+                        </h1>
+                        <p class="subtitle mt-2 mr-3 is-4 has-text-weight-light">
+                            More rewards on every dollar you spend. 
+                            This credit card rewards you as you’re enjoying life, 
+                            so you can earn more cash back.
+                        </p>
+                    </div>
+                    <div class="column is-6 image" style="max-width: 100%;">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="columns has-text-centered bf-header" style="border: 1px solid black; border-top: 5px solid red">
+            <div class="column p-3 is-4">
+                <div class="box">
+                    Earn 3% cash back for the first 12 months*
+                </div>
+            </div>
+            <div class="column p-3 is-4">
+                <div class="box">
+                    0% introductory rate for the first 12 months*
+                </div>
+            </div>
+            <div class="column p-3 is-4">
+                <div class="box" style="border: 0;">
+                    No annual fees*
+                </div>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container" style="background-color: #F1F2F5;">
+                <div class="columns" style="padding: 0 8rem;">
+                    <div class="column auto">
+                        <h1 class="title my-2 is-1 has-text-weight-light">
+                            Card feature & benefits
+                        </h1>
+                        <button class="button is-danger">Apply Now</button>
+                    </div>
+                    <div class="column is-three-quarters mr-2 p-0 flex-direction-column wth-lst">
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <h1 class="title is-5 has-text-weight-light has-text-centered">
+                                    More cash back
+                                </h1>
+                                <ul class="title mt-0 is-5 has-text-weight-normal">
+                                    <li><span>Earn 3% cash back on qualified purchases for the 
+                                        first 12 months, up to $20,000. Thereafter, earn unlimited 1.5% 
+                                        cash back on qualified purchases.</span></li>
+                                </ul>
+                            </div>
+                            <div class="column is-half">
+                                <h1 class="title is-5 has-text-weight-light has-text-centered">
+                                    More cash back
+                                </h1>
+                                <ul class="title is-5 has-text-weight-normal">
+                                    <li><span>0% Introductory APR on qualified purchases for 12 months*</span></li>
+                                    <li><span>0% Introductory APR on Balance Transfers for 12 months*</span></li>
+                                    <li><span>The Balance Transfer fee is the greater of 3% of the amount transferred or $10.*</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <h1 class="title is-4 has-text-weight-light has-text-centered">
+                                    Fewer fees
+                                </h1>
+                                <ul class="title is-5 has-text-weight-normal">
+                                    <li><span>No annual fees*</span></li>
+                                    <li><span>No foreign transaction fees*</span></li>
+                                    <li><span>No returned payment fees*</span></li>
+                                    <li><span>No cash advance fees*</span></li>
+                                </ul>
+                            </div>
+                            <div class="column is-half">
+                                <h1 class="title is-4 has-text-weight-light has-text-centered">
+                                    Peace of Mind
+                                </h1>
+                                <ul class="title is-5 has-text-weight-normal">
+                                    <li><span>Bank safely and securely with Santander® PROTECHTION, providing digital controls for cards, alerts, and more</span></li>
+                                    <li><span>Instantly put your lost or stolen card on hold with Santander® Instant Card Hold†</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section pt-2 mb-0">
+            <div class="container hero-image">
+
+            </div>
+        </section>
+
+        <nav class="columns has-text-centered bf-header is-align-items-center is-justify-content-center">
+            <div class="column auto p-5 is-4" style="width: 100%; margin: 0;">
+                <div class="box single-out p-0 m-1">
+                    Make it Easier For You
+                </div>
+                <button class="button is-danger" style="position: relative; z-index: 1;">Apply Now</button>    
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container">
+                <div class="columns mx-5">
+                    <div class="column">
+                        <div class="accordion">
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section1" />
+                                <label for="section1" class="accordion-label">Trust Lion Express PROTECHTION</label>
+                                <div class="accordion-content">
+                                    <span>
+                                        Mobile and Online Banking with Santander® PROTECHTION gives you secure access to your accounts, so you can bank from anywhere.
+                                    </span>
+                                    <p>Digital security features:</p>
+                                    <ol>
+                                        <li>Santander® Instant Card Hold†</li>
+                                        <li>Account activity alerts</li>
+                                        <li>Fraud protection1</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion">
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section2" />
+                                <label for="section2" class="accordion-label">Easy Management</label>
+                                <div class="accordion-content">
+                                    <span>
+                                        Activate your card, manage your account, and set alerts all from our highly-rated Mobile Banking App. 
+                                        You can also make purchases with chip-enabled contactless payments, connect with Apple Pay, Google Pay, or Samsung Pay for instant purchases, or schedule bill payments with Online Bill Pay.  
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion">
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section3" />
+                                <label for="section3" class="accordion-label">Eco-Friendly: Paperless</label>
+                                <div class="accordion-content">
+                                    <span>
+                                        Declutter and save on fees by accessing all your statements electronically instead of receiving them by mail.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column col-image-cont">
+                        <div class="col-image">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="load-footer">
+            <!-- LOAD FOOTER.html HERE -->
+        </div>
+    </main>
+</body>
+</html>
