@@ -41,9 +41,9 @@
             </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="nav-links" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/Lion Express/LionExpressWeb.html">
+                <a class="navbar-item" href="./LionExpressWeb.html">
                     Home
                 </a>
 
@@ -53,18 +53,18 @@
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" href="/Lion Express/LE-Credit.html">
+                        <a class="navbar-item" href="./LE-Credit.html">
                             Credit Cards
                         </a>
                         <!-- <hr class="navbar-divider"> -->
-                        <a class="navbar-item" href="/Lion Express/LE-Investing.html">
+                        <a class="navbar-item" href="./LE-Investing.html">
                             Investing
                         </a>
                     </div>
                 </div>
 
-                <a class="navbar-item" href="/Lion Express/LE-About.html">
-                    Why Lion Express
+                <a class="navbar-item" href="./LE-About.html">
+                    About Lion Express
                 </a>
             </div>
 
@@ -79,10 +79,10 @@
                 </a> -->
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary" href="/Lion Express/LE-Register.html">
+                        <a class="button is-primary" href="./LE-Register.html">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light" href="/Lion Express/LE-Login.html">
+                        <a class="button is-light" href="./LE-Login.html">
                             Log in
                         </a>
                     </div>
@@ -90,5 +90,22 @@
             </div>
         </div>
     </nav>
+    <script>
+        let getElm;
+        let tggleSdbr = false;
+        let getBrgr  = document.getElementsByClassName("navbar-burger");
+
+        getBrgr[0].addEventListener("click", e => {
+            if (!tggleSdbr) {
+                getBrgr[0].classList.add("is-active");
+                getElm = document.getElementById("nav-links").classList.add("is-active");
+                tggleSdbr = true;
+                return false;
+            }
+            getBrgr[0].classList.remove("is-active");
+            getElm = document.getElementById("nav-links").classList.remove("is-active");
+            tggleSdbr = false;
+        })
+    </script>
 </body>
 </html>

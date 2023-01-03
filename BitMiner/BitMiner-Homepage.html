@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BitMiner Homepage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav {
+      height: 80px;
+      padding: 3px 0;
+      background-color: rgb(17 24 39);
+    }
+    
+    .head-nav img {
+      width: 8rem;
+      height: 100%;
+    }
+
+    .nav-links {
+      width: fit-content;
+      height: inherit;
+      float: left;
+    }
+
+      .nav-links a {
+        height: inherit;
+        padding: 0 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        font-weight: medium;
+      }
+
+      .nav-links a:first-child {
+        padding: 0 1.5rem;
+      }
+
+      .nav-links a:hover {
+        background-color: rgb(55 65 81);
+        cursor: pointer;
+      }
+    
+    .main-content-body {
+      width: 100%;
+      min-height: 100vh;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-section {
+      width: 100%;
+      min-height: 400px;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      background-color: black;
+    }
+
+    .at-type {
+      display: flex;
+    }
+
+    .hero-section h1 {
+      font-size: 70px;
+      line-height: 110px;
+    }
+
+    .hero-section p {
+      width: 50%;
+      font-size: 1em;
+      text-align: center;
+    }
+
+    .hero-section a, button {
+      border-radius: 20px;
+      text-align: center;
+    }
+
+      .hero-section a {
+        padding: 10px 20px;
+        border: 2px solid white;
+        margin-right: 10px;
+      }
+
+      .hero-section button {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+      
+    .at-type {
+      width: 100%;
+      display: flex;
+    }
+
+      .at-type div {
+        display: flex;
+        align-items: center;
+      }
+
+      .at-type div:nth-child(1) {
+        width: 58%;
+        text-align: right;
+        justify-content: flex-end;
+      }
+
+      .at-type div:nth-child(2) {
+        width: 55%;
+        text-align: left;
+        justify-content: flex-start;
+      }
+
+    .at-type .option {
+      margin-left: 15px;
+      overflow: hidden;
+    }
+
+    .option li {
+      display: none;
+    }
+
+    .at-type .option li span {
+      list-style: none;
+      color: #face30;
+      font-size: 70px;
+      font-weight: 500;
+      position: relative;
+      top: 5px;
+      animation: slide 12s steps(4) infinite;
+    }
+
+    .test {
+      display: unset !important;
+    }
+
+    @keyframes slide {
+      100% {
+      }
+    }
+
+    .option li span {
+      position: relative;
+      margin: 5px 0;
+      line-height: 90px;
+    }
+
+    .option li span:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 110%;
+      background: #111;
+      border-left: 2px solid #face30;
+    }
+
+    .option .test span:after {
+      animation: typing 3s steps(10) infinite;
+    }
+
+    @keyframes typing {
+      40%, 60% {
+        left: calc(100% + 30px);
+      }
+
+      100% {
+        left: 0;
+      }
+    }
+
+    .bttnHolder a:hover,
+    .bttnHolder button:hover {
+      cursor: pointer;
+    }
+
+      .bttnHolder a:hover {
+        background-color: #334155;
+      }
+      
+      .bttnHolder button:hover {
+        background-color: #cbd5e1;
+      }
+
+    @media only screen and (max-width: 750px) { 
+      .at-type {
+        margin-bottom: 20px;
+        flex-direction: column;
+      }
+
+        .at-type div {
+          width: 100% !important;
+          justify-content: center !important;
+        }
+    }
+  </style> 
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="head-nav" style="float: left;">
+        <img src="Pictures/bit-miner.png" />
+      </div>
+      <div class="nav-links">
+        <a>
+          Home
+        </a>
+        <a>
+          Documentation
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content-body">
+    <section class="hero-section">
+      <div class="at-type">
+        <div>
+          <h1 style="font-weight: lighter;">Welcome to</h1>
+        </div>
+        <div>
+          <ul class="option">
+            <li class="test"><span></span></li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        BitMiner is a web application created to track the status and
+        conditon of devices used to mine Bitcoin or any tasks that
+        can be run without any human operator.
+      </p>
+      <div class="bttnHolder" style="margin: 20px 0;">
+        <a>Learn More</a>
+        <button tyle="button">Start Using!</button>
+      </div>
+      <div class="image-holder">
+        <img />
+      </div>
+    </section>
+  </main>
+  
+  <script>
+    let getParent;
+    let getElem;
+    var ctr = 1;
+    
+    function loopType() {
+      setTimeout(function () {
+        if (document.visibilityState == "visible") {
+        getElem = document.getElementsByClassName("test");
+        if (ctr == 0)
+          getElem[0].firstChild.innerHTML = "the Tool";
+        else if (ctr == 1)
+          getElem[0].firstChild.innerHTML = "the Future";
+        else if (ctr == 2)
+          getElem[0].firstChild.innerHTML = "BitMiner";
+        ctr += 1;
+        
+        if (ctr == 3)
+          ctr = 0;
+
+        loopType();
+        }
+      }, 3000);
+    }
+
+    getElem = document.getElementsByClassName("test");
+    getElem[0].firstChild.innerHTML = "the Tool";
+    loopType();
+  </script>
+</body>
+
+</html>
