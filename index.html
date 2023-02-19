@@ -158,6 +158,8 @@
                 max-width: 100%;
                 vertical-align: middle;
             }
+            
+        .profile-credentials hr { display: none; }
 
         .mid-navbar {
             width: 100%;
@@ -310,6 +312,8 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: white;
         }
+        
+            .section-card:nth-child(3) .title-container { text-align: left !important; }
             
         .text-container {
             width: 450px;
@@ -798,6 +802,125 @@
             .cv-section .text-container table {
                 color:rgba(0, 0, 0, 0.8);
             }
+
+        @media screen and (max-width: 750px) {
+                .profile-card {
+                    width: 350px;
+                    height: max-content;
+                    margin: 0 auto;
+                    position: relative;
+                    border: 5px solid black;
+                    border-radius: 50px;
+                }
+                    .profile-card section:nth-child(2) { justify-content: center; }
+                
+                .profile-credentials { margin: 30px 0; margin-top: 40px; z-index: 2; }
+                .profile-credentials h1 { font-size: 1.5em; }
+                .profile-credentials p { color: black; margin: 0; }
+                .profile-credentials hr { width: 100%; margin-top: 15px; 
+                    display: block; opacity: 0.5; }
+
+                .image-container {
+                    width: 100%;
+                    position: absolute;
+                    border: none;
+                    border-radius: 50px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url("Website Portfolio/Pictures/shesh.jpg");
+                    opacity: 0.3;
+                    z-index: 1;
+                }
+
+                    .image-container img { display: none; }
+
+                .profile-contacts { width: 100%; margin-top: 50px; text-align: left; }
+                .profile-contacts li:nth-child(1) h5 { font-size: 20px; }
+                .profile-hexagons { display: none; }
+
+                .mid-navbar { width: 650px }
+
+                .text-container { width:  unset; }
+
+                .text-container.skills {
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .proj-container { position: relative; }
+
+                    .proj-container:nth-child(1) { background-image: none; }
+                    .proj-container:nth-child(2) { background-image: none; }
+                    .proj-container:nth-child(3) { background-image: none; }
+                    .proj-container:nth-child(4) { background-image: none; }
+                    .proj-container:nth-child(5) { background-image: none; }
+
+                    .background-proj {
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        position: absolute;
+                        opacity: 0.3;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                        .proj-container:nth-child(1) .background-proj { background-image: url("Website Portfolio/Pictures/lion-express.png"); }
+                        .proj-container:nth-child(2) .background-proj { background-size: 130%; background-image: url("Website Portfolio/Pictures/bit-miner.png"); }
+                        .proj-container:nth-child(3) .background-proj { background-size: 130%; background-image: url("Website Portfolio/Pictures/PNGS.png"); }
+                        .proj-container:nth-child(4) .background-proj { background-size: 80%; background-image: url("Website Portfolio/Pictures/TTS-logo.png"); }
+                        .proj-container:nth-child(5) .background-proj { background-size: 80%; background-image: url("Website Portfolio/Pictures/AWET_Logo.png"); }
+
+                .proj-text-container {
+                    width: 100%;
+                    padding: 10px;
+                    float: none !important;
+                    margin: 0 !important;
+                }
+                
+                    .proj-text-container h1 { text-align: center !important; }
+                    
+                .project-description { color: black; font-weight: bold; }
+
+                .srv h1 { font-size: 2em; }
+                
+                .cv-handler { margin-top: 10px; }
+                    #dwldCV { width: unset; }
+
+                .cv-holder {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+
+                .cv-header { height: fit-content; display: flex; flex-direction: column-reverse; }
+                    .cv-header img { width: 100%; height: 350px; margin-bottom: 20px; border-radius: 20px; position: relative; }
+            
+                
+                .contact-holder { width: 100%; flex-direction: column-reverse; }
+                .form-section {width: 100%; margin: 0 auto; text-align: center; }
+                form { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+                    form .form-control { width: 90%; }
+                    form div { width: 90% !important; }
+            }
+
+       @media screen and (max-width: 1000px) {
+        .mid-navbar { width: 100%; }
+        .navbar-container div { padding: 0; }
+
+        .cert { flex-direction: column;}
+
+        .section-card { flex-direction: column; }
+
+            .section-card .title-container,
+            .section-card:nth-child(1) .text-container { width: 100%; padding-left: 0 !important; text-align: center;}
+
+            .section-card:nth-child(1) .text-container span { padding: 0 30px; text-align: justify;}
+            
+            .section-card:nth-child(1) .title-container,
+            .section-card:nth-child(2) .title-container,
+            .section-card:nth-child(3) .title-container { text-align: center !important; }
+        }
     </style>
 </head>
 <body>
@@ -814,6 +937,7 @@
                 <section class="profile-credentials">
                     <h1>Jonas Anthony Adaoag</h1>
                     <p>A good worker with a thirst for knowledge</p>
+                    <hr class="divider" />
                     <ul class="profile-contacts">
                         <li><h5>CONTACT ME</h5></li>
                         <li><h5>| VDC, La Mesa, Calamba City, Laguna</h5></li>
@@ -914,7 +1038,7 @@
 
                 <!-- SKILLS -->
                 <section class="section-card">
-                    <div class="title-container" style="text-align: left;">
+                    <div class="title-container">
                         Skills
                     </div>
                     <div class="text-container skills">
@@ -1015,8 +1139,11 @@
             </div>
 
             <!-- Project Tab Starts Here -->
-            <div id="prjct-tab" class="tab current">
+            <div id="prjct-tab" class="tab">
                 <section class="proj-container">
+                    <div class="background-proj">
+                        
+                    </div>
                     <article class="proj-text-container" style="float: right; margin-right: 20px;">
                         <h1 style="text-align: right;">Lion Express</h1>
                         <div>
@@ -1045,6 +1172,9 @@
                 </section>
                 
                 <section class="proj-container">
+                    <div class="background-proj">
+                        
+                    </div>
                     <article class="proj-text-container" style="float: left; margin-left: 20px;">
                         <h1>BitMiner</h1>
                         <div>
@@ -1078,6 +1208,9 @@
                 </section>
 
                 <section class="proj-container">
+                    <div class="background-proj">
+                        
+                    </div>
                     <article class="proj-text-container" style="float: right; margin-right: 20px;">
                         <h1 style="text-align: right;">FishCare</h1>
                         <div>
@@ -1109,6 +1242,9 @@
                 </section>
 
                 <section class="proj-container">
+                    <div class="background-proj">
+                        
+                    </div>
                     <article class="proj-text-container" style="float: left; margin-left: 20px;">
                         <h1>TTS: Tortor's Transport Service</h1>
                         <div>
@@ -1140,6 +1276,9 @@
                 </section>
 
                 <section class="proj-container">
+                    <div class="background-proj">
+                        
+                    </div>
                     <article class="proj-text-container" style="float: right; margin-right: 20px;">
                         <h1 style="text-align: right;">Pseudo Flow: AWET</h1>
                         <div>
@@ -1306,7 +1445,7 @@
         }        
 
         function actvSelect(getId) {
-            window.scrollTo({top: 300, behavior: 'smooth'});
+            //window.scrollTo({top: 300, behavior: 'smooth'});
             let activeId = "";
             getOvly = document.getElementsByClassName("tab current");
             getOvly[0].classList.remove("current");
@@ -1341,7 +1480,7 @@
         getElem.addEventListener('click', function() {
             getOvly[0].classList.remove("active");
         })
-
+        
         getElem = document.querySelectorAll(".crt-img");
         for (var i = 0; i < getElem.length; i++) {
             getInnerElem = document.getElementById(getElem[i].id);
@@ -1358,14 +1497,14 @@
             }, false);
         }
 
-        setTimeout(function () {
+        /*setTimeout(function () {
             getElem = document.getElementById("prjct-tab");
             getElem.classList.remove("current");
-        }, 1000);
+        }, 1000);*/
 
         // Function for Main Nav Sticking after scroll 
         window.onscroll = function() {
-            scrollFunction()
+            //scrollFunction()
         };
         
         function scrollFunction() {
