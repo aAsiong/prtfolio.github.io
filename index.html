@@ -21,7 +21,7 @@
 
         html,
         body {
-            width:100%;
+            width: 100%;
             overflow-x: hidden;
         }
 
@@ -890,6 +890,8 @@
                     
                 .project-description { color: black; font-weight: bold; }
 
+                .carousel-cell { width: unset; }
+
                 .srv h1 { font-size: 2em; }
                 
                 .cv-handler { margin-top: 10px; }
@@ -905,7 +907,7 @@
             
                 
                 .contact-holder { width: 100%; flex-direction: column-reverse; }
-                .form-section {width: 100%; margin: 0 auto; text-align: center; }
+                .form-section {width: 100%; margin: 0 auto; margin-bottom: 20px; text-align: center; }
                 form { display: flex; flex-direction: column; align-items: center; justify-content: center; }
                     form .form-control { width: 90%; }
                     form div { width: 90% !important; }
@@ -1146,7 +1148,7 @@
             </div>
 
             <!-- Project Tab Starts Here -->
-            <div id="prjct-tab" class="tab">
+            <div id="prjct-tab" class="tab current">
                 <section class="proj-container">
                     <div class="background-proj">
                         
@@ -1504,10 +1506,10 @@
             }, false);
         }
 
-        /*setTimeout(function () {
+        setTimeout(function () {
             getElem = document.getElementById("prjct-tab");
             getElem.classList.remove("current");
-        }, 1000);*/
+        }, 1000);
 
         // Function for Main Nav Sticking after scroll 
         window.onscroll = function() {
