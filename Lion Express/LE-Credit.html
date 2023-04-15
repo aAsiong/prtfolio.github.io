@@ -8,8 +8,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Credit Offers</title>
     <style>
+        .container:first-child .column { position: relative; }
+
         .hero-col {
             margin: 8rem 5rem;
+        }
+
+        .mb-img-bg {
+            width: 104.5%;
+            height: 100%;
+            opacity: 0.2;
+            background-size: cover;
+            background-image: url("Pictures/credit-image.jpg");
+            display: none;
+            position: absolute;
+            left: -11px;
         }
 
         .image {
@@ -179,14 +192,17 @@
             }
 
         .accordion-content {
+            min-height: 400px;
+            max-height: 500px;
+            padding: 1.5rem;
             background: white;
             line-height: 1.6;
             font-size: 0.85em;
             display: none;
             border-top: none;
             overflow: auto;
-            min-height: 400px;
-            max-height: 500px;
+            font-size: 18px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         .accordion-input {
@@ -200,6 +216,22 @@
             .accordion-input:checked ~ .accordion-label::after {
                 transform: translateY(-50%) rotate(0.5turn);
             }
+
+        @media only screen and (max-width: 770px) {
+            .mb-img-bg { display: block; }
+            .column.image { display: none; }
+
+            .hero-col {
+                margin: 0 !important;
+                padding: 5rem 5rem 6rem 5rem !important;
+                text-align: justify;
+            }
+
+            .frst .box { border-right: none !important; border-bottom: 1px solid black; }
+            .crd-ft-bnf { padding: 1.5rem !important; text-align: center; }
+        
+            .hero-image { height: 300px !important; background-position-x: -85px; }
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -216,6 +248,7 @@
 
         <section class="section py-0 mb-0">
             <div class="container">
+                <div class="mb-img-bg"></div>
                 <div class="columns is-multiline" style="background-color: rgba(100, 100, 100, 0.6);">
                     <div class="column auto hero-col">
                         <h1 class="title is-1 has-text-weight-light">
@@ -235,7 +268,7 @@
             </div>
         </section>
 
-        <nav class="columns has-text-centered bf-header" style="border: 1px solid black; border-top: 5px solid red">
+        <nav class="columns has-text-centered bf-header frst" style="border: 1px solid black; border-top: 5px solid red">
             <div class="column p-3 is-4">
                 <div class="box">
                     Earn 3% cash back for the first 12 months*
@@ -256,7 +289,7 @@
         <section class="section">
             <div class="container" style="background-color: #F1F2F5;">
                 <div class="columns" style="padding: 0 8rem;">
-                    <div class="column auto">
+                    <div class="column auto crd-ft-bnf">
                         <h1 class="title my-2 is-1 has-text-weight-light">
                             Card feature & benefits
                         </h1>
@@ -354,8 +387,14 @@
                                 <label for="section2" class="accordion-label">Easy Management</label>
                                 <div class="accordion-content">
                                     <span>
-                                        Activate your card, manage your account, and set alerts all from our highly-rated Mobile Banking App. 
-                                        You can also make purchases with chip-enabled contactless payments, connect with Apple Pay, Google Pay, or Samsung Pay for instant purchases, or schedule bill payments with Online Bill Pay.  
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                        when an unknown printer took a galley of type and scrambled it to make a type 
+                                        specimen book. It has survived not only five centuries, but also the leap into 
+                                        electronic typesetting, remaining essentially unchanged. It was popularised in 
+                                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                                        and more recently with desktop publishing software like Aldus PageMaker including 
+                                        versions of Lorem Ipsum.
                                     </span>
                                 </div>
                             </div>
@@ -366,7 +405,14 @@
                                 <label for="section3" class="accordion-label">Eco-Friendly: Paperless</label>
                                 <div class="accordion-content">
                                     <span>
-                                        Declutter and save on fees by accessing all your statements electronically instead of receiving them by mail.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                        when an unknown printer took a galley of type and scrambled it to make a type 
+                                        specimen book. It has survived not only five centuries, but also the leap into 
+                                        electronic typesetting, remaining essentially unchanged. It was popularised in 
+                                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                                        and more recently with desktop publishing software like Aldus PageMaker including 
+                                        versions of Lorem Ipsum.
                                     </span>
                                 </div>
                             </div>

@@ -145,13 +145,16 @@
         }
 
         .accordion-content {
+            min-height: 200px;
+            padding: 1.5rem;
             background: white;
             line-height: 1.6;
             font-size: 0.85em;
             display: none;
             border-top: none;
             overflow: auto;
-            min-height: 200px;
+            font-size: 18px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         .accordion-input {
@@ -198,6 +201,22 @@
             font-weight: 400; 
             list-style: square; 
         }
+
+        @media only screen and (max-width: 770px) {
+            .frst-sect { padding-top: 0 !important; }
+
+            .crd-hldr { gap: 0; }
+
+            .lwl-cnt div { flex-direction: row !important; }
+            
+            .rmv-pd { padding-top: 0 !important; }
+                .rmv-pd div { font-size: 1em; }
+            
+            .sect-bckgrnd { display: none; }
+
+            .accordion { width: 80%;}
+            .accordion-content { font-size: 13px; }
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -238,8 +257,8 @@
                         </div>
                     </div>
                     <!-- Lower Div with Three Cards -->
-                    <div class="column is-full box-container">
-                        <div class="is-flex is-flex-direction-row mx-auto crd-hldr" style="width: 50%;">
+                    <div class="column is-full box-container lwl-cnt">
+                        <div class="is-flex is-flex-direction-row mx-auto crd-hldr" style="width: 50%; justify-content: center;">
                             <div class="box">
                                 <h1 class="title">Starter</h1>
                                 <p>Ideal for freelancers and contractors just starting out.</p>
@@ -320,7 +339,7 @@
             </div>
         </section>
 
-        <section class="section" style="height: max-content">
+        <section class="section rmv-pd" style="height: max-content">
             <div class="container is-flex is-flex-direction-column"
                 style="width: 70%; height: max-content; margin: 0 auto;">
                 <div class="box">
