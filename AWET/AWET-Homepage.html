@@ -183,6 +183,18 @@
     .inf-md:nth-child(3) .rw-cntnr { flex-wrap: wrap; }
     .inf-md:nth-child(3) .rw-cntnr div { min-height: 300px; flex: 25%; }
 
+    .spcl-cont {
+        width: 60%;
+        margin-top: 20px;
+        padding: 30px;
+        border: 1px solid black;
+        display: flex;
+        gap: 15px;
+    }
+
+        .spcl-cont div:first-child { padding-right: 10px; border-right: 1px solid black; }
+        .spcl-cont div { flex: 25%; }
+
     footer {
         height: 20vh;
         font-size: 20px;
@@ -278,18 +290,69 @@
 
             <!-- FEATURES FOR TEACHER -->
             <div class="rw-cntnr">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
+                <div>
+                    <img src="Pictures/course.png" width="80px" height="80px">
+                    <h3>Create Classrooms</h3>
+                    <span>
+                        Being registered as an instructor gives you the ability to create classrooms
+                        for your students. This is to facilitate and track their progress along the
+                        many topics of PLF.
+                    </span>
+                </div>
+                <div>
+                    <img src="Pictures/teacher-homepage-classroom.png" width="80px" height="80px">
+                    <h3>Track Progress</h3>
+                    <span>
+                        All students' progress enrolled in a classroom are tracked. As such, a registered
+                        instructor would know who has accomplished their learning modules, quizzes, and
+                        activities. As welll as their corresponding scores on the latter two.
+                    </span>
+                </div>
+                <div>
+                    <img src="Pictures/planning.png" width="80px" height="80px">
+                    <h3>Collaborate</h3>
+                    <span>
+                        Registered Instructors can see the works of their fellow instructors. This will
+                        promote interpersonal collaboration in creating credible and good problems for
+                        registered students to practice/answer.
+                    </span>
+                </div>
             </div>
+            <section class="spcl-cont">
+                <div>
+                    <span>
+                        Registered instructors can create problems and activities for registered students
+                        to delve in.
+                    </span>
+                </div>
+                <div>
+                    <img src="Pictures/cube.png" width="80px" height="80px">
+                    <h3>Create Problems</h3>
+                    <span>
+                        Being registered as an instructor gives you the ability to create classrooms
+                        for your students. This is to facilitate and track their progress along the
+                        many topics of PLF.
+                    </span>
+                </div>
+                <div>
+                    <img src="Pictures/cube-3d.png" width="80px" height="80px">
+                    <h3>Create Activities</h3>
+                    <span>
+                        Being registered as an instructor gives you the ability to create classrooms
+                        for your students. This is to facilitate and track their progress along the
+                        many topics of PLF.
+                    </span>
+                </div>
+            </section>
         </section>
     </main>
 
     <footer>
-        This is the footer
+        <p>
+          <strong>Bulma</strong> by <a href="https://jgthms.com">Team Lion Expresss</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
     </footer>
 </body>
 </html>
