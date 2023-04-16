@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWET Homepage</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    button:hover { cursor: pointer; }
+
+    .hdr { 
+        width: 100%; 
+        height: 100px; 
+        position: fixed;
+        background-color: #ffff;
+    }
+        
+        .hdr div {
+            width: 200px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .hdr div button { 
+                width: 150px;
+                height: 60px;
+                padding: 10px;
+                position: relative;
+                color: black;
+                font-size: 20px;
+                font-weight: 500;
+                text-align: left;
+                background-color: lightblue;
+                border: 1px solid lightblue;
+                transition: 0.4s;
+            }
+
+                .hdr div button:hover {
+                    color: rgba(0, 0, 0, 1);
+                    box-shadow: 0 3px 10px lightblue;
+                    transition: 0.4s;
+                }
+
+                .hdr div button::after {
+                    width: 12px;
+                    height: 6px;
+                    position: absolute;
+                    top: 42%;
+                    right: 15px;
+                    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23000000;" /></svg>');
+                    background-size: contain;
+                    content: "";
+                    transform: rotate(-90deg);
+                    /* transform: translateY(-50%);
+                    transition: transform 0.4s; */
+                }
+
+            .hdr div:first-child {
+                width: fit-content;
+                padding: 8px 0;
+                min-width: 150px;
+                margin: 15px;
+                flex-direction: column;
+                border: 2px solid black;
+                position: relative;
+            }
+            
+                .hdr div:first-child h1 {
+                    padding: 0 3px;
+                    position: absolute;
+                    top: -12px;
+                    left: 3px;
+                    font-size: 15px;
+                    font-weight: normal;
+                    background-color: #ffff;
+                }
+
+        .hdr nav { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+        
+    h1 {
+        letter-spacing: 8px;
+        font-size: 40px;
+        font-style: italic;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .intr-hr {
+        height: max-content;
+        margin-top: 100px;
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+        background-color: black;
+    }
+
+        .intr-hr span, .intr-hr h1 { color: white; }
+        .intr-hr span {
+            width: 50%;
+            font-size: 18px;
+            line-height: 25px;
+            margin: 0 100px;
+            padding-top: 10px;
+            border-top: 1px solid white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+    .bttn-hldr { margin: 20px 0; padding: 20px 30px; border: 1px solid yellow; }
+    .bttn-hldr button { width: 170px; height: 70px; color: white;
+                        font-size: 18px; font-weight: bold; padding: 0;
+                        outline-style:solid; outline-color: #F87171;
+                        background-color: black;  }
+
+        .bttn-hldr button:first-child { margin-right: 20px; outline-color: #60A5FA; }
+        .bttn-hldr button:first-child:hover {
+            background-color: #60A5FA;
+            border: 3px solid #60A5FA;
+            color: black;
+            outline: none;
+            transition: 300ms;
+        }
+        .bttn-hldr button:last-child:hover {
+            background-color: #F87171;
+            border: 3px solid #F87171;
+            color: black;
+            outline: none;
+            transition: 300ms;
+        }
+    
+    .intr-hr .bttn-hldr:nth-child(5) {
+        padding: 0;
+        border: none;
+    }
+    
+        .intr-hr .bttn-hldr:nth-child(5) button { margin-right: 0; outline-color: #D1D5DB; }
+        .intr-hr .bttn-hldr:nth-child(5) button:hover { 
+            background-color: #373D51;
+            border: 3px solid #373D51;
+            color: white;
+            outline: none;
+            transition: 300ms;
+        }
+
+    .inf-md {
+        height: fit-content;
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+        background-color: rgb(244 244 245);
+    }
+
+        .inf-md h1 { font-size: 30px; font-style: normal; letter-spacing: 3px; }
+    
+    .rw-cntnr {
+        width: 60%;
+        height: fit-content;
+        min-height: 250px;
+        padding-top: 20px;
+        display: flex;
+        gap: 15px;
+    }
+
+        .rw-cntnr div { 
+            width: 33.33%; 
+            display: flex; 
+            flex-direction: column;
+            font-size: 18px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+            .rw-cntnr div:last-child { border: none; }
+                .rw-cntnr div h3 { margin: 10px 0; }
+
+    .inf-md:nth-child(3) .rw-cntnr { flex-wrap: wrap; }
+    .inf-md:nth-child(3) .rw-cntnr div { min-height: 300px; flex: 25%; }
+
+    footer {
+        height: 20vh;
+        font-size: 20px;
+        color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(51 65 85);
+    }
+        
+</style>
+<body>
+    <header class="hdr">
+        <nav>
+            <div>
+                <h1>Copyright</h1>
+                <span>Jonas Adaoag</span>
+                <span>Jonas Adaoag</span>
+                <span>Jonas Adaoag</span>
+            </div>
+            <img src="/Website Portfolio/Pictures/AWET_Logo.png" width="150" height="100" />
+            <div>
+                <button>Get Started</button>
+            </div>
+        </nav>
+    </header>
+
+    <main style="width: 100%; min-height: 100vh; display: flex; flex-direction: column;">
+        
+        <!-- HERO SECTION -->
+        <section class="intr-hr">
+            <h1>AWET</h1>
+            <span>
+                an <i>Alternative Web-based Education Tool</i> designed to suppliment the teaching of
+                Program Logic Formulation (PLF) to students with built-in <b style="border-bottom: 1px solid yellow;">environments</b> for making pseudocode
+                and flowchart.
+            </span>
+            <!-- Button SECTION -->
+            <div class="bttn-hldr">
+                <button>To Pseudocode</button>
+                <button>To Flowchart</button>
+            </div>
+            <span style="border: none;">
+                Other than the built-in environments, AWET also offers lessons that coveers the fundamentals of PLF.
+                This is only accessible for registered Students. Conversely, AWET also provides a platform and 
+                features for registered instructors.
+                <br />
+                <br />
+                <div style="text-align: center;"><b>If interested</b>, proceed below</div>
+            </span>
+            <div class="bttn-hldr">
+                <button>Become a User</button>
+            </div>
+        </section>
+
+        <!-- INFO SECTION -->
+        <section class="inf-md">
+            <h1>What AWET offers to Students</h1>
+            
+            <!-- FEATURES FOR STUDENTS -->
+            <div class="rw-cntnr">
+                <div>
+                    <img src="Pictures/education.png" width="80px" height="80px">
+                    <h3>Join Classrooms</h3>
+                    <span>
+                        Registered Students can join classrooms and partake to activities created by
+                        the adviser of that classroom. Free PLF courses can be accessed through there.
+                    </span>
+                </div>
+                <div    >
+                    <img src="Pictures/exam.png" width="80px" height="80px">
+                    <h3>Access Exercise Bank</h3>
+                    <span>
+                        Exercise bank contains problems that doesn't generate any score. Registered
+                        Students can freely answer theese problems for how many times they want until
+                        they accomplish the task.
+                    </span>
+                </div>
+                <div>
+                    <img src="Pictures/score.png" width="80px" height="80px">
+                    <h3>Scorebook</h3>
+                    <span>
+                        Registered Students can track their progress by acceessing their scorebook in
+                        classrooms they have enrolled in. Progress are tracked via checking the modules, 
+                        quizzes, and activities they have completed.
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="inf-md" style="background-color: rgb(212 212 216);">
+            <h1>What AWET offers to Teachers</h1>
+
+            <!-- FEATURES FOR TEACHER -->
+            <div class="rw-cntnr">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        This is the footer
+    </footer>
+</body>
+</html>
