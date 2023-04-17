@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as a User</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    
+        button:hover { cursor: pointer; }
+
+        .hdr nav { display: flex; justify-content: center; }
+        .hdr { 
+            width: 100%; 
+            height: 100px;
+            background-color: #ffff;
+        }
+        
+        main {
+            width: 100%;
+            height: max-content;
+            min-height: 100vh;
+            padding: 30px 0;
+            background: linear-gradient(white, 70%, #FC997C);
+        }
+
+        .fllCredCnt {
+            width: 50%;
+            height: max-content;
+            min-width: 500px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            border-radius: 20px;
+            background-color: white;
+            outline: solid;
+        }
+
+            .lw-bttn { margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+                .lw-bttn button { 
+                    width: 120px; 
+                    height: 50px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    transition: 300ms;
+                    border: none;
+                }
+
+                .lw-bttn button:first-child { color: white; background-color: darkred; }
+                .lw-bttn button:first-child:hover {
+                    color: black;
+                    background-color: red;
+                    transition: 300ms;
+                }
+
+                .lw-bttn button:last-child { background-color: greenyellow; }
+                .lw-bttn button:last-child:hover {
+                    color: white;
+                    background-color: green;
+                    transition: 300ms;
+                }
+        
+        .fst { 
+            width: 30%;
+            height: 150px;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+            .fst button { height: 50px; padding: 0 10px; }
+
+        .credCnt { 
+            width: 70%;
+            padding: 10px;
+            padding-left: 20px;
+        }
+        
+        form .fllCnt:nth-child(2) div { padding-top: 10px; }
+        form .fllCnt:nth-child(2) div:nth-child(2) { padding-top: 0; }
+
+        .fllCnt {
+            margin-top: 15px;
+            padding: 20px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            border: 2px solid black; 
+        }
+
+            .fllCnt:first-child { margin-top: 0; }
+            .fillCnt span { font-family: 'Times New Roman', Times, serif; }
+            .fllCnt span:first-child {
+                padding: 0 5px;
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                background-color: white;
+            }
+
+        .frm-grp {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+            .frm-grp input,
+            .frm-grp select { height: 30px; padding: 0 5px; }
+            
+            .frm-grp.pNum { display: block; }
+
+                .pNum input { display: inline-flex; }
+                .pNum span { display: inline-block; }
+                .pNum input:nth-child(1) { width: 15%; }
+                .pNum input:nth-child(2) { width: 70%; }
+        
+        
+    </style>
+</head>
+<body>
+    <header class="hdr">
+        <nav>
+            <img src="/Website Portfolio/Pictures/AWET_Logo.png" width="150" height="100" />
+        </nav>
+    </header>
+
+    <main>
+        <section class="fllCredCnt">
+            <div style="display: flex;
+                        flex-direction: row;">
+                <div class="fst">
+                    <img src="./Pictures/user.png" width="100" height="100" id="outImg" />
+                    <input type="file" accept="image/jpeg, image/jpg, image/png" id="uptImg" style="display: none;" />
+                    <span style="position: relative; top: 5px; font-weight: 500; letter-spacing: 2px;">Optional</span>
+                    <button id="bttnDmmy">Upload Image</button>
+                </div>
+                <div class="credCnt">
+                    <form>
+                        <!-- BASIC INFORMATION -->
+                        <div class="fllCnt">
+                            <span>Personal Information</span>
+                            <div class="frm-grp">
+                                <input />
+                                <span>First Name</span>
+                            </div>
+                            <div class="frm-grp">
+                                <input />
+                                <span>Last Name</span>
+                            </div>
+                            <div style="padding: 10px 0">
+                                <div class="frm-grp" style="width: 20%; float: left;">
+                                    <input />
+                                    <span>Age</span>
+                                </div>
+                                <div class="frm-grp pNum" style="width: 80%; float: right;">
+                                    <input placeholder="#09" disabled/>
+                                    <input />
+                                    <span>Phone Number</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- ACCOUNT INFORMATION -->
+                        <div class="fllCnt">
+                            <span>Basic Information</span>
+                            <div class="frm-grp" style="width: 100%;">
+                                <input />
+                                <span>Username</span>
+                            </div>
+                            <div class="frm-grp" style="width: 100%;">
+                                <input />
+                                <span>Email</span>
+                            </div>
+                            <div class="frm-grp">
+                                <input />
+                                <span>Password</span>
+                            </div>
+                            <div class="frm-grp">
+                                <input />
+                                <span>Confirm Password</span>
+                            </div>
+                        </div>
+    
+                        <!-- SCHOOL / ROLE INFORMATION -->
+                        <div class="fllCnt">
+                            <div class="frm-grp" style="width: 100%;">
+                                <select name="cars" id="cars">
+                                    <option value="1">Malayan Colleges Laguna</option>
+                                  </select>
+                                <span>Currently Enrolled School</span>
+                            </div>
+                            <div class="frm-grp" style="width: 100%; padding-top: 10px;">
+                                <select name="cars" id="cars">
+                                    <option value="1">Student</option>
+                                    <option value="2">Instructor</option>
+                                  </select>
+                                <span>Account Role</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="lw-bttn">
+                <button id="gbBack">Go back</button>
+                <button id="fnlizeBttn">Register</button>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    document.getElementById("bttnDmmy").addEventListener("click", function() {
+        document.getElementById("uptImg").click();
+    })
+
+    document.getElementById("gbBack").addEventListener("click", () => {
+        window.location.href = "./AWET-Homepage.html";
+    })
+
+    document.getElementById("fnlizeBttn").addEventListener("click", () => {
+        window.location.href = "./AWET-LogIn.html?msg=Sccs";
+    })
+
+    const imgInput = document.querySelector("input");
+    const imgOutput = document.getElementById("outImg");
+    let imagArry = [];
+
+    imgInput.addEventListener("change", () => {
+        imagArry = [];
+        const file = imgInput.files;
+        imagArry.push(file[0]);
+        imgOutput.src = URL.createObjectURL(imagArry[0]);
+        imgOutput.style.borderRadius = "55px";
+    })
+</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudocode Environment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        .page {
+            height: 100%;
+        }
+
+            .page .sidebar {
+                width: 400px;
+                height: 100vh;
+                background-color: #b2bec3;
+                top: 0;
+                right: 0;
+                z-index: 4;
+                position: fixed;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+            .page .content {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+        body.active .page .sidebar { width: 600px; }
+        body.active .page .sidebar .vidGifContainer { height: 400px; }
+        body.active .page .content { margin-left: 0; }
+        body.active .page .content .forLeft { margin-right: 205px; }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            visibility: hidden;
+            opacity: 0;
+            background: opacity 0.2s;
+        }
+
+        .nav-open .nav-overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .navigatioinBar {
+            height: 50px;
+            display: flex;
+            box-shadow: 0 4px 2px -2px #c5c6c7;
+            background-color: wheat;
+        }
+
+        .forLeft {
+            float: right;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .forRight {
+            float: left;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .sidebarToggle {
+            font-size: 16px;
+            background-color: palegreen;
+            color: rgb(0, 0, 0, 0.8);
+            margin-right: 30px;
+            z-index: 5;
+            border-radius: 50px;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .sidebarToggle:hover { background-color: white; }
+
+        .sidebarToggle.active {
+            margin-right: 127px;
+        }
+
+        .hdr {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            background-color: #ffff;
+        }
+
+        .allCntnt {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .mainEnv {
+            width: 70%;
+            background-color: red;
+        }
+
+        .sdPanel {
+            width: 30%;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <nav class="nav">
+            <div class="nav-overlay">
+            </div>
+        </nav>
+
+        <!-- PSEUDOCODE BODY STARTS HERE -->
+        <section id="isContent" class="content">
+            <div class="navigatioinBar">
+                <div class="forRight">
+                    © 2021 All Rights Reserved. Adaoag, Domalanta, Mayo
+                </div>
+
+                <!-- Hide this if its not practice exercise! -->
+                <div id="Leftfor" class="forLeft" runat="server">
+                    <button type="button" id="sidebarToggle" class="btn sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        PSEUDOCODE ENV
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+    integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var nav = document.querySelector(".nav");
+    let h2 = document.getElementById("instructBody");
+    
+    $(document).ready(function() {
+            let sidebarToggle = document.querySelector(".sidebarToggle");
+            sidebarToggle.addEventListener('click', function () {
+                document.querySelector("body").classList.toggle("active");
+                document.getElementById("sidebarToggle").classList.toggle("active");
+                nav.classList.toggle("nav-open");
+            });
+        $(".nav-overlay").attr("onclick", "change()");
+    })
+    
+    function change() {
+        document.querySelector("body").classList.toggle("active");
+        document.getElementById("sidebarToggle").classList.toggle("active");
+        nav.classList.toggle("nav-open");
+    }
+</script>
+
+</html>

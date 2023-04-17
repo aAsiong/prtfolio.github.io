@@ -29,7 +29,7 @@
         }
 
             .hdr div button { 
-                width: 150px;
+                width: 110px;
                 height: 60px;
                 padding: 10px;
                 position: relative;
@@ -116,7 +116,7 @@
     .bttn-hldr { margin: 20px 0; padding: 20px 30px; border: 1px solid yellow; }
     .bttn-hldr button { width: 170px; height: 70px; color: white;
                         font-size: 18px; font-weight: bold; padding: 0;
-                        outline-style:solid; outline-color: #F87171;
+                        outline-style: solid; outline-color: #F87171;
                         background-color: black;  }
 
         .bttn-hldr button:first-child { margin-right: 20px; outline-color: #60A5FA; }
@@ -170,7 +170,8 @@
         gap: 15px;
     }
 
-        .rw-cntnr div { 
+        .rw-cntnr div,
+        .spcl-cont div { 
             width: 33.33%; 
             display: flex; 
             flex-direction: column;
@@ -217,7 +218,7 @@
             </div>
             <img src="/Website Portfolio/Pictures/AWET_Logo.png" width="150" height="100" />
             <div>
-                <button>Get Started</button>
+                <button id="sgnIn">Sign In</button>
             </div>
         </nav>
     </header>
@@ -234,8 +235,8 @@
             </span>
             <!-- Button SECTION -->
             <div class="bttn-hldr">
-                <button>To Pseudocode</button>
-                <button>To Flowchart</button>
+                <button id="psdEnv">To Pseudocode</button>
+                <button id="flwEnv">To Flowchart</button>
             </div>
             <span style="border: none;">
                 Other than the built-in environments, AWET also offers lessons that coveers the fundamentals of PLF.
@@ -246,7 +247,7 @@
                 <div style="text-align: center;"><b>If interested</b>, proceed below</div>
             </span>
             <div class="bttn-hldr">
-                <button>Become a User</button>
+                <button id="bcmUsr">Become a User</button>
             </div>
         </section>
 
@@ -321,7 +322,7 @@
             <section class="spcl-cont">
                 <div>
                     <span>
-                        Registered instructors can create problems and activities for registered students
+                        Registered Instructors can create problems and activities for registered students
                         to delve in.
                     </span>
                 </div>
@@ -329,18 +330,16 @@
                     <img src="Pictures/cube.png" width="80px" height="80px">
                     <h3>Create Problems</h3>
                     <span>
-                        Being registered as an instructor gives you the ability to create classrooms
-                        for your students. This is to facilitate and track their progress along the
-                        many topics of PLF.
+                        Registered Instructors can create Problems that will be used to either create
+                        Activities or help students hone their pseudocode/flowchart structuring skill.
                     </span>
                 </div>
                 <div>
                     <img src="Pictures/cube-3d.png" width="80px" height="80px">
                     <h3>Create Activities</h3>
                     <span>
-                        Being registered as an instructor gives you the ability to create classrooms
-                        for your students. This is to facilitate and track their progress along the
-                        many topics of PLF.
+                        Registered Instructors can create Activities comprised of multiple problems
+                        and place them to their classrooms for their students to answer.
                     </span>
                 </div>
             </section>
@@ -355,4 +354,18 @@
         </p>
     </footer>
 </body>
+<script>
+    document.getElementById("sgnIn").addEventListener("click", function() {
+        window.location.href = "./AWET-Login.html";
+    })
+    document.getElementById("psdEnv").addEventListener("click", function() {
+        window.location.href = "./AWET-PsdCdEnv.html";
+    })
+    document.getElementById("flwEnv").addEventListener("click", function() {
+        window.location.href = "./AWET-FlwChrtEnv.html";
+    })
+    document.getElementById("bcmUsr").addEventListener("click", function() {
+        window.location.href = "./AWET-RegUser.html";
+    })
+</script>
 </html>
