@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Admin Log In</title>
+    <style>
+        .nav-item { margin-right: 20px; }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#load-header").load("header.html"); 
+            $("#load-footer").load("footer.html"); 
+        })
+    </script>
+</head>
+
+<body>
+    <!-- LOAD HEADER.html HERE -->
+    <div id="load-header">
+        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img width="150px" src="./Pictures/admin.png" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h3>Admin Login</h3>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Username:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox1" class="form-control">
+                                </div>
+                                <label>Password:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox2" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <button id="Button1" class="btn btn-success btn-center btn-lg"
+                                        style="margin-top:10px; width: 100%;">Log In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="./TTS-Homepage.html">Back to Homepage</a>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <!-- LOAD FOOTER.html HERE -->
+   <div id="load-footer">
+     
+   </div>
+</body>
+
+</html>

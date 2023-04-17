@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Driver Sign Up</title>
+    <style>
+        .nav-item { margin-right: 20px; }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#load-header").load("header.html"); 
+            $("#load-footer").load("footer.html"); 
+        })
+    </script>
+</head>
+
+<body>
+    <!-- LOAD HEADER.html HERE -->
+    <div id="load-header">
+        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img width="150px" src="./Pictures/user.png" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h3>Driver Sign up</h3>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <span id="warningF" class="text-warning" Text="Please Fill-Out all fields!"
+                                    style="display: none;"></span>
+                                <span id="dangerP" class="text-danger" Text="Password does not match!"
+                                    style="display: none;"></span>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <span class="badge bg-primary">Personal Information</span>
+                                </center>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Lastname:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox1" class="form-control" placeholder="Lastname" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Firstname:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox2" class="form-control" placeholder="Firstname" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Middle Initial:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox3" class="form-control" placeholder="MI" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Birthdate:</label>
+                                <div class="form-group">
+                                    <input type="date" id="TextBox4" class="form-control" placeholder="Birthday" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Age:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox5" class="form-control" placeholder="Age" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label>Sex:</label>
+                                <div class="form-group">
+                                    <select class="form-control" id="DropDownList1">
+                                        <option value="0"></option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label>Email:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox6" class="form-control"
+                                        placeholder="e.g someone@gmail.com" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Contact Number:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox7" class="form-control"
+                                        placeholder="e.g 09809812410" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Street Address:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox8" class="form-control"
+                                        placeholder="Street Address" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>City:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox9" class="form-control" placeholder="City" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Province:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox10" class="form-control" placeholder="Province" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Zip Code:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox11" class="form-control" placeholder="Zip Code" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Type of vehicle:</label>
+                                <div class="form-group">
+                                    <select name="cars" id="DropDownList2" class="form-control">
+                                        <option value="1">SUV</option>
+                                        <option value="2">AUV</option>
+                                        <option value="3">VAN</option>
+                                        <option value="4">MPV</option>
+                                        <option value="5">PICK-UP</option>
+                                        <option value="6">TRUCK</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Enter Plate number:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox12" class="form-control"
+                                        placeholder="e.g.(PTO532 or NAV7819)" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>OR Number:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox13" class="form-control" placeholder="OR Number" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>CR Number:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox14" class="form-control" placeholder="CR Number" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label>Driver License ID:</label>
+                                <div class="form-group">
+                                    <input type="number" id="TextBox15" class="form-control"
+                                        placeholder="Driver License ID" />
+                                </div>
+                            </div>
+                        </div>
+                        Attach Vehicle Image<label>:</label>
+                        <br />
+                        <label>
+                            <input type="file" />
+                        </label>
+                        <br />
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <span class="badge bg-primary">Account Information</span>
+                                </center>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Username:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox16" class="form-control" placeholder="Username" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Password:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox17" class="form-control" placeholder="Passweord" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label>Re-Type Password:</label>
+                                <div class="form-group">
+                                    <input type="text" id="TextBox18" class="form-control"
+                                        placeholder="Re-Type Password">
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <p2>Note: Other information will be emailed at tortorstransportservice@gmail.com
+                                    </p2>
+                                    <br />
+                                    <p1>Wait for an email regarding this information.</p1>
+                                </center>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <button id="Button1" class="btn btn-success btn-block btn-lg"
+                                        style="margin-top:10px; width: 100%;">Finalize</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="./TTS-Homepage.html">Back to Homepage</a>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <!-- LOAD FOOTER.html HERE -->
+   <div id="load-footer">
+     
+   </div>
+</body>
+
+</html>
