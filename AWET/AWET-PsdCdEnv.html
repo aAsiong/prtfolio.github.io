@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pseudocode Environment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
@@ -24,7 +23,8 @@
 
             .page .sidebar {
                 width: 400px;
-                height: 100vh;
+                height: 100%;
+                min-height: 100vh;
                 background-color: #b2bec3;
                 top: 0;
                 right: 0;
@@ -39,6 +39,8 @@
                 display: flex;
                 flex-direction: column;
             }
+
+            .page main { width: 100%; display: flex; }
 
         body.active .page .sidebar { width: 600px; }
         body.active .page .sidebar .vidGifContainer { height: 400px; }
@@ -68,7 +70,7 @@
             height: 50px;
             display: flex;
             box-shadow: 0 4px 2px -2px #c5c6c7;
-            background-color: wheat;
+            background-color: white;
         }
 
         .forLeft {
@@ -90,7 +92,7 @@
             font-size: 16px;
             background-color: palegreen;
             color: rgb(0, 0, 0, 0.8);
-            margin-right: 30px;
+            margin-right: 380px;
             z-index: 5;
             border-radius: 50px;
             outline: none !important;
@@ -98,9 +100,12 @@
         }
 
         .sidebarToggle:hover { background-color: white; }
+        .sidebarToggle.active { margin-right: 380px; }
 
-        .sidebarToggle.active {
-            margin-right: 127px;
+        .logo-sidebar {
+            display: block;
+            width: 150px;
+            margin: auto;
         }
 
         .hdr {
@@ -117,14 +122,280 @@
             display: flex;
         }
 
+        .mainEnv, .sdPanel { padding: 20px; }
         .mainEnv {
             width: 70%;
-            background-color: red;
         }
 
         .sdPanel {
             width: 30%;
-            background-color: blue;
+            padding: 20px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            border-left: 3px solid black;
+        }
+
+        .frs-dv { width: 90%; display: flex; flex-direction: column; gap: 10px; }
+
+        .act-container {
+            width: 100%;
+            height: fit-content;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .act-container h3 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+        .text-container {
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 15px;
+            overflow: auto;
+            border: 2px solid black;
+        }
+
+        .valMonitor {
+            width: 100%;
+            height: 200px;
+            max-height: 250px;
+            padding: 8px;
+            font-size: 17px;
+            overflow: auto;
+            background-color: rgb(22,24,28)
+        }
+
+            .valMonitor p { margin-bottom: 3px; }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        .isMajorErr, .isMediumErr, .isMinorErr {
+            display: none;
+        }
+
+        .isMajorErr {
+            color: red;
+        }
+
+        .isMediumErr {
+            color: orange;
+        }
+
+        .isMinorErr {
+            color: yellow;
+        }
+
+        .majorCnter, .medCnter, .minCnr {
+            color: black;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .majorCnter {
+            border: 1px solid red;
+            color: red;
+        }
+
+        .vehicle11:checked ~ div .isMajorErr {
+            display: block;
+        }
+
+        .vehicle11:checked ~ div .majorCnter {
+            font-weight: bold;
+            outline: 2px solid red;
+        }
+
+        .medCnter {
+            border: 1px solid orange;
+            color: orange;
+        }
+
+        .vehicle12:checked ~ div .isMediumErr {
+            display: block;
+        }
+
+        .vehicle12:checked ~ div .medCnter {
+            font-weight: bold;
+            outline: 2px solid orange;
+        }
+
+        .minCnr {
+            border: 1px solid yellow;
+            color: yellow;
+        }
+
+        .vehicle13:checked ~ div .isMinorErr {
+            display: block;
+        }
+
+        .vehicle13:checked ~ div .minCnr {
+            font-weight: bold;
+            outline: 2px solid yellow;
+        }
+                
+        .psd-tlbr {
+            width: max-content;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: lightcyan;
+        }
+
+        .mEnv-hdr { height: 100px; display: flex; justify-content: space-between; }
+
+        .psd-bttns {
+            height: fit-content;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            background-color: white;
+        }
+
+            .psd-bttns button { width: 80px; height: 70px; font-size: 15px; border: none; }
+    
+        .psd-scrVwr {
+            width: 25%;
+            display: flex;
+            font-size: 13px;
+            border: 3px dashed black;
+            border-right: none;
+        }
+            .psd-scrVwr div:first-child { overflow: hidden; padding: 10px; }
+            .psd-scrVwr div:last-child {
+                width: 50%;
+                min-width: 100px;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 30px; border: 5px solid black;
+            }
+
+        .psd-mn-cnvs {
+            width: 100%;
+            display: flex;
+        }
+
+        h3,
+        p,
+        button {
+            border-style: none;
+            margin: 0px;
+        }
+
+        input {
+            width: 150px;
+        }
+
+        .initializeDiv {
+            width: 100%;
+            overflow: auto;
+            min-height: 50px;
+            border: 2px solid blue;
+        }
+
+        .initializeContainer {
+            background-color: azure;
+            width: fit-content;
+            height: fit-content;
+            cursor: pointer;
+            float: left;
+            margin-right: 5px;
+            border: 2px solid white;
+            box-sizing: border-box;
+        }
+
+        .inputContainer {
+            box-sizing: border-box;
+            height: fit-content;
+            cursor: pointer;
+        }
+
+        .ifElseMain-Container {
+            height: fit-content;
+            min-height: 100px;
+            padding: 10px 5px;
+            box-sizing: border-box;
+            border: 2px solid darkgoldenrod;
+            cursor: pointer;
+        }
+
+        .loopProgDivMain {
+            height: fit-content;
+            padding: 10px 5px;
+            box-sizing: border-box;
+            border: 2px solid darkgoldenrod;
+            cursor: pointer;
+        }
+
+            .ifElseContainer-insideDiv,
+            .loopProg-Container-insideDiv {
+                box-sizing: border-box;
+                border: 2px solid green;
+                margin-left: 15px;
+                height: fit-content;
+                min-height: 30px;
+                cursor: pointer;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+            }
+
+        .processContainer {
+            box-sizing: border-box;
+            height: fit-content;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .OnFocus {
+            border: 2px solid red;
+        }
+
+        .OnEdit {
+            border: 2px solid goldenrod;
+        }
+
+        .psd-bd-env {
+            width: 100%;
+            height: fit-content;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            background-color: azure;
+            border: 10px solid black;
+        }
+
+        .psd-bd-cnt {
+            height: fit-content;
+            min-height: 600px;
+            padding: 10px;
+            margin-left: 5px;
+            position: relative;
+            border: 10px dashed green;
+            overflow-x: auto;
+        }
+
+        .bttn-cntr { margin: 20px 0; display: flex; justify-content: flex-end; gap: 10px; }
+
+        .regButton {
+            width: 150px;
+            height: 60px;
+            background-color: #ceffcf;
+            border: 1px solid green;
+        }
+
+        @media screen and (max-width: 1040px) {
+            .mEnv-hdr { width: fit-content; justify-content: flex-start; }
+            .psd-scrVwr { border: none; }
+                .psd-scrVwr div:first-child { display: none !important; }
         }
     </style>
 </head>
@@ -136,7 +407,6 @@
             </div>
         </nav>
 
-        <!-- PSEUDOCODE BODY STARTS HERE -->
         <section id="isContent" class="content">
             <div class="navigatioinBar">
                 <div class="forRight">
@@ -150,8 +420,171 @@
                     </button>
                 </div>
             </div>
+
+            <!-- PSEUDOCODE BODY STARTS HERE -->
+            <main>
+                <section class="mainEnv">
+                    <!-- HEADER PORTION -->
+                    <!-- Will contain Toolbar and Score viewer -->
+                    <div class="mEnv-hdr">
+                        <div class="psd-tlbr">
+                            <div class="psd-bttns">
+                                <button type="button" style="background-color: #5584AC;
+                                    outline-style: solid; outline-color: #5584AC;"
+                                    onclick="createInitialize()">
+                                    Intialize</button>
+                                <button type="button" style="background-color: #95D1CC;
+                                    outline-style: solid; outline-color: #95D1CC;"
+                                    onclick="createProcess()">
+                                    Process</button>
+                                <button type="button" style="background-color: #9AD0EC;
+                                    outline-style: solid; outline-color: #9AD0EC;"
+                                    onclick="createIfElse()">
+                                    If-Else Statement</button>
+                                <button type="button" style="background-color: #EFDAD7;
+                                    outline-style: solid; outline-color: #EFDAD7;"
+                                    onclick="createLoop()">
+                                    Looping</button>
+                                <button type="button" style="background-color: #DF2935;
+                                    outline-style: solid; outline-color: #DF2935;"
+                                    onclick="deleteElement()">
+                                    Delete</button>
+                            </div>
+                        </div>
+                        <div class="psd-scrVwr">
+                            <div>
+                                <b>For Testing Purposes Only</b>
+                                <p>Auto-generated score is not disclosed normally.
+                            </div>
+                            <div id="postScoreHere">
+                                0
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PSEUDOCODE CANVAS -->
+                    <div class="psd-mn-cnvs">
+                        <div id="body-env" class="psd-bd-env">
+                            <h3>START</h3>
+                            <div id="mainDiv" class="psd-bd-cnt"></div>
+                            <h3>END</h3>
+                        </div>
+                    </div>
+
+                    <!-- Button Container -->
+                    <div class="bttn-cntr">
+                        <button type="button" id="gb-bttn" class="regButton" 
+                        style="font-size: 20px;" onclick="validate();">Go Back</button>
+                        <button type="button" id="val-bttn" class="regButton" 
+                        style="font-size: 20px;" onclick="validate();">Validate</button>
+                        <button type="button" id="cptr-bttn" class="regButton" 
+                        style="font-size: 20px;" onclick="validate();">Capture</button>
+                    </div>
+                </section>
+
+                <!-- SIDE CONTAINER -->
+                <!-- Contains Prob. Desc., Validation Monitor, etc. -->
+                <section class="sdPanel">
+                    <div class="frs-dv">
+                        <div class="act-container">
+                            <h2>Problem Description</h2>
+                            <div id="problemDesc" class="text-container">
+                                Lorem Ipsum is simply dummy text of the printing and 
+                                typesetting industry. Lorem Ipsum has been the industry's
+                                 standard dummy text ever since the 1500s, when an 
+                                 unknown printer took a galley of type and scrambled it 
+                                 to make a type specimen book. It has survived not only 
+                                 five centuries, but also the leap into electronic 
+                                 typesetting, remaining essentially unchanged. It was 
+                                 popularised in the 1960s with the release of Letraset 
+                                 sheets containing Lorem Ipsum passages, and more 
+                                 recently with desktop publishing software like Aldus 
+                                 PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
+
+                        <div class="inptMm">
+                            <input type="checkbox" class="vehicle11" id="vehicle1" name="vehicles1" value="Bike">
+                            <input type="checkbox" class="vehicle12" id="vehicle2" name="vehicles2" value="Car">
+                            <input type="checkbox" class="vehicle13" id="vehicle3" name="vehicles3" value="Boat">
+                            <div style="padding: 10px; background-color: black; display: flex; flex-direction:column; align-items: center; justify-content: center; gap: 5px;">
+                                <h3 style="margin-right: 10px; color: white;">Validation Monitor</h3>
+                                <div>
+                                    <label for="vehicle1" class="majorCnter">• Major</label>
+                                    <label for="vehicle2" class="medCnter">• Medium</label>
+                                    <label for="vehicle3" class="minCnr">• Minor</label>
+                                </div>
+                            </div>
+                            <div id="valMont" class="valMonitor">
+                                <!--
+                                <p class="isMajorErr">Major</p>
+                                <p class="isMediumErr">Medium</p>
+                                <p class="isMinorErr">Minor</p>
+                                -->
+                                <div id="hdifnoErr" style="width: 100%; height: 100%; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center; border: 1px solid white;">
+                                    No errors detected.
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <!--
+                    <div id="Panel1" class="accordion">
+                        <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section1" class="accordion-input" />
+                                <label for="section1" class="accordion-label">Output Scenario #1</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 1 
+                                </div>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section2" class="accordion-input" />
+                                <label for="section2" class="accordion-label">Output Scenario #2</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 2
+                                </div>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section3" class="accordion-input" />
+                                <label for="section3" class="accordion-label">Output Scenario #3</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </section>
+            </main>
         </section>
-        PSEUDOCODE ENV
+
+        <section class="sidebar">
+            <img class="logo-sidebar" src="../Website Portfolio/Pictures/AWET_Logo.png" />
+            <header class="bg-dark text-center header-text">Instructions</header>
+            <!-- Container for Animated (GIF) Tutorial Image -->
+            <div class="vidGifContainer">
+                <img id="imgHolder" class="gif" style="width: 100%; height: 100%;">
+            </div>
+
+            <div style="background-color: white;">
+                <!-- Container for Tutorial Header (Title) -->
+                <div class="textContainer hdr">
+                    <h4 id="instructHead"></h4>
+                </div>
+
+                <!-- Container for Step-by-step instruction sidebar -->
+                <div id="instructBody" class="textContainer bdy"></div>
+            </div>
+
+            <!-- Container for Next/Previous buttons -->
+            <div class="bttnContainer">
+                <button type="button" id="remove" class="test" style="background-size: cover; background-image: url('Bootstrap/images/left-fast-forward.png');">
+                </button>
+                <button type="button" id="include" class="test" style="background-size: cover; background-image: url('Bootstrap/images/fast-forward.png')">
+                </button>
+            </div>
+        </section>
+        
     </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
@@ -160,21 +593,463 @@
 <script>
     var nav = document.querySelector(".nav");
     let h2 = document.getElementById("instructBody");
-    
-    $(document).ready(function() {
-            let sidebarToggle = document.querySelector(".sidebarToggle");
-            sidebarToggle.addEventListener('click', function () {
-                document.querySelector("body").classList.toggle("active");
-                document.getElementById("sidebarToggle").classList.toggle("active");
-                nav.classList.toggle("nav-open");
-            });
-        $(".nav-overlay").attr("onclick", "change()");
-    })
+
+    let initVar = 0, procVar = 0, ifElseVar = 0, whileVar = 0;
+    var breakThrgh = true;
+    var isEmpty = true;
+
+    var trueF = ["TRUE", "FALSE"];
+    var dttypes = ["str", "int", "bool", "char", "var"];
+    var cndtion = ["=", ">", "<", "==", "<=", ">=", "!="];
+    var storeValTypes = [];
+    var storeVals = [];
+
+
+    function getURLParams(sParam) {
+        // Declare Variables
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'), // Get URL Params
+            sParameterName, i;
+
+        // Loop Portion
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('='); // Get Params' Value
+            if (sParameterName[0] == sParam) 
+                return true;
+                // return sParameterName[1] === undefined 
+                // ? true 
+                // : decodeURIComponent(sParameterName[1]);
+        }
+        return false;
+    };
     
     function change() {
         document.querySelector("body").classList.toggle("active");
         document.getElementById("sidebarToggle").classList.toggle("active");
         nav.classList.toggle("nav-open");
+    }
+    
+    $(document).ready(function() {
+        // Get URL Params
+        let params = getURLParams('p');
+        if (!params){ 
+            $(".sidebar").hide();
+            $("#sidebarToggle").hide();
+        }
+        else {
+            let sidebarToggle = document.querySelector(".sidebarToggle");
+            sidebarToggle.addEventListener('click', function () {
+                document.querySelector("body").classList.toggle("active");
+                document.querySelector(".sidebarToggle").classList.toggle("active");
+                nav.classList.toggle("nav-open");
+            });
+            $(".nav-overlay").attr("onclick", "change()");
+        }
+
+        $('#body-env').on('click', function () {
+            var detect = document.querySelectorAll(".OnFocus");
+            if (detect.length != 0) {
+                var dasdsadda = document.querySelector(".OnFocus");
+                $('div').removeClass('OnFocus');
+            }
+        });
+    })
+
+    function highlight(clickedClass) {
+        $('div.' + clickedClass).on('click', function () {
+            const convertString = clickedClass.toString();
+            $('div').removeClass('OnEdit');
+            $('div').removeClass('OnFocus');
+            if (convertString.includes("initializeContainer")) {
+                $(this).addClass('OnEdit');
+            }
+            else {
+                $(this).addClass('OnFocus');
+            }
+            event.stopPropagation();
+        });
+    }
+
+    function deleteElement() {
+        let checker = document.querySelectorAll(".OnFocus");
+        if (checker.length == 0) {
+            checker = document.querySelectorAll(".OnEdit");
+            if (checker.length != 0) {
+                $('div.OnEdit').remove();
+            }
+            else {
+                alert("Nothing to delete.");
+            }
+
+        }
+        else {
+            const getHighlight = document.querySelector(".OnFocus").className.toString();
+            if (getHighlight.includes("insideDiv")) {
+                $('div.OnFocus').empty();
+            }
+            else {
+                $('div.OnFocus').remove();
+            }
+        }
+    }
+
+    function generateCod(e) {
+        var getVal = e.options[e.selectedIndex].value;
+        if (getVal == "Else If") {
+            var getID = (e.id).toString();
+            var getNum = getID.replace(/\D/g, '');
+            var createInput = document.createElement("input");
+            createInput.setAttribute("id", "inputElseIf" + getNum);
+            createInput.setAttribute("style", "margin-left: 5px;");
+
+            var knowParent = e.parentElement.id;
+
+            e.insertAdjacentElement('afterend', createInput);
+        }
+        else if (getVal == "Else") {
+            var getID = (e.id).toString();
+            var getNum = getID.replace(/\D/g, '');
+
+            var findOut = document.querySelectorAll("#inputElseIf" + getNum);
+            if (findOut.length >= 1) {
+                document.getElementById("inputElseIf" + getNum).remove();
+            }
+            else {
+
+            }
+
+        }
+
+    }
+
+    function createLoop() {
+        whileVar += 1;
+        let checkDiv, createDiv, createP, createContainer,
+            inputDropdown, inputOption, createInput;
+        createDiv = document.createElement("div");
+        createInput = document.createElement("input");
+        const checker = document.getElementsByClassName("OnFocus");
+        if ($(checker).length > 0) {
+            createDiv = document.createElement("div");
+            createInput = document.createElement("input");
+            checkDiv = document.querySelectorAll(".loopProgDivMain");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "loopDiv" + 0);
+                createInput.setAttribute("id", "loopInput" + 0);
+                var inputID = "input0";
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "loopDiv" + whileVar);
+                createInput.setAttribute("id", "loopInput" + whileVar);
+                var inputID = "input" + checkDiv.length;
+            }
+
+            createDiv.setAttribute("class", "loopProgDivMain");
+
+            createP = document.createElement("p");
+            createP.innerHTML =
+                "WHILE <input id='" + inputID + "' type='text'></input>";
+
+            // Div Inside
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "loop-InnerProg" + whileVar);
+            createContainer.setAttribute("class", "loopProg-Container-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createP);
+            createDiv.append(createContainer);
+
+            var convertString = document.querySelector(".OnFocus").className;
+            if (convertString.includes("ifElseMain") ||
+                convertString.includes("loopProgDivMain") ||
+                convertString.includes("process") ||
+                convertString.includes("initializeDiv")) {
+                convertString = document.querySelector(".OnFocus").id;
+                var getter = document.getElementById(convertString);
+                getter.insertAdjacentElement('afterend', createDiv);
+            }
+            else {
+                $(checker).append(createDiv);
+            }
+        }
+        else {
+            createDiv = document.createElement("div");
+            createInput = document.createElement("input");
+            checkDiv = document.querySelectorAll(".loopProgDivMain");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "loopDiv" + 0);
+                createInput.setAttribute("id", "loopInput" + 0);
+                var inputID = "input0";
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "loopDiv" + whileVar);
+                createInput.setAttribute("id", "loopInput" + whileVar);
+                var inputID = "input" + checkDiv.length;
+            }
+
+            createDiv.setAttribute("class", "loopProgDivMain");
+
+            createP = document.createElement("p");
+            createP.innerHTML =
+                "WHILE <input id='" + inputID + "' type='text'></input>";
+
+            // Div Inside
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "loop-InnerProg" + whileVar);
+            createContainer.setAttribute("class", "loopProg-Container-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createP);
+            createDiv.append(createContainer);
+
+            $('#mainDiv').append(createDiv);
+        }
+    }
+
+    function createProcess() {
+        procVar += 1;
+        let checkDiv, createDiv, createP, createContainer,
+            inputDropdown, inputOption, createInput;
+        createDiv = document.createElement("div");
+        createInput = document.createElement("input");
+        const checker = document.getElementsByClassName("OnFocus");
+        if ($(checker).length > 0) {
+            checkDiv = document.querySelectorAll(".processContainer");
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "processDiv" + 0);
+                createInput.setAttribute("id", "processInput" + 0);
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "processDiv" + procVar);
+                createInput.setAttribute("id", "processInput" + procVar);
+            }
+            createDiv.setAttribute("class", "processContainer");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+
+            inputDropdown = document.createElement("select");
+            let array = ["INITIALIZE", "INPUT", "OUTPUT", "CALCULATE", "INCREMENT", "DECREMENT"];
+            for (var i = 0; i < 6; i++) {
+                inputOption = document.createElement("option");
+                inputOption.setAttribute("value", array[i]);
+                inputOption.innerText = array[i].toString();
+                inputDropdown.append(inputOption);
+            }
+            $(createDiv).append(inputDropdown);
+
+            createInput = document.createElement("input");
+            createInput.setAttribute("type", "text");
+            createDiv.append(" ( ");
+            createDiv.append(createInput);
+            createDiv.append(" ) ");
+
+            var convertString = document.querySelector(".OnFocus").className;
+            if (convertString.includes("ifElseMain") ||
+                convertString.includes("loopProgDivMain") ||
+                convertString.includes("process") ||
+                convertString.includes("initializeDiv")) {
+                convertString = document.querySelector(".OnFocus").id;
+                var getter = document.getElementById(convertString);
+                getter.insertAdjacentElement('afterend', createDiv);
+            }
+            else {
+                $(checker).append(createDiv);
+            }
+        }
+        else {
+            checkDiv = document.querySelectorAll(".processContainer");
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "processDiv" + 0);
+                createInput.setAttribute("id", "processInput" + 0);
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "processDiv" + procVar);
+                createInput.setAttribute("id", "processInput" + procVar);
+            }
+            createDiv.setAttribute("class", "processContainer");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+
+            inputDropdown = document.createElement("select");
+            let array = ["INITIALIZE", "INPUT", "OUTPUT", "CALCULATE", "INCREMENT", "DECREMENT"];
+            for (var i = 0; i < 6; i++) {
+                inputOption = document.createElement("option");
+                inputOption.setAttribute("value", array[i]);
+                inputOption.innerText = array[i].toString();
+                inputDropdown.append(inputOption);
+            }
+            $(createDiv).append(inputDropdown);
+
+            createInput = document.createElement("input");
+            createInput.setAttribute("type", "text");
+            createDiv.append(" ( ");
+            createDiv.append(createInput);
+            createDiv.append(" ) ");
+
+            $('#mainDiv').append(createDiv);
+        }
+    }
+
+    function createIfElse(clickedID) {
+        ifElseVar += 1;
+        let checkDiv, createDiv, createP, createContainer;
+        const checker = document.getElementsByClassName("OnFocus");
+        if ($(checker).length > 0) {
+            createDiv = document.createElement("div");
+            createInput = document.createElement("input");
+            checkDiv = document.querySelectorAll(".ifElseMain-Container");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "ifElseDiv" + 0);
+                createInput.setAttribute("id", "ifElseInput" + 0);
+                var inputID = "input0";
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "ifElseDiv" + ifElseVar);
+                createInput.setAttribute("id", "ifElseInput" + ifElseVar);
+                var inputID = "input" + ifElseVar;
+            }
+            createDiv.setAttribute("class", "ifElseMain-Container");
+
+            createP = document.createElement("p");
+            createP.innerHTML =
+                "If <input id='" + inputID + "' type='text'></input> THEN";
+
+            createDiv.append(createP);
+
+            // Div Inside
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "ifelse" + ifElseVar);
+            createContainer.setAttribute("class", "ifElseContainer-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createContainer);
+
+            var inputDropdown = document.createElement("select");
+            let array = ["Else", "Else If"];
+            for (var i = 0; i < 2; i++) {
+                inputOption = document.createElement("option");
+                inputOption.setAttribute("value", array[i]);
+                inputOption.innerText = array[i].toString();
+                inputDropdown.append(inputOption);
+            }
+            inputDropdown.setAttribute("id", "selection" + ifElseVar);
+            inputDropdown.setAttribute("onchange", "generateCod(this)");
+            createDiv.append(inputDropdown);
+
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "ifelseTHEN" + ifElseVar);
+            createContainer.setAttribute("class", "ifElseContainer-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createContainer);
+
+            var convertString = document.querySelector(".OnFocus").className;
+            if (convertString.includes("ifElseMain") ||
+                convertString.includes("loopProgDivMain") ||
+                convertString.includes("process") ||
+                convertString.includes("initializeDiv")) {
+                convertString = document.querySelector(".OnFocus").id;
+                var getter = document.getElementById(convertString);
+                getter.insertAdjacentElement('afterend', createDiv);
+            }
+            else {
+                $(checker).append(createDiv);
+            }
+        }
+        else {
+            checkDiv = document.querySelectorAll(".ifElseMain-Container");
+            createDiv = document.createElement("div");
+            createInput = document.createElement("input");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+            if (checkDiv.length == 0) {
+                createDiv.setAttribute("id", "ifElseDiv" + 0);
+                createInput.setAttribute("id", "ifElseInput" + 0);
+                var inputID = "input0";
+            }
+            else if (checkDiv.length > 0) {
+                createDiv.setAttribute("id", "ifElseDiv" + ifElseVar);
+                createInput.setAttribute("id", "ifElseInput" + ifElseVar);
+                var inputID = "input" + checkDiv.length;
+            }
+            createDiv.setAttribute("class", "ifElseMain-Container");
+
+            createP = document.createElement("p");
+            createP.innerHTML =
+                "If <input id='" + inputID + "' type='text'></input>";
+
+            createDiv.append(createP);
+
+            // Div Inside
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "ifelse" + ifElseVar);
+            createContainer.setAttribute("class", "ifElseContainer-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createContainer);
+
+            var inputDropdown = document.createElement("select");
+            let array = ["Else", "Else If"];
+            for (var i = 0; i < 2; i++) {
+                inputOption = document.createElement("option");
+                inputOption.setAttribute("value", array[i]);
+                inputOption.innerText = array[i].toString();
+                inputDropdown.append(inputOption);
+            }
+            inputDropdown.setAttribute("id", "selection" + ifElseVar);
+            inputDropdown.setAttribute("onchange", "generateCod(this)");
+            createDiv.append(inputDropdown);
+
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "ifelseTHEN" + ifElseVar);
+            createContainer.setAttribute("class", "ifElseContainer-insideDiv");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+            createDiv.append(createContainer);
+
+            $('#mainDiv').append(createDiv);
+        }
+    }
+
+    function createInitialize() {
+        initVar += 1;
+        let checkDiv, createDiv, divDetector,
+            createContainer, createP, createInput;
+        checkDiv = document.querySelectorAll(".initializeDiv");
+        if (checkDiv.length == 0) {
+            createDiv = document.createElement("div");
+            createDiv.setAttribute("id", "initializeDivMain");
+            createDiv.setAttribute("class", "initializeDiv");
+            createDiv.setAttribute("onclick", "highlight(this.className)");
+
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "initializeContainer" + initVar);
+            createContainer.setAttribute("class", "initializeContainer");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+
+            let createP, createInput;
+            createP = document.createElement("p");
+            createP.innerText = "Initialize ";
+            createInput = document.createElement("input");
+            createInput.setAttribute("id", "input0");
+            createInput.setAttribute("type", "text");
+
+            createP.append(createInput);
+            createContainer.append(createP);
+            createDiv.append(createContainer);
+            $('#mainDiv').prepend(createDiv);
+        }
+        else if (checkDiv.length > 0) {
+            createContainer = document.createElement("div");
+            createContainer.setAttribute("id", "initializeContainer" + initVar);
+            createContainer.setAttribute("class", "initializeContainer");
+            createContainer.setAttribute("onclick", "highlight(this.className)");
+
+            createP = document.createElement("p");
+            createP.innerText = "Initialize ";
+            createInput = document.createElement("input");
+            createInput.setAttribute("id", "input0");
+            createInput.setAttribute("type", "text");
+
+            createP.append(createInput);
+            createContainer.append(createP);
+            $('.initializeDiv').append(createContainer);
+        }
     }
 </script>
 
