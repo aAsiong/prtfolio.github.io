@@ -30,7 +30,7 @@
                         <a class="nav-link" href="./TTS-Homepage.html">HOME</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">ABOUT US</a>
+                        <a class="dny">ABOUT US</a>
                     </li>
                 </ul>
 
@@ -63,5 +63,12 @@
 <script src="/bootstrap/js/popper.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="./datatables/js/jquery.dataTables.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+<script>
+    $('#dny').on('click', () => {
+        alert("Dsadsa");
+        localStorage.setItem("hstry", "TTS");
+        window.location.href = "../404.html";
+    })
+</script>
 </html>

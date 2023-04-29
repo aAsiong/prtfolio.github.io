@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <a class="navbar-item" href="./LE-About.html">
+                <a class="navbar-item dny">
                     About Lion Express
                 </a>
             </div>
@@ -79,10 +79,10 @@
                 </a> -->
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary" href="./LE-Register.html">
+                        <a class="button is-primary dny">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light" href="./LE-Login.html">
+                        <a class="button is-light dny">
                             Log in
                         </a>
                     </div>
@@ -90,6 +90,7 @@
             </div>
         </div>
     </nav>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
     <script>
         let getElm;
         let tggleSdbr = false;
@@ -105,6 +106,11 @@
             getBrgr[0].classList.remove("is-active");
             getElm = document.getElementById("nav-links").classList.remove("is-active");
             tggleSdbr = false;
+        })
+
+        $('.dny').on('click', () => {
+            localStorage.setItem("hstry", "LE");
+            window.location.href = "../404.html";
         })
     </script>
 </body>

@@ -97,7 +97,7 @@
                     <a class="nav-link" href="./TTS-Homepage.html">HOME</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">ABOUT US</a>
+                    <a class="nav-link dny">ABOUT US</a>
                 </li>
             </ul>
             <ul class="navbar-nav" style="margin-left: auto">
@@ -286,6 +286,7 @@
 </body>
 <script src="../bootstrap/js/popper.min.js"></script>
 <script src="../bootstrap/js/"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
 <script>
     var slideIndex = 0;
     showSlides();
@@ -306,5 +307,11 @@
         dots[slideIndex - 1].className += " active";
         setTimeout(showSlides, 4000); // Change image every 2 seconds
     }
+
+    $('.dny').on('click', () => {
+        alert("Dsadsa");
+        localStorage.setItem("hstry", "TTS");
+        window.location.href = "../404.html";
+    })
 </script>
 </html>

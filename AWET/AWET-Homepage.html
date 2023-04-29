@@ -348,24 +348,31 @@
 
     <footer>
         <p>
-          <strong>Bulma</strong> by <a href="https://jgthms.com">Team Lion Expresss</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            
         </p>
     </footer>
 </body>
 <script>
     document.getElementById("sgnIn").addEventListener("click", function() {
-        window.location.href = "./AWET-LogIn.html";
+        //window.location.href = "./AWET-LogIn.html";
+
+        localStorage.setItem("hstry", "AWET");
+        window.location.href = "../404.html";
     })
     document.getElementById("psdEnv").addEventListener("click", function() {
         window.location.href = "./AWET-PsdCdEnv.html";
     })
     document.getElementById("flwEnv").addEventListener("click", function() {
-        window.location.href = "./AWET-FlwChrtEnv.html";
+        //window.location.href = "./AWET-FlwChrtEnv.html";
+
+        localStorage.setItem("hstry", "AWET");
+        window.location.href = "../404.html";
     })
     document.getElementById("bcmUsr").addEventListener("click", function() {
-        window.location.href = "./AWET-RegUser.html";
+        //window.location.href = "./AWET-RegUser.html";
+
+        localStorage.setItem("hstry", "AWET");
+        window.location.href = "../404.html";
     })
 </script>
 </html>
