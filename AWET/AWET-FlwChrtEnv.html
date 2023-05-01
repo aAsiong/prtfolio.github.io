@@ -19,17 +19,3100 @@
 
         .page {
             height: 100%;
+            min-height: 100vh;
+        }
+
+            .page .sidebar {
+                width: 400px;
+                height: 100%;
+                min-height: 100vh;
+                background-color: #b2bec3;
+                top: 0;
+                right: 0;
+                z-index: 4;
+                position: fixed;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+            .page .content {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page main { width: 100%; height: 100%; display: flex; }
+
+        body.active .page .sidebar { width: 600px; }
+        body.active .page .sidebar .vidGifContainer { height: 400px; }
+        body.active .page .content { margin-left: 0; }
+        body.active .page .content .forLeft { margin-right: 205px; }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            visibility: hidden;
+            opacity: 0;
+            background: opacity 0.2s;
+        }
+
+        .nav-open .nav-overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .navigatioinBar {
+            height: 50px;
+            display: flex;
+            box-shadow: 0 4px 2px -2px #c5c6c7;
+            background-color: white;
+        }
+
+        .forLeft {
+            float: right;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .forRight {
+            float: left;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .sidebarToggle {
+            font-size: 16px;
+            background-color: palegreen;
+            color: rgb(0, 0, 0, 0.8);
+            margin-right: 380px;
+            z-index: 5;
+            border-radius: 50px;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .sidebarToggle:hover { background-color: white; }
+        .sidebarToggle.active { margin-right: 380px; }
+
+        .logo-sidebar {
+            display: block;
+            width: 150px;
+            margin: auto;
+        }
+
+        .hdr {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            background-color: #ffff;
+        }
+
+        .allCntnt {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .mainEnv, .sdPanel { padding: 20px; }
+        .mainEnv {
+            width: 70%;
+        }
+
+        .sdPanel {
+            width: 40%;
+            padding: 20px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .frs-dv { width: 90%; display: flex; flex-direction: column; gap: 10px; }
+
+        .act-container {
+            width: 100%;
+            height: fit-content;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .act-container h3 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+        .text-container {
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 15px;
+            overflow: auto;
+            border: 2px solid black;
+        }
+
+        .valMonitor {
+            width: 100%;
+            height: 200px;
+            max-height: 250px;
+            padding: 8px;
+            font-size: 17px;
+            overflow: auto;
+            background-color: rgb(22,24,28)
+        }
+
+            .valMonitor p { margin-bottom: 3px; }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        .isMajorErr, .isMediumErr, .isMinorErr {
+            display: none;
+        }
+
+        .isMajorErr {
+            color: red;
+        }
+
+        .isMediumErr {
+            color: orange;
+        }
+
+        .isMinorErr {
+            color: yellow;
+        }
+
+        .majorCnter, .medCnter, .minCnr {
+            color: black;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .majorCnter {
+            border: 1px solid red;
+            color: red;
+        }
+
+        .vehicle11:checked ~ div .isMajorErr {
+            display: block;
+        }
+
+        .vehicle11:checked ~ div .majorCnter {
+            font-weight: bold;
+            outline: 2px solid red;
+        }
+
+        .medCnter {
+            border: 1px solid orange;
+            color: orange;
+        }
+
+        .vehicle12:checked ~ div .isMediumErr {
+            display: block;
+        }
+
+        .vehicle12:checked ~ div .medCnter {
+            font-weight: bold;
+            outline: 2px solid orange;
+        }
+
+        .minCnr {
+            border: 1px solid yellow;
+            color: yellow;
+        }
+
+        .vehicle13:checked ~ div .isMinorErr {
+            display: block;
+        }
+
+        .vehicle13:checked ~ div .minCnr {
+            font-weight: bold;
+            outline: 2px solid yellow;
+        }
+
+        .flow-Main-Container {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .try {
+            width: 1000px;
+            max-width: 1000px;
+            height: 800px;
+            border: 10px solid black;
+            overflow: hidden;
+        }
+
+        .toolbar_container {
+            border: 4px solid black;
+            box-sizing: content-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .toolbar_container img {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 10px;
+                padding: 5px;
+                cursor: pointer;
+            }
+
+        .bttn-cntr { margin: 20px 0; display: flex; justify-content: flex-end; gap: 10px; }
+
+        .regButton {
+            width: 150px;
+            height: 60px;
+            background-color: #ceffcf;
+            border: 1px solid green;
+        }
+
+        .not_connected * {
+            color: red;
+            color: red;
+            stroke: red;
         }
     </style>
 </head>
-<body>
+<body onload="main()" style="min-width: 800px;">
     <main class="page">
         <nav class="nav">
             <div class="nav-overlay">
             </div>
         </nav>
 
-        
+        <section id="isContent" class="content">
+            <div class="navigatioinBar">
+                <div class="forRight">
+                    © 2021 All Rights Reserved. Adaoag, Domalanta, Mayo
+                </div>
+
+                <!-- Hide this if its not practice exercise! -->
+                <div id="Leftfor" class="forLeft" runat="server">
+                    <button type="button" id="sidebarToggle" class="btn sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- FLOWCHART BODY STARTS HERE -->
+            <main class="flow-Main-Container">
+                <div style="
+                    width: 60%; 
+                    display: flex; 
+                    flex-direction: column;
+                    ">
+
+                    <!-- MOST IMPORTANT THING -->
+                    <div id="spawn" 
+                    style="
+                    display: flex; 
+                    column-gap: 10px;
+                    ">
+
+                    </div>
+                    
+                    <!-- Button Container -->
+                    <div class="bttn-cntr">
+                        <button type="button" id="gb-bttn" class="regButton" 
+                        style="font-size: 20px;">Go Back</button>
+                        <button type="button" id="val-bttn" class="regButton" 
+                        style="font-size: 20px;">Validate</button>
+                        <!-- <button type="button" id="cptr-bttn" class="regButton" 
+                        style="font-size: 20px;" onclick="validate();">Capture</button> -->
+                    </div>
+                </div>
+
+
+                <!-- SIDE CONTAINER -->
+                <!-- Contains Prob. Desc., Validation Monitor, etc. -->
+                <section class="sdPanel">
+                    <div class="frs-dv">
+                        <div class="act-container">
+                            <h2>Problem Description</h2>
+                            <div id="problemDesc" class="text-container">
+                                Lorem Ipsum is simply dummy text of the printing and 
+                                typesetting industry. Lorem Ipsum has been the industry's
+                                 standard dummy text ever since the 1500s, when an 
+                                 unknown printer took a galley of type and scrambled it 
+                                 to make a type specimen book. It has survived not only 
+                                 five centuries, but also the leap into electronic 
+                                 typesetting, remaining essentially unchanged. It was 
+                                 popularised in the 1960s with the release of Letraset 
+                                 sheets containing Lorem Ipsum passages, and more 
+                                 recently with desktop publishing software like Aldus 
+                                 PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
+
+                        <div class="inptMm">
+                            <input type="checkbox" class="vehicle11" id="vehicle1" name="vehicles1" value="Bike">
+                            <input type="checkbox" class="vehicle12" id="vehicle2" name="vehicles2" value="Car">
+                            <input type="checkbox" class="vehicle13" id="vehicle3" name="vehicles3" value="Boat">
+                            <div style="padding: 10px; background-color: black; display: flex; flex-direction:column; align-items: center; justify-content: center; gap: 5px;">
+                                <h3 style="margin-right: 10px; color: white;">Validation Monitor</h3>
+                                <div>
+                                    <label for="vehicle1" class="majorCnter">• Major</label>
+                                    <label for="vehicle2" class="medCnter">• Medium</label>
+                                    <label for="vehicle3" class="minCnr">• Minor</label>
+                                </div>
+                            </div>
+                            <div id="valMont" class="valMonitor">
+                                <!--
+                                <p class="isMajorErr">Major</p>
+                                <p class="isMediumErr">Medium</p>
+                                <p class="isMinorErr">Minor</p>
+                                -->
+                                <div id="hdifnoErr" style="width: 100%; height: 100%; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center; border: 1px solid white;">
+                                    No errors detected.
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <!--
+                    <div id="Panel1" class="accordion">
+                        <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section1" class="accordion-input" />
+                                <label for="section1" class="accordion-label">Output Scenario #1</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 1 
+                                </div>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section2" class="accordion-input" />
+                                <label for="section2" class="accordion-label">Output Scenario #2</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 2
+                                </div>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="accordion-input" name="classroom-accordion" id="section3" class="accordion-input" />
+                                <label for="section3" class="accordion-label">Output Scenario #3</label>
+                                <div class="accordion-content">
+                                    Sample Content Here 3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </section>
+            </main>
+        </section>
+
+        <section class="sidebar">
+            <img class="logo-sidebar" src="../Website Portfolio/Pictures/AWET_Logo.png" />
+            <header class="bg-dark text-center header-text">Instructions</header>
+            <!-- Container for Animated (GIF) Tutorial Image -->
+            <div class="vidGifContainer">
+                <img id="imgHolder" class="gif" style="width: 100%; height: 100%;">
+            </div>
+
+            <div style="background-color: white;">
+                <!-- Container for Tutorial Header (Title) -->
+                <div class="textContainer hdr">
+                    <h4 id="instructHead"></h4>
+                </div>
+
+                <!-- Container for Step-by-step instruction sidebar -->
+                <div id="instructBody" class="textContainer bdy"></div>
+            </div>
+
+            <!-- Container for Next/Previous buttons -->
+            <div class="bttnContainer">
+                <button type="button" id="remove" class="test" style="background-size: cover; background-image: url('Bootstrap/images/left-fast-forward.png');">
+                </button>
+                <button type="button" id="include" class="test" style="background-size: cover; background-image: url('Bootstrap/images/fast-forward.png')">
+                </button>
+            </div>
+        </section>
     </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+    integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Loads and initializes the library <script type="text/javascript" src="../src/js/mxClient.js"></script> -->
+<script type="text/javascript">
+    mxBasePath = 'https://jgraph.github.io/mxgraph/javascript/src';
+</script>
+<script type="text/javascript" src="https://jgraph.github.io/mxgraph/javascript/src/js/mxClient.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    var graph;
+
+    function addToolbarItem(graph, toolbar, prototype, image) {
+        // Function that is executed when the image is dropped on
+        // the graph. The cell argument points to the cell under
+        // the mousepointer if there is one.
+        var funct = function (graph, evt, cell, x, y) {
+            graph.stopEditing(false);
+
+            var vertex = graph.getModel().cloneCell(prototype);
+            vertex.geometry.x = x;
+            vertex.geometry.y = y;
+
+            graph.addCell(vertex);
+            graph.setSelectionCell(vertex);
+        }
+
+        // Creates the image which is used as the drag icon (preview)
+        var img = toolbar.addMode(null, image, function (evt, cell) {
+            var pt = this.graph.getPointForEvent(evt);
+            funct(graph, evt, cell, pt.x, pt.y);
+        });
+
+        // Disables dragging if element is disabled. This is a workaround
+        // for wrong event order in IE. Following is a dummy listener that
+        // is invoked as the last listener in IE.
+        mxEvent.addListener(img, 'mousedown', function (evt) {
+            // do nothing
+        });
+
+        // This listener is always called first before any other listener
+        // in all browsers.
+        mxEvent.addListener(img, 'mousedown', function (evt) {
+            if (img.enabled == false) {
+                mxEvent.consume(evt);
+            }
+        });
+
+        mxUtils.makeDraggable(img, graph, funct);
+
+        return img;
+    }
+
+    // Program starts here. Creates a sample graph in the
+    // DOM node with the specified ID. This function is invoked
+    // from the onLoad event handler of the document (see below).
+    function main() {
+        var mainBody = document.getElementById('spawn');
+
+        //var test = $('.try').get(0);
+        //$(".toCanvas").click(function (e) {
+        //    alert("Hello World");
+        //    html2canvas(test).then(function (canvas) {
+        //        // canvas width
+        //        var canvasWidth = canvas.width;
+        //        // canvas height
+        //        var canvasHeight = canvas.height;
+        //        // render canvas
+        //        alert(canvasWidth);
+        //        $('.toCanvas').after(canvas);
+        //        // show 'to image' button
+        //        $('.toPic').show(1000);
+        //        // convert canvas to image
+        //        var img = Canvas2Image.convertToImage(canvas, canvasWidth, canvasHeight);
+        //        // render image
+        //        $(".toPic").after(img);
+        //        // save
+        //        alert("SHEESH");
+        //        let type = ".jpg";
+        //        let w = $('#imgW').val();// image width
+        //        let h = $('#imgH').val();// image height
+        //        let f = $('#imgFileName').val();// file name
+        //        w = (w === '') ? canvasWidth : w;
+        //        h = (h === '') ? canvasHeight : h;
+        //        // save as image
+        //        Canvas2Image.saveAsImage(canvas, w, h, type, f);
+
+        //    });
+        //});
+
+        // Checks if browser is supported
+        if (!mxClient.isBrowserSupported()) {
+            // Displays an error message if the browser is
+            // not supported.
+            mxUtils.error('Browser is not supported!', 200, false);
+        }
+        else {
+            // Defines an icon for creating new connections in the connection handler.
+            // This will automatically disable the highlighting of the source vertex.
+            mxConnectionHandler.prototype.connectImage = new mxImage('/connector.gif', 16, 16);
+
+            // Creates the div for the toolbar
+            var toolbarContainer = document.createElement('div');
+
+            var tbContainer = document.createElement('div');
+            tbContainer.style.position = 'relative';
+            tbContainer.style.overflow = 'hidden';
+            tbContainer.style.padding = '8px';
+            tbContainer.style.left = '0px';
+            tbContainer.style.top = '0px';
+            tbContainer.style.width = '46px';
+            tbContainer.style.bottom = '0px';
+            tbContainer.className = "toolbar_container";
+
+            toolbarContainer.style.height = '100%';
+            toolbarContainer.appendChild(tbContainer);
+
+            // Creates new toolbar without event processing
+            var toolbar = new mxToolbar(tbContainer);
+            toolbar.enabled = false
+
+            // Creates the div for the graph
+            var container = document.createElement('div');
+            container.id = "trytry";
+            container.style.position = 'relative';
+            container.style.overflow = 'hidden';
+            //container.style.left = '24px';
+            //container.style.top = '0px';
+            //container.style.right = '0px';
+            //container.style.bottom = '0px';
+            container.style.background = 'url("editors/images/grid.gif")';
+            container.className = "try";
+
+            mainBody.prepend(container);
+            mainBody.prepend(toolbarContainer);
+
+            // Workaround for Internet Explorer ignoring certain styles
+            if (mxClient.IS_QUIRKS) {
+                document.body.style.overflow = 'hidden';
+                new mxDivResizer(tbContainer);
+                new mxDivResizer(container);
+            }
+
+            // Adds mouse wheel handling for zoom
+            mxEvent.addMouseWheelListener((evt, up) => {
+                if (mxEvent.isConsumed(evt)) {
+                    return;
+                }
+
+                let gridEnabled = graph.gridEnabled;
+
+                // disable snapping
+                graph.gridEnabled = false;
+
+                let p1 = graph.getPointForEvent(evt, false);
+
+                if (up) {
+                    graph.zoomIn();
+                } else {
+                    graph.zoomOut();
+                }
+
+                let p2 = graph.getPointForEvent(evt, false);
+                let deltaX = p2.x - p1.x;
+                let deltaY = p2.y - p1.y;
+                let view = graph.view;
+
+                view.setTranslate(view.translate.x + deltaX, view.translate.y + deltaY);
+
+                graph.gridEnabled = gridEnabled;
+
+                mxEvent.consume(evt);
+            }, container);
+
+            // Creates the model and the graph inside the container
+            // using the fastest rendering available on the browser
+            var model = new mxGraphModel();
+
+            // Creates the graph inside the given container
+            graph = new mxGraph(container, model);
+            graph.setPanning(true);
+
+            // Specifies the size of the size for "tiles" to be used for a graph with
+            // scrollbars but no visible background page. A good value is large
+            // enough to reduce the number of repaints that is caused for auto-
+            // translation, which depends on this value, and small enough to give
+            // a small empty buffer around the graph. Default is 400x400.
+            graph.scrollTileSize = new mxRectangle(0, 0, 400, 400);
+
+            // Enables new connections in the graph
+            graph.setConnectable(true);
+            graph.setMultigraph(false);
+
+            // Enables rubberband selection
+            new mxRubberband(graph);
+
+            // Stops editing on enter or escape keypress
+            var keyHandler = new mxKeyHandler(graph);
+            var rubberband = new mxRubberband(graph);
+
+            var addVertex = function (icon, w, h, style) {
+                var vertex = new mxCell(null, new mxGeometry(0, 0, w, h), style);
+                vertex.setVertex(true);
+
+                var img = addToolbarItem(graph, toolbar, vertex, icon);
+                img.enabled = true;
+
+                graph.getSelectionModel().addListener(mxEvent.CHANGE, function () {
+                    var tmp = graph.isSelectionEmpty();
+                    mxUtils.setOpacity(img, (tmp) ? 100 : 20);
+                    img.enabled = tmp;
+                });
+            };
+
+            var keyHandler = new mxKeyHandler(graph);
+            keyHandler.bindKey(46, function (evt) {
+                if (graph.isEnabled()) {
+                    graph.removeCells();
+                }
+            });
+
+            addVertex('editors/images/ellipse.gif', 180, 100, 'shape=ellipse;fillColor=#AFE1AF;strokeColor=black');
+            addVertex('editors/images/rectangle.gif', 200, 100, 'shape=rectangle;fillColor=#fa8a84;strokeColor=black');
+            addVertex('editors/images/rhom.gif', 80, 80, 'shape=image;image=editors/images/parallelogram.png;rhombus');
+            addVertex('editors/images/rhombus.gif', 100, 100, 'shape=rhombus;fillColor=#e7b5ff;strokeColor=black');
+        }
+    }
+
+    var nav = document.querySelector(".nav");
+    let h2 = document.getElementById("instructBody");
+
+    var getStudScore;
+
+    const trueF = ["TRUE", "FALSE"];
+    const dttypes = ["STR", "INT", "NUM", "BOOL", "CHAR", "VAR"];
+    const cndtion = ["=", ">", "<", "==", "<=", ">=", "!="];
+    const rectProcesses = ["INITIALIZE", "INPUT", "OUTPUT", "INCREMENT", "DECREMENT"];
+
+    function isNum(val) {
+        return !isNaN(val)
+    }
+
+    function updateValMont(wKind, errorMsg, islog) {
+        var createP, homeDiv;
+        createP = document.createElement("p");
+        switch (wKind) {
+            case "0":
+                createP.style = "margin: 0; color: red;";
+                createP.className = "isMajorErr";
+                break;
+            case "1":
+                createP.style = "margin: 0; color: orange;";
+                createP.className = "isMediumErr";
+                break;
+            case "2":
+                createP.style = "margin: 0; color: yellow;";
+                createP.className = "isMinorErr";
+                break;
+            //case "3":
+            //    createP.style = "margin: 0; font-size: 18px; color: black;";
+            //    createP.className = "isErr";
+            //    break;
+        }
+        createP.innerText = errorMsg;
+
+        if (!islog) {
+            homeDiv = document.getElementById("valMont");
+            homeDiv.append(createP);
+        }
+    }
+
+    function checkInit(checkParCont) {
+        checkParCont = checkParCont.replace('INITIALIZE', '');
+        let storeVar, getPos, getType, getValue;
+        if (checkParCont.includes(",")) {
+            updateValMont("2", ">>USE SEMI-COLONS INSTEAD!", true);
+            checkParCont = checkParCont.replaceAll(',', ';');
+        }
+        storeVar = checkParCont.split(';');
+        for (let ctr = 0; ctr < storeVar.length; ctr++) {
+            //alert("CURRENT: " + storeVar[ctr]);
+            getPos = storeVar[ctr].indexOf(" ");
+            if (getPos == -1) {
+                updateValMont("2", "INCORRECT VARIABLE DECLERATION", false);
+                minErr += 1;
+            }
+            else {
+                getType = storeVar[ctr].substring(0, getPos);
+                getType = $.trim(getType);
+                if (dttypes.includes(getType.toUpperCase())) {
+                    getValue = storeVar[ctr].replace(/ /g, '');
+                    getValue = $.trim(getValue);
+                    getPos = getValue.indexOf("=");
+                    updateValMont("3", getPos, true);
+                    if (getPos == -1) {
+                        updateValMont("2", ">>INCORRECT VARIABLE DECLERATION", false);
+                        //updateValMont("2", ">>INCORRECT VARIABLE DECLERATION", true);
+                        minErr += 1;
+                    }
+                    else {
+                        getValue = getValue.substring(getPos + 1);
+                        if (getType == "bool") {
+                            getValue = (getValue.toUpperCase()).replaceAll('"', '');
+                            if (!trueF.includes(getValue)) {
+                                updateValMont("2", ">>WRONG VALUE FOR DATA TYPE", false);
+                                //updateValMont("2", "WRONG VALUE FOR DATA TYPE", true);
+                                minErr += 1;
+                            }
+                        }
+                        else if (getType.toUpperCase() == "INT" || getType.toUpperCase() == "NUM") {
+                            if (!isNum(getValue)) {
+                                updateValMont("2", ">>VALUE NOT NUMERIC", false);
+                                //updateValMont("2", "VALUE NOT NUMERIC", true);
+                                minErr += 1;
+                            }
+                        }
+                        else if (getType.toUpperCase() == "STR" || getType.toUpperCase() == "CHAR") {
+                            if (isNum(getValue)) {
+                                updateValMont("2", ">>VALUE IS NOT A STRING", false);
+                                //updateValMont("2", "VALUE IS NOT A STRING", true);
+                                minErr += 1;
+                            }
+                        }
+                        else {
+                            // Do Nothing . . .
+                        }
+                    }
+                }
+                else {
+                    updateValMont("2", ">>WRONG VALUE FOR DATA TYPE", false);
+                    //updateValMont("2", "WRONG VALUE FOR DATA TYPE", true);
+                    minErr += 1;
+                }
+            }
+        }
+    }
+
+    function getURLParams(sParam) {
+        // Declare Variables
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'), // Get URL Params
+            sParameterName, i;
+
+        // Loop Portion
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('='); // Get Params' Value
+            if (sParameterName[0] == sParam) 
+                return true;
+                // return sParameterName[1] === undefined 
+                // ? true 
+                // : decodeURIComponent(sParameterName[1]);
+        }
+        return false;
+    };
+    
+    function change() {
+        document.querySelector("body").classList.toggle("active");
+        document.getElementById("sidebarToggle").classList.toggle("active");
+        nav.classList.toggle("nav-open");
+    }
+
+    var isMajor;
+    var hardErr = 0; medErr = 0; minErr = 0;
+
+    function Validate() {
+        var getCellVal, getCellEdge, getCellShape, parentCell, checkParCont;
+        var isCont = false, isStart = false, isEnd = false;
+        var rectCount = 0;
+
+        isMajor = false;
+        hardErr = 0; medErr = 0; minErr = 0;
+
+        $("#valMont").empty();
+
+        $(".inptMm input[type=checkbox]").each(function () {
+            $("#" + this.id).prop("checked", true);
+        })
+
+        let cells = graph.getModel().cells;
+        let graphView = graph.getView();
+
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+
+            // SEARCH FOR INITIALIZE VARIABLES
+            if (mxCell.isVertex()) {
+
+                // CHECK STARTING CELL EDGE
+                getCellVal = mxCell.value;
+                getCellShape = mxCell.style;
+                getCellEdge = mxCell.getEdgeCount();
+
+                try {
+                    // CHECK IF RECTANGLE - INITIALIZE
+                    if (getCellShape.includes("rectangle")) {
+                        updateValMont("3", "PROCESS SHAPE DETECTED!", true);
+                        if (mxCell.value != null) {
+                            checkParCont = getCellVal;
+                            if (checkParCont.includes("INITIALIZE")) {
+                                updateValMont("0", "INIT PROCESS FOUND!", true);
+                                isCont = true;
+                                break;
+                            }
+                        }
+                        else {
+                            updateValMont("2", ">>EMPTY CELL DETECTED!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+                catch (err) {
+                    updateValMont("1", ">>NEXT SHAPE MISSING!", false);
+                    medErr += 1;
+                }
+            }
+        }
+
+        if (isCont)
+            checkInit(checkParCont);
+        else {
+            updateValMont("1", ">>INITIALIZE PROCESS MISSING!", false);
+            medErr += 1;
+        }
+
+        // CHECK FOR BROKEN ARROWS
+        let brknLne = 0;
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+
+            let state = graphView.getState(mxCell);
+            ResetColor(state);
+
+            let notConnected = true;
+            if (mxCell.isVertex()) {
+                for (let i = 0; i < mxCell.getEdgeCount(); i++) {
+                    let edge = mxCell.getEdgeAt(i);
+                    if (edge.source !== null && edge.target !== null) {
+                        notConnected = false;
+                        break;
+                    }
+                }
+            }
+            else {
+                notConnected = mxCell.source === null || mxCell.target === null;
+            }
+            if (notConnected) {
+                SetNotConnectedColor(state)
+                updateValMont("3", "DELETE OR CONNECT UNCONNECTED SHAPE/ARROW", false);
+                minErr += 1;
+                brknLne += 1;
+            };
+        }
+        if (brknLne != 0) 
+            return false;
+
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+            let state = graphView.getState(mxCell);
+
+            if (mxCell.isVertex()) {
+                getCellShape = mxCell.style;
+                getCellVal = mxCell.value;
+                getCellEdge = mxCell.getEdgeCount();
+
+                if (getCellShape.includes("ellipse")) {
+                    updateValMont("3", "IS TERMINAL", true);
+                    if ((getCellVal != null || getCellVal != "") && getCellEdge == 1) {
+                        if ($.trim(getCellVal).toUpperCase() == "BEGIN") {
+                            if (!isStart) {
+                                isStart = true;
+                                updateValMont("1", "BEGIN SHAPE LOCATED!", true);
+                            }
+                            else if (isStart) {
+                                updateValMont("0", "BEGIN SHAPE ALREADY EXISTING!", true);
+                                updateValMont("0", ">>ONLY ONE BEGIN SHAPE IS ALLOWED!", false);
+                                isMajor = true;
+
+                                // AN ERROR
+                            }
+                        }
+                        else if ($.trim(getCellVal).toUpperCase() == "END") {
+                            if (isStart) {
+                                if (!isEnd) {
+                                    isEnd = true;
+                                    updateValMont("1", "END SHAPE LOCATED!", true);
+                                }
+                                else {
+                                    updateValMont("0", "END SHAPE ALREADY EXISTING!", true);
+                                    updateValMont("0", ">>DELETE ANY OTHER END SHAPES!", false);
+
+                                    // AN ERROR
+                                }
+                            }
+                            else if (!isStart) {
+                                updateValMont("1", "BEGIN SHAPE NOT YET EXISTING!", true);
+                                updateValMont("1", ">>MAKE BEGIN SHAPE FIRST, BEFORE END!", false);
+                                isMajor = true;
+                            }
+                        }
+                        else {
+                            updateValMont("1", ">>IMPROPER KEYWORD IN TERMINAL SHAPE!", false);
+                            medErr += 1
+                        }
+                    }
+                    else if ($.trim(getCellVal) == "" && getCellEdge == 3) {
+                        updateValMont("1", "GOOD JUNCTION!", true);
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+                        try {
+                            alert("ELLIPSES: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null) {
+                                    getSrc += 1;
+                                }
+                                else if (getEdge.target.value != null) {
+                                    getTar += 1;
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                }
+                            }
+                        }
+                        catch (err) {
+                                // Do Nothing . . .
+                        }
+
+                        if (getSrc == 2 && getTar == 1)
+                            alert("GOOD JUNCTION!");
+                        else {
+                            updateValMont("1", ">>IMPROPER USE OF JUNCTIONS!");
+                            alert("IMPROPER USE OF JUNCTIONS!");
+                            medErr += 1
+                        }*/
+                    }
+                    else {
+                        updateValMont("1", ">>IMPROPER USE OF TERMINAL SHAPE!", false);
+                        medErr += 1;
+                    }
+                }
+                else if (getCellShape.includes("rectangle")) {
+                    updateValMont("3", "IS PROCESS SHAPE!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER PROCESS SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+
+                        // BREAK FOR-LOOP IF NULL VALUE
+                        try {
+                            alert("RECTANGLE: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null && getEdge.source.value != getCellVal) {
+                                    getSrc += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                }
+                                else if (getEdge.target.value != null && getEdge.target.value != getCellVal) {
+                                    getTar += 1;
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                            }
+                        } catch (err) {
+                            // Do Nothing . . .
+                        }*/
+
+                        /*if (errVal != 0) {
+                            updateValMont("1", ">>NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NO. of NULL values: " + errVal);
+                            medErr += errVal;
+                        }
+
+                        PLACE EDGE VALIDATOR HERE !
+
+                        if (getSrc == 1 && getTar == 1) {
+                            alert("PROPER RECTANGLE");
+                            rectCount += 1;
+                        }
+                        else if (getSrc == 0) {
+                            updateValMont("0", ">>CURRENT HAS NO PARENT CELL!");
+                            alert("CURRENT HAS NO PARENT CELL!");
+                            isMajor = true;
+                        }
+                        else if (getTar == 0) {
+                            updateValMont("1", ">>START SHAPE MUST HAVE NO TARGET CELL!");
+                            alert("START SHAPE MUST HAVE NO TARGET CELL!");
+                            medErr += 1;
+                        }*/
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>PROCESS SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>PROCESS SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (getCellVal.includes("INITIALIZE")) {
+                            checkCont = $.trim(getCellVal.replace('INITIALIZE', ''));
+
+                            // VALIDATE VARIABLE HERE
+                        }
+                        else if (/INCREMENT|DO|DECREMENT|ADD|SUBTRACT|MULTIPLY|DIVIDE/.test(getCellVal.toUpperCase())) {
+                            updateValMont("3", "IS MATHEMATICAL!", true);
+                            if (getCellVal.includes("INCREMENT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("DECREMENT"))
+                                removeThs = "OUTPUT";
+                            else if (getCellVal.includes("DO"))
+                                removeThs = "DO";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // CHECK IF VARIABLE IS numeric OR NOT
+                        }
+                        else {
+                            updateValMont("2", ">>INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rotation")) {
+                    updateValMont("3", "IS DATA!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER DATA SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>DATA SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>DATA SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>DATA SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (/INPUT|OUTPUT/.test(getCellVal.toUpperCase())) {
+                            //alert("");
+                            updateValMont("3", "IS INPUT OR OUTPUT!", true);
+                            if (getCellVal.includes("INPUT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("OUTPUT"))
+                                removeThs = "OUTPUT";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // VALIDATE INPUT and OUTPUT HERE
+                        }
+                        else {
+                            updateValMont("2", ">>DATA SHAPE HAS INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rhombus")) {
+                    updateValMont("3", "IS DECISION!", true);
+
+                    if (getCellEdge < 3) {
+                        if (getCellEdge != 2) {
+                            updateValMont("1", ">>DECISION-IF SHAPE INCORRECT CONNECTIONS!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge > 4) {
+                        updateValMont("1", ">>DECISION-WHILE SHAPE HAS TOO MANY CONNECTIONS!", false);
+                        medErr += 1;
+                    }
+                    else if (getCellEdge == 3) {
+                        updateValMont("3", "IS IF!", true);
+                        removeThs = "IF";
+                        if (getCellVal.includes("WHILE")) {
+                            updateValMont("1", ">>WHILE IN A IF-ELSE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge == 4) {
+                        updateValMont("3", "IS WHILE!", true);
+                        removeThs = "WHILE";
+                        if (getCellVal.includes("IF")) {
+                            updateValMont("1", ">>IF-ELSE IN A WHILE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        let getSrc = 0, getTar = 0; errVal = 0
+                        var chckfrst = false;
+
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.style != getCellShape)
+                                getSrc += 1;
+
+                            if (getEdge.target.style == getCellShape) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else
+                                    getTar += 1;
+                            }
+                            else
+                                getTar += 1;
+                        }
+
+                        //try {
+                        //    for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                        //        let getEdge = mxCell.getEdgeAt(k);
+                        //        if (getEdge.source.value != null && getEdge.source.value != getCellVal)
+                        //            getSrc += 1;
+                        //        else if (getEdge.target.value != null && getEdge.target.value != getCellVal)
+                        //            getTar += 1;
+                        //        else if (getEdge.source.value == null || getEdge.target.value == null)
+                        //            errVal += 1;
+                        //    }
+                        //} catch (err) {
+                        //    // Do Nothing . . .
+                        //}
+
+                        if (getCellEdge == 3) {
+                            if (getSrc == 1 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-IF STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-IF SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+
+                                if (getSrc == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getSrc > 1) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS TOO MANY PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO TARGET CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar > 2) {
+                                    updateValMont("1", ">>DECISION-IF SHAPE HAS TOO MANY TARGET CELLS!", false);
+                                    medErr += 1;
+                                }
+                            }
+                        }
+                        else if (getCellEdge == 4) {
+                            if (getSrc == 2 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-WHILE STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else if (getSrc == 0) {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE HAS NO PARENT CELL!", false);
+                                isMajor = true;
+                            }
+                            else if (getTar == 0) {
+                                updateValMont("1", ">>DECISION-WHILE SHAPE MUST HAVE NO TARGET CELL!", false);
+                                medErr += 1;
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+                            }
+                        }
+                    }
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        if (getCellVal == null || $.trim(getCellVal) == "") {
+                            updateValMont("1", ">>DECISION SHAPE HAS NULL VALUE!", false);
+                            medErr += 1;
+                        }
+                        else {
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            var all = "<>=!";
+                            var equalsCnt = 0;
+                            var greatCnt = 0;
+                            var lessCnt = 0;
+                            var excCnt = 0;
+                            for (var ctr = 0; ctr < all.length; ctr++) {
+                                var char = all.charAt(ctr);
+                                var getCount = checkCont.split(char).length - 1;
+                                for (var j = 0; j < getCount; j++) {
+                                    switch (char) {
+                                        case "=":
+                                            equalsCnt += 1;
+                                            break;
+                                        case "<":
+                                            greatCnt += 1;
+                                            break;
+                                        case ">":
+                                            lessCnt += 1;
+                                            break;
+                                        case "!":
+                                            excCnt += 1;
+                                            break;
+                                    }
+                                }
+                            }
+
+                            var position = "";
+                            checkCont = checkCont.replace(/ /g, '');
+                            if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 0) {
+                                updateValMont("2", ">>IMPROPER USE OF CONDITIONAL CHARACTER!", false);
+                                minErr += 1;
+                            }
+                            else if (equalsCnt == 2 && greatCnt == 0 && lessCnt == 0 && excCnt == 0)
+                                position = "==";
+                            else if (equalsCnt == 0 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<";
+                            else if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">";
+                            else if (equalsCnt == 1 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                position = "!=";
+                            else
+                                position = "";
+
+                            if (position != "") {
+                                var getRight, getLeft, getRRy;
+                                getRRy = (checkCont.replace(position, ',')).split(',');
+                                if (getRRy.length != 2) {
+                                    updateValMont("2", ">>ERROR CONDITION FORMAT!", false);
+                                    minErr += 1;
+                                }
+                                else {
+                                    getRight = getRRy[0];
+                                    getLeft = getRRy[1];
+
+                                    // VALIDATE THE VARIABLES HERE 
+                                }
+                            }
+                            else {
+                                if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                    getRight = getConder.replace('!', '');
+                                else
+                                    getRight = getConder;
+                            }
+                        }
+                    }
+                }
+                if (isMajor) {
+                    updateValMont("0", ">>INCORRECT FLOWCHART STRUCTURE!", false);
+                }
+            }
+        }
+
+        updateValMont("1", "CHECKING CONNECTIONS!", true);
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+
+            let state = graphView.getState(mxCell);
+            ResetColor(state);
+
+            let notConnected = true;
+            if (mxCell.isVertex()) {
+                for (let i = 0; i < mxCell.getEdgeCount(); i++) {
+                    let edge = mxCell.getEdgeAt(i);
+                    if (edge.source !== null && edge.target !== null) {
+                        notConnected = false;
+                        break;
+                    }
+                }
+            }
+            else {
+                notConnected = mxCell.source === null || mxCell.target === null;
+            }
+            if (notConnected) {
+                SetNotConnectedColor(state)
+                updateValMont("3", "UNCONNECTED ARROW DETECTED", true);
+                updateValMont("2", "DELETE OR CONNECT UNCONNECTED ARROW", false);
+                minErr += 1;
+            };
+        }
+
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+            let state = graphView.getState(mxCell);
+
+            if (mxCell.isVertex()) {
+                getCellShape = mxCell.style;
+                getCellVal = mxCell.value;
+                getCellEdge = mxCell.getEdgeCount();
+
+                if (getCellShape.includes("ellipse")) {
+                    updateValMont("3", "IS TERMINAL", true);
+                    if ((getCellVal != null || getCellVal != "") && getCellEdge == 1) {
+                        if ($.trim(getCellVal).toUpperCase() == "BEGIN") {
+                            if (!isStart) {
+                                isStart = true;
+                                updateValMont("1", "BEGIN SHAPE LOCATED!", true);
+                            }
+                            else if (isStart) {
+                                updateValMont("0", "BEGIN SHAPE ALREADY EXISTING!", true);
+                                updateValMont("0", ">>ONLY ONE BEGIN SHAPE IS ALLOWED!", false);
+                                isMajor = true;
+
+                                // AN ERROR
+                            }
+                        }
+                        else if ($.trim(getCellVal).toUpperCase() == "END") {
+                            if (isStart) {
+                                if (!isEnd) {
+                                    isEnd = true;
+                                    updateValMont("1", "END SHAPE LOCATED!", true);
+                                }
+                                else {
+                                    updateValMont("0", "END SHAPE ALREADY EXISTING!", true);
+                                    updateValMont("0", ">>DELETE ANY OTHER END SHAPES!", false);
+
+                                    // AN ERROR
+                                }
+                            }
+                            else if (!isStart) {
+                                updateValMont("1", "BEGIN SHAPE NOT YET EXISTING!", true);
+                                updateValMont("1", ">>MAKE BEGIN SHAPE FIRST, BEFORE END!", false);
+                                isMajor = true;
+                            }
+                        }
+                        else {
+                            updateValMont("1", ">>IMPROPER KEYWORD IN TERMINAL SHAPE!", false);
+                            medErr += 1
+                        }
+                    }
+                    else if ($.trim(getCellVal) == "" && getCellEdge == 3) {
+                        updateValMont("1", "GOOD JUNCTION!", true);
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+                        try {
+                            alert("ELLIPSES: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null) {
+                                    getSrc += 1;
+                                }
+                                else if (getEdge.target.value != null) {
+                                    getTar += 1;
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                }
+                            }
+                        }
+                        catch (err) {
+                                // Do Nothing . . .
+                        }
+
+                        if (getSrc == 2 && getTar == 1)
+                            alert("GOOD JUNCTION!");
+                        else {
+                            updateValMont("1", ">>IMPROPER USE OF JUNCTIONS!");
+                            alert("IMPROPER USE OF JUNCTIONS!");
+                            medErr += 1
+                        }*/
+                    }
+                    else {
+                        updateValMont("1", ">>IMPROPER USE OF TERMINAL SHAPE!", false);
+                        medErr += 1;
+                    }
+                }
+                else if (getCellShape.includes("rectangle")) {
+                    updateValMont("3", "IS PROCESS SHAPE!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER PROCESS SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+
+                        // BREAK FOR-LOOP IF NULL VALUE
+                        try {
+                            alert("RECTANGLE: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null && getEdge.source.value != getCellVal) {
+                                    getSrc += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                }
+                                else if (getEdge.target.value != null && getEdge.target.value != getCellVal) {
+                                    getTar += 1;
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                            }
+                        } catch (err) {
+                            // Do Nothing . . .
+                        }*/
+
+                        /*if (errVal != 0) {
+                            updateValMont("1", ">>NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NO. of NULL values: " + errVal);
+                            medErr += errVal;
+                        }
+
+                        PLACE EDGE VALIDATOR HERE !
+
+                        if (getSrc == 1 && getTar == 1) {
+                            alert("PROPER RECTANGLE");
+                            rectCount += 1;
+                        }
+                        else if (getSrc == 0) {
+                            updateValMont("0", ">>CURRENT HAS NO PARENT CELL!");
+                            alert("CURRENT HAS NO PARENT CELL!");
+                            isMajor = true;
+                        }
+                        else if (getTar == 0) {
+                            updateValMont("1", ">>START SHAPE MUST HAVE NO TARGET CELL!");
+                            alert("START SHAPE MUST HAVE NO TARGET CELL!");
+                            medErr += 1;
+                        }*/
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>PROCESS SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>PROCESS SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (getCellVal.includes("INITIALIZE")) {
+                            checkCont = $.trim(getCellVal.replace('INITIALIZE', ''));
+
+                            // VALIDATE VARIABLE HERE
+                        }
+                        else if (/INCREMENT|DO|DECREMENT|ADD|SUBTRACT|MULTIPLY|DIVIDE/.test(getCellVal.toUpperCase())) {
+                            updateValMont("3", "IS MATHEMATICAL!", true);
+                            if (getCellVal.includes("INCREMENT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("DECREMENT"))
+                                removeThs = "OUTPUT";
+                            else if (getCellVal.includes("DO"))
+                                removeThs = "DO";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // CHECK IF VARIABLE IS numeric OR NOT
+                        }
+                        else {
+                            updateValMont("2", ">>INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rotation")) {
+                    updateValMont("3", "IS DATA!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER DATA SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>DATA SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>DATA SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>DATA SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (/INPUT|OUTPUT/.test(getCellVal.toUpperCase())) {
+                            //alert("");
+                            updateValMont("3", "IS INPUT OR OUTPUT!", true);
+                            if (getCellVal.includes("INPUT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("OUTPUT"))
+                                removeThs = "OUTPUT";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // VALIDATE INPUT and OUTPUT HERE
+                        }
+                        else {
+                            updateValMont("2", ">>DATA SHAPE HAS INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rhombus")) {
+                    updateValMont("3", "IS DECISION!", true);
+
+                    if (getCellEdge < 3) {
+                        if (getCellEdge != 2) {
+                            updateValMont("1", ">>DECISION-IF SHAPE INCORRECT CONNECTIONS!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge > 4) {
+                        updateValMont("1", ">>DECISION-WHILE SHAPE HAS TOO MANY CONNECTIONS!", false);
+                        medErr += 1;
+                    }
+                    else if (getCellEdge == 3) {
+                        updateValMont("3", "IS IF!", true);
+                        removeThs = "IF";
+                        if (getCellVal.includes("WHILE")) {
+                            updateValMont("1", ">>WHILE IN A IF-ELSE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge == 4) {
+                        updateValMont("3", "IS WHILE!", true);
+                        removeThs = "WHILE";
+                        if (getCellVal.includes("IF")) {
+                            updateValMont("1", ">>IF-ELSE IN A WHILE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        let getSrc = 0, getTar = 0; errVal = 0
+                        var chckfrst = false;
+
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.style != getCellShape)
+                                getSrc += 1;
+
+                            if (getEdge.target.style == getCellShape) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else
+                                    getTar += 1;
+                            }
+                            else
+                                getTar += 1;
+                        }
+
+                        //try {
+                        //    for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                        //        let getEdge = mxCell.getEdgeAt(k);
+                        //        if (getEdge.source.value != null && getEdge.source.value != getCellVal)
+                        //            getSrc += 1;
+                        //        else if (getEdge.target.value != null && getEdge.target.value != getCellVal)
+                        //            getTar += 1;
+                        //        else if (getEdge.source.value == null || getEdge.target.value == null)
+                        //            errVal += 1;
+                        //    }
+                        //} catch (err) {
+                        //    // Do Nothing . . .
+                        //}
+
+                        if (getCellEdge == 3) {
+                            if (getSrc == 1 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-IF STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-IF SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+
+                                if (getSrc == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getSrc > 1) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS TOO MANY PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO TARGET CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar > 2) {
+                                    updateValMont("1", ">>DECISION-IF SHAPE HAS TOO MANY TARGET CELLS!", false);
+                                    medErr += 1;
+                                }
+                            }
+                        }
+                        else if (getCellEdge == 4) {
+                            if (getSrc == 2 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-WHILE STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else if (getSrc == 0) {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE HAS NO PARENT CELL!", false);
+                                isMajor = true;
+                            }
+                            else if (getTar == 0) {
+                                updateValMont("1", ">>DECISION-WHILE SHAPE MUST HAVE NO TARGET CELL!", false);
+                                medErr += 1;
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+                            }
+                        }
+                    }
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        if (getCellVal == null || $.trim(getCellVal) == "") {
+                            updateValMont("1", ">>DECISION SHAPE HAS NULL VALUE!", false);
+                            medErr += 1;
+                        }
+                        else {
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            var all = "<>=!";
+                            var equalsCnt = 0;
+                            var greatCnt = 0;
+                            var lessCnt = 0;
+                            var excCnt = 0;
+                            for (var ctr = 0; ctr < all.length; ctr++) {
+                                var char = all.charAt(ctr);
+                                var getCount = checkCont.split(char).length - 1;
+                                for (var j = 0; j < getCount; j++) {
+                                    switch (char) {
+                                        case "=":
+                                            equalsCnt += 1;
+                                            break;
+                                        case "<":
+                                            greatCnt += 1;
+                                            break;
+                                        case ">":
+                                            lessCnt += 1;
+                                            break;
+                                        case "!":
+                                            excCnt += 1;
+                                            break;
+                                    }
+                                }
+                            }
+
+                            var position = "";
+                            checkCont = checkCont.replace(/ /g, '');
+                            if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 0) {
+                                updateValMont("2", ">>IMPROPER USE OF CONDITIONAL CHARACTER!", false);
+                                minErr += 1;
+                            }
+                            else if (equalsCnt == 2 && greatCnt == 0 && lessCnt == 0 && excCnt == 0)
+                                position = "==";
+                            else if (equalsCnt == 0 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<";
+                            else if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">";
+                            else if (equalsCnt == 1 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                position = "!=";
+                            else
+                                position = "";
+
+                            if (position != "") {
+                                var getRight, getLeft, getRRy;
+                                getRRy = (checkCont.replace(position, ',')).split(',');
+                                if (getRRy.length != 2) {
+                                    updateValMont("2", ">>ERROR CONDITION FORMAT!", false);
+                                    minErr += 1;
+                                }
+                                else {
+                                    getRight = getRRy[0];
+                                    getLeft = getRRy[1];
+
+                                    // VALIDATE THE VARIABLES HERE 
+                                }
+                            }
+                            else {
+                                if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                    getRight = getConder.replace('!', '');
+                                else
+                                    getRight = getConder;
+                            }
+                        }
+                    }
+                }
+                if (isMajor) {
+                    updateValMont("0", ">>INCORRECT FLOWCHART STRUCTURE!", false);
+                }
+            }
+        }
+
+        updateValMont("1", "CHECKING CONNECTIONS!", true);
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+
+            let state = graphView.getState(mxCell);
+            ResetColor(state);
+
+            let notConnected = true;
+            if (mxCell.isVertex()) {
+                for (let i = 0; i < mxCell.getEdgeCount(); i++) {
+                    let edge = mxCell.getEdgeAt(i);
+                    if (edge.source !== null && edge.target !== null) {
+                        notConnected = false;
+                        break;
+                    }
+                }
+            }
+            else {
+                notConnected = mxCell.source === null || mxCell.target === null;
+            }
+            if (notConnected) {
+                SetNotConnectedColor(state)
+                updateValMont("3", "UNCONNECTED ARROW DETECTED", true);
+                updateValMont("2", "DELETE OR CONNECT UNCONNECTED ARROW", false);
+                minErr += 1;
+            };
+        }
+
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+            let state = graphView.getState(mxCell);
+
+            if (mxCell.isVertex()) {
+                getCellShape = mxCell.style;
+                getCellVal = mxCell.value;
+                getCellEdge = mxCell.getEdgeCount();
+
+                if (getCellShape.includes("ellipse")) {
+                    updateValMont("3", "IS TERMINAL", true);
+                    if ((getCellVal != null || getCellVal != "") && getCellEdge == 1) {
+                        if ($.trim(getCellVal).toUpperCase() == "BEGIN") {
+                            if (!isStart) {
+                                isStart = true;
+                                updateValMont("1", "BEGIN SHAPE LOCATED!", true);
+                            }
+                            else if (isStart) {
+                                updateValMont("0", "BEGIN SHAPE ALREADY EXISTING!", true);
+                                updateValMont("0", ">>ONLY ONE BEGIN SHAPE IS ALLOWED!", false);
+                                isMajor = true;
+
+                                // AN ERROR
+                            }
+                        }
+                        else if ($.trim(getCellVal).toUpperCase() == "END") {
+                            if (isStart) {
+                                if (!isEnd) {
+                                    isEnd = true;
+                                    updateValMont("1", "END SHAPE LOCATED!", true);
+                                }
+                                else {
+                                    updateValMont("0", "END SHAPE ALREADY EXISTING!", true);
+                                    updateValMont("0", ">>DELETE ANY OTHER END SHAPES!", false);
+
+                                    // AN ERROR
+                                }
+                            }
+                            else if (!isStart) {
+                                updateValMont("1", "BEGIN SHAPE NOT YET EXISTING!", true);
+                                updateValMont("1", ">>MAKE BEGIN SHAPE FIRST, BEFORE END!", false);
+                                isMajor = true;
+                            }
+                        }
+                        else {
+                            updateValMont("1", ">>IMPROPER KEYWORD IN TERMINAL SHAPE!", false);
+                            medErr += 1
+                        }
+                    }
+                    else if ($.trim(getCellVal) == "" && getCellEdge == 3) {
+                        updateValMont("1", "GOOD JUNCTION!", true);
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+                        try {
+                            alert("ELLIPSES: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null) {
+                                    getSrc += 1;
+                                }
+                                else if (getEdge.target.value != null) {
+                                    getTar += 1;
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                }
+                            }
+                        }
+                        catch (err) {
+                                // Do Nothing . . .
+                        }
+
+                        if (getSrc == 2 && getTar == 1)
+                            alert("GOOD JUNCTION!");
+                        else {
+                            updateValMont("1", ">>IMPROPER USE OF JUNCTIONS!");
+                            alert("IMPROPER USE OF JUNCTIONS!");
+                            medErr += 1
+                        }*/
+                    }
+                    else {
+                        updateValMont("1", ">>IMPROPER USE OF TERMINAL SHAPE!", false);
+                        medErr += 1;
+                    }
+                }
+                else if (getCellShape.includes("rectangle")) {
+                    updateValMont("3", "IS PROCESS SHAPE!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER PROCESS SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+
+                        /*let getSrc = 0, getTar = 0; errVal = 0
+
+                        // BREAK FOR-LOOP IF NULL VALUE
+                        try {
+                            alert("RECTANGLE: " + mxCell.getEdgeCount());
+                            for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                                let getEdge = mxCell.getEdgeAt(k);
+                                if (getEdge.source.value != null && getEdge.source.value != getCellVal) {
+                                    getSrc += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                }
+                                else if (getEdge.target.value != null && getEdge.target.value != getCellVal) {
+                                    getTar += 1;
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                                else if (getEdge.source.value == null || getEdge.target.value == null) {
+                                    errVal += 1;
+                                    alert(getEdge.source.value);
+                                    alert(getEdge.source.shape);
+                                    alert(getEdge.target.value);
+                                    alert(getEdge.target.shape);
+                                }
+                            }
+                        } catch (err) {
+                            // Do Nothing . . .
+                        }*/
+
+                        /*if (errVal != 0) {
+                            updateValMont("1", ">>NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NEARY SHAPES AT CURRENT RECTANGLE HAS NO VALUES!");
+                            alert("NO. of NULL values: " + errVal);
+                            medErr += errVal;
+                        }
+
+                        PLACE EDGE VALIDATOR HERE !
+
+                        if (getSrc == 1 && getTar == 1) {
+                            alert("PROPER RECTANGLE");
+                            rectCount += 1;
+                        }
+                        else if (getSrc == 0) {
+                            updateValMont("0", ">>CURRENT HAS NO PARENT CELL!");
+                            alert("CURRENT HAS NO PARENT CELL!");
+                            isMajor = true;
+                        }
+                        else if (getTar == 0) {
+                            updateValMont("1", ">>START SHAPE MUST HAVE NO TARGET CELL!");
+                            alert("START SHAPE MUST HAVE NO TARGET CELL!");
+                            medErr += 1;
+                        }*/
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>PROCESS SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>PROCESS SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (getCellVal.includes("INITIALIZE")) {
+                            checkCont = $.trim(getCellVal.replace('INITIALIZE', ''));
+
+                            // VALIDATE VARIABLE HERE
+                        }
+                        else if (/INCREMENT|DO|DECREMENT|ADD|SUBTRACT|MULTIPLY|DIVIDE/.test(getCellVal.toUpperCase())) {
+                            updateValMont("3", "IS MATHEMATICAL!", true);
+                            if (getCellVal.includes("INCREMENT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("DECREMENT"))
+                                removeThs = "OUTPUT";
+                            else if (getCellVal.includes("DO"))
+                                removeThs = "DO";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // CHECK IF VARIABLE IS numeric OR NOT
+                        }
+                        else {
+                            updateValMont("2", ">>INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rotation")) {
+                    updateValMont("3", "IS DATA!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER DATA SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>DATA SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>DATA SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>DATA SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (/INPUT|OUTPUT/.test(getCellVal.toUpperCase())) {
+                            //alert("");
+                            updateValMont("3", "IS INPUT OR OUTPUT!", true);
+                            if (getCellVal.includes("INPUT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("OUTPUT"))
+                                removeThs = "OUTPUT";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // VALIDATE INPUT and OUTPUT HERE
+                        }
+                        else {
+                            updateValMont("2", ">>DATA SHAPE HAS INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rhombus")) {
+                    updateValMont("3", "IS DECISION!", true);
+
+                    if (getCellEdge < 3) {
+                        if (getCellEdge != 2) {
+                            updateValMont("1", ">>DECISION-IF SHAPE INCORRECT CONNECTIONS!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge > 4) {
+                        updateValMont("1", ">>DECISION-WHILE SHAPE HAS TOO MANY CONNECTIONS!", false);
+                        medErr += 1;
+                    }
+                    else if (getCellEdge == 3) {
+                        updateValMont("3", "IS IF!", true);
+                        removeThs = "IF";
+                        if (getCellVal.includes("WHILE")) {
+                            updateValMont("1", ">>WHILE IN A IF-ELSE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge == 4) {
+                        updateValMont("3", "IS WHILE!", true);
+                        removeThs = "WHILE";
+                        if (getCellVal.includes("IF")) {
+                            updateValMont("1", ">>IF-ELSE IN A WHILE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        let getSrc = 0, getTar = 0; errVal = 0
+                        var chckfrst = false;
+
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.style != getCellShape)
+                                getSrc += 1;
+
+                            if (getEdge.target.style == getCellShape) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else
+                                    getTar += 1;
+                            }
+                            else
+                                getTar += 1;
+                        }
+
+                        //try {
+                        //    for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                        //        let getEdge = mxCell.getEdgeAt(k);
+                        //        if (getEdge.source.value != null && getEdge.source.value != getCellVal)
+                        //            getSrc += 1;
+                        //        else if (getEdge.target.value != null && getEdge.target.value != getCellVal)
+                        //            getTar += 1;
+                        //        else if (getEdge.source.value == null || getEdge.target.value == null)
+                        //            errVal += 1;
+                        //    }
+                        //} catch (err) {
+                        //    // Do Nothing . . .
+                        //}
+
+                        if (getCellEdge == 3) {
+                            if (getSrc == 1 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-IF STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-IF SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+
+                                if (getSrc == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getSrc > 1) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS TOO MANY PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO TARGET CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar > 2) {
+                                    updateValMont("1", ">>DECISION-IF SHAPE HAS TOO MANY TARGET CELLS!", false);
+                                    medErr += 1;
+                                }
+                            }
+                        }
+                        else if (getCellEdge == 4) {
+                            if (getSrc == 2 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-WHILE STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else if (getSrc == 0) {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE HAS NO PARENT CELL!", false);
+                                isMajor = true;
+                            }
+                            else if (getTar == 0) {
+                                updateValMont("1", ">>DECISION-WHILE SHAPE MUST HAVE NO TARGET CELL!", false);
+                                medErr += 1;
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+                            }
+                        }
+                    }
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        if (getCellVal == null || $.trim(getCellVal) == "") {
+                            updateValMont("1", ">>DECISION SHAPE HAS NULL VALUE!", false);
+                            medErr += 1;
+                        }
+                        else {
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            var all = "<>=!";
+                            var equalsCnt = 0;
+                            var greatCnt = 0;
+                            var lessCnt = 0;
+                            var excCnt = 0;
+                            for (var ctr = 0; ctr < all.length; ctr++) {
+                                var char = all.charAt(ctr);
+                                var getCount = checkCont.split(char).length - 1;
+                                for (var j = 0; j < getCount; j++) {
+                                    switch (char) {
+                                        case "=":
+                                            equalsCnt += 1;
+                                            break;
+                                        case "<":
+                                            greatCnt += 1;
+                                            break;
+                                        case ">":
+                                            lessCnt += 1;
+                                            break;
+                                        case "!":
+                                            excCnt += 1;
+                                            break;
+                                    }
+                                }
+                            }
+
+                            var position = "";
+                            checkCont = checkCont.replace(/ /g, '');
+                            if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 0) {
+                                updateValMont("2", ">>IMPROPER USE OF CONDITIONAL CHARACTER!", false);
+                                minErr += 1;
+                            }
+                            else if (equalsCnt == 2 && greatCnt == 0 && lessCnt == 0 && excCnt == 0)
+                                position = "==";
+                            else if (equalsCnt == 0 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<";
+                            else if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">";
+                            else if (equalsCnt == 1 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                position = "!=";
+                            else
+                                position = "";
+
+                            if (position != "") {
+                                var getRight, getLeft, getRRy;
+                                getRRy = (checkCont.replace(position, ',')).split(',');
+                                if (getRRy.length != 2) {
+                                    updateValMont("2", ">>ERROR CONDITION FORMAT!", false);
+                                    minErr += 1;
+                                }
+                                else {
+                                    getRight = getRRy[0];
+                                    getLeft = getRRy[1];
+
+                                    // VALIDATE THE VARIABLES HERE 
+                                }
+                            }
+                            else {
+                                if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                    getRight = getConder.replace('!', '');
+                                else
+                                    getRight = getConder;
+                            }
+                        }
+                    }
+                }
+                if (isMajor) {
+                    updateValMont("0", ">>INCORRECT FLOWCHART STRUCTURE!", false);
+                }
+            }
+        }
+
+        updateValMont("1", "CHECKING CONNECTIONS!", true);
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+
+            let state = graphView.getState(mxCell);
+            ResetColor(state);
+
+            let notConnected = true;
+            if (mxCell.isVertex()) {
+                for (let i = 0; i < mxCell.getEdgeCount(); i++) {
+                    let edge = mxCell.getEdgeAt(i);
+                    if (edge.source !== null && edge.target !== null) {
+                        notConnected = false;
+                        break;
+                    }
+                }
+            }
+            else {
+                notConnected = mxCell.source === null || mxCell.target === null;
+            }
+            if (notConnected) {
+                SetNotConnectedColor(state)
+                updateValMont("3", "UNCONNECTED ARROW DETECTED", true);
+                updateValMont("2", "DELETE OR CONNECT UNCONNECTED ARROW", false);
+                minErr += 1;
+            };
+        }
+
+        for (let key in cells) {
+            if (!cells.hasOwnProperty(key)) continue;
+
+            let mxCell = cells[key];
+            if (!mxCell.isVertex() && !mxCell.isEdge()) continue;
+            let state = graphView.getState(mxCell);
+
+            if (mxCell.isVertex()) {
+                getCellShape = mxCell.style;
+                getCellVal = mxCell.value;
+                getCellEdge = mxCell.getEdgeCount();
+
+                if (getCellShape.includes("ellipse")) {
+                    updateValMont("3", "IS TERMINAL", true);
+                    if ((getCellVal != null || getCellVal != "") && getCellEdge == 1) {
+                        if ($.trim(getCellVal).toUpperCase() == "BEGIN") {
+                            if (!isStart) {
+                                isStart = true;
+                                updateValMont("1", "BEGIN SHAPE LOCATED!", true);
+                            }
+                            else if (isStart) {
+                                updateValMont("0", "BEGIN SHAPE ALREADY EXISTING!", true);
+                                updateValMont("0", ">>ONLY ONE BEGIN SHAPE IS ALLOWED!", false);
+                                isMajor = true;
+
+                                // AN ERROR
+                            }
+                        }
+                        else if ($.trim(getCellVal).toUpperCase() == "END") {
+                            if (isStart) {
+                                if (!isEnd) {
+                                    isEnd = true;
+                                    updateValMont("1", "END SHAPE LOCATED!", true);
+                                }
+                                else {
+                                    updateValMont("0", "END SHAPE ALREADY EXISTING!", true);
+                                    updateValMont("0", ">>DELETE ANY OTHER END SHAPES!", false);
+
+                                    // AN ERROR
+                                }
+                            }
+                            else if (!isStart) {
+                                updateValMont("1", "BEGIN SHAPE NOT YET EXISTING!", true);
+                                updateValMont("1", ">>MAKE BEGIN SHAPE FIRST, BEFORE END!", false);
+                                isMajor = true;
+                            }
+                        }
+                        else {
+                            updateValMont("1", ">>IMPROPER KEYWORD IN TERMINAL SHAPE!", false);
+                            medErr += 1
+                        }
+                    }
+                    else if ($.trim(getCellVal) == "" && getCellEdge == 3) {
+                        updateValMont("1", "GOOD JUNCTION!", true);
+                    }
+                    else {
+                        updateValMont("1", ">>IMPROPER USE OF TERMINAL SHAPE!", false);
+                        medErr += 1;
+                    }
+                }
+                else if (getCellShape.includes("rectangle")) {
+                    updateValMont("3", "IS PROCESS SHAPE!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER PROCESS SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>PROCESS SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>PROCESS SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>PROCESS SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (getCellVal.includes("INITIALIZE")) {
+                            checkCont = $.trim(getCellVal.replace('INITIALIZE', ''));
+
+                            // VALIDATE VARIABLE HERE
+                        }
+                        else if (/INCREMENT|DO|DECREMENT|ADD|SUBTRACT|MULTIPLY|DIVIDE/.test(getCellVal.toUpperCase())) {
+                            updateValMont("3", "IS MATHEMATICAL!", true);
+                            if (getCellVal.includes("INCREMENT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("DECREMENT"))
+                                removeThs = "OUTPUT";
+                            else if (getCellVal.includes("DO"))
+                                removeThs = "DO";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // CHECK IF VARIABLE IS numeric OR NOT
+                        }
+                        else {
+                            updateValMont("2", ">>INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rotation")) {
+                    updateValMont("3", "IS DATA!", true);
+
+                    let checkCont, removeThs;
+                    var semiComa = ",;"
+                    var sntComa = 0;
+                    var cntSemi = 0;
+
+                    // CHECK IF INIT RECTANGLE IS ALREADY FOUND
+                    if (getCellEdge == 2) {
+                        updateValMont("3", "PROPER DATA SHAPE!", true);
+                        rectCount += 1;
+
+                        var chckfrst = false;
+                        var chckscnd = false;
+
+                        var getID = mxCell.id;
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.id == getID) {
+                                if (!chckscnd)
+                                    chckscnd = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE CONNECTS TO TOO MANY!", false);
+                                    isMajor = true;
+                                }
+                            }
+
+                            if (getEdge.target.id == getID) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else {
+                                    updateValMont("0", ">>DATA SHAPE HAS TOO MANY PARENT CELLS!", false);
+                                    isMajor = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (getCellEdge < 2) {
+                        updateValMont("0", ">>DATA SHAPE LACKS CONNECTION!", false);
+                        isMajor = true;
+                    }
+                    else if (getCellEdge > 2) {
+                        updateValMont("0", ">>DATA SHAPE HAS TOO MANY CONNECTION!", false);
+                        isMajor = true;
+                    }
+
+                    if (getCellVal == null || $.trim(getCellVal) == "") {
+                        updateValMont("1", ">>DATA SHAPE HAS NULL VALUE!", false);
+                        medErr += 1;
+                    }
+                    else {
+                        // WILL CHECK CELL CONTENT . .
+                        // REGARDLESS OF IT HAS PARENT or TARGET
+                        for (var ctr = 0; ctr < semiComa.length; ctr++) {
+                            var setset = semiComa.charAt(ctr);
+                            var getCount = getCellVal.split(setset).length - 1;
+                            for (var j = 0; j < getCount; j++) {
+                                switch (setset) {
+                                    case ",":
+                                        sntComa += 1;
+                                        break;
+                                    case ";":
+                                        cntSemi += 1;
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (sntComa > 1 || cntSemi > 1) {
+                            updateValMont("1", ">>TOO MANY OPERATIONS!", false);
+                            medErr += 1;
+                        }
+
+                        if (/INPUT|OUTPUT/.test(getCellVal.toUpperCase())) {
+                            //alert("");
+                            updateValMont("3", "IS INPUT OR OUTPUT!", true);
+                            if (getCellVal.includes("INPUT"))
+                                removeThs = "INPUT";
+                            else if (getCellVal.includes("OUTPUT"))
+                                removeThs = "OUTPUT";
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            // VALIDATE INPUT and OUTPUT HERE
+                        }
+                        else {
+                            updateValMont("2", ">>DATA SHAPE HAS INCORRECT KEYWORD!", false);
+                            minErr += 1;
+                        }
+                    }
+                }
+
+                else if (getCellShape.includes("rhombus")) {
+                    updateValMont("3", "IS DECISION!", true);
+
+                    if (getCellEdge < 3) {
+                        if (getCellEdge != 2) {
+                            updateValMont("1", ">>DECISION-IF SHAPE INCORRECT CONNECTIONS!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge > 4) {
+                        updateValMont("1", ">>DECISION-WHILE SHAPE HAS TOO MANY CONNECTIONS!", false);
+                        medErr += 1;
+                    }
+                    else if (getCellEdge == 3) {
+                        updateValMont("3", "IS IF!", true);
+                        removeThs = "IF";
+                        if (getCellVal.includes("WHILE")) {
+                            updateValMont("1", ">>WHILE IN A IF-ELSE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+                    else if (getCellEdge == 4) {
+                        updateValMont("3", "IS WHILE!", true);
+                        removeThs = "WHILE";
+                        if (getCellVal.includes("IF")) {
+                            updateValMont("1", ">>IF-ELSE IN A WHILE STRUCTURE!", false);
+                            medErr += 1;
+                        }
+                    }
+
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        let getSrc = 0, getTar = 0; errVal = 0
+                        var chckfrst = false;
+
+                        for (let k = 0; k < mxCell.getEdgeCount(); k++) {
+                            let getEdge = mxCell.getEdgeAt(k);
+                            if (getEdge.source.style != getCellShape)
+                                getSrc += 1;
+
+                            if (getEdge.target.style == getCellShape) {
+                                if (!chckfrst)
+                                    chckfrst = true
+                                else
+                                    getTar += 1;
+                            }
+                            else
+                                getTar += 1;
+                        }
+
+                        if (getCellEdge == 3) {
+                            if (getSrc == 1 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-IF STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-IF SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+
+                                if (getSrc == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getSrc > 1) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS TOO MANY PARENT CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar == 0) {
+                                    updateValMont("0", ">>DECISION-IF SHAPE HAS NO TARGET CELL!", false);
+                                    isMajor = true;
+                                }
+
+                                if (getTar > 2) {
+                                    updateValMont("1", ">>DECISION-IF SHAPE HAS TOO MANY TARGET CELLS!", false);
+                                    medErr += 1;
+                                }
+                            }
+                        }
+                        else if (getCellEdge == 4) {
+                            if (getSrc == 2 && getTar == 2) {
+                                updateValMont("1", "PROPER DECISION-WHILE STRUCTURE!", true);
+                                // Do Nothing . . .
+                            }
+                            else if (getSrc == 0) {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE HAS NO PARENT CELL!", false);
+                                isMajor = true;
+                            }
+                            else if (getTar == 0) {
+                                updateValMont("1", ">>DECISION-WHILE SHAPE MUST HAVE NO TARGET CELL!", false);
+                                medErr += 1;
+                            }
+                            else {
+                                updateValMont("0", ">>DECISION-WHILE SHAPE INCORRECT CONNECTION!", false);
+                                isMajor = true;
+                            }
+                        }
+                    }
+                    if (getCellEdge == 3 || getCellEdge == 4) {
+                        if (getCellVal == null || $.trim(getCellVal) == "") {
+                            updateValMont("1", ">>DECISION SHAPE HAS NULL VALUE!", false);
+                            medErr += 1;
+                        }
+                        else {
+                            checkCont = $.trim(getCellVal.replace(removeThs, ''));
+
+                            var all = "<>=!";
+                            var equalsCnt = 0;
+                            var greatCnt = 0;
+                            var lessCnt = 0;
+                            var excCnt = 0;
+                            for (var ctr = 0; ctr < all.length; ctr++) {
+                                var char = all.charAt(ctr);
+                                var getCount = checkCont.split(char).length - 1;
+                                for (var j = 0; j < getCount; j++) {
+                                    switch (char) {
+                                        case "=":
+                                            equalsCnt += 1;
+                                            break;
+                                        case "<":
+                                            greatCnt += 1;
+                                            break;
+                                        case ">":
+                                            lessCnt += 1;
+                                            break;
+                                        case "!":
+                                            excCnt += 1;
+                                            break;
+                                    }
+                                }
+                            }
+
+                            var position = "";
+                            checkCont = checkCont.replace(/ /g, '');
+                            if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 0) {
+                                updateValMont("2", ">>IMPROPER USE OF CONDITIONAL CHARACTER!", false);
+                                minErr += 1;
+                            }
+                            else if (equalsCnt == 2 && greatCnt == 0 && lessCnt == 0 && excCnt == 0)
+                                position = "==";
+                            else if (equalsCnt == 0 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<";
+                            else if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">";
+                            else if (equalsCnt == 1 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+                                position = "<=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+                                position = ">=";
+                            else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                position = "!=";
+                            else
+                                position = "";
+
+                            if (position != "") {
+                                var getRight, getLeft, getRRy;
+                                getRRy = (checkCont.replace(position, ',')).split(',');
+                                if (getRRy.length != 2) {
+                                    updateValMont("2", ">>ERROR CONDITION FORMAT!", false);
+                                    minErr += 1;
+                                }
+                                else {
+                                    getRight = getRRy[0];
+                                    getLeft = getRRy[1];
+
+                                    // VALIDATE THE VARIABLES HERE 
+                                }
+                            }
+                            else {
+                                if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                                    getRight = getConder.replace('!', '');
+                                else
+                                    getRight = getConder;
+                            }
+                        }
+                    }
+                }
+                if (isMajor) {
+                    updateValMont("0", ">>INCORRECT FLOWCHART STRUCTURE!", false);
+                }
+            }
+        }
+
+        var studScore = 0;
+        $("#studTotalScore").val(studScore);
+        $("#postScoreHere").text(studScore);
+
+        if (isStart && isEnd && isCont) {
+            //updateValMont("1", ">>COMPLETE FLOWCHART STRUCTURE!", false);
+            $("#validate1").removeAttr("disabled");
+            if (!isMajor) {
+                var totalDeductions = (medErr * 0.1) + (minErr * 0.05);
+                studScore = Math.floor(getStudScore - (getStudScore * totalDeductions));
+                if ((getStudScore * totalDeductions) > studScore)
+                    studScore = 0;
+                $("#studTotalScore").val(studScore);
+                $("#postScoreHere").text(studScore);
+            }
+            else if (isMajor) {
+                studScore = 0;
+                $("#studTotalScore").val(studScore);
+                $("#postScoreHere").text(studScore);
+            }
+        }
+        else {
+            updateValMont("0", ">>FLOWCHART STRUCTURE NOT COMPLETE!", false);
+            studScore = 0;
+            $("#studTotalScore").val("0");
+            $("#postScoreHere").text("0");
+            $("#validate1").removeAttr("disabled");
+        }
+
+        if (!isMajor) {
+            $("#captureOutput").removeAttr("disabled");
+        }
+
+        if (minErr == 0 && medErr == 0 && !isMajor)
+            $("#hdifnoErr").show();
+        else {
+            $("#hdifnoErr").hide();
+        }
+    }
+
+    function ResetColor(state) {
+        state.shape.node.classList.remove("not_connected");
+        if (state.text)
+            state.text.node.classList.remove("not_connected");
+    }
+
+    function SetNotConnectedColor(state) {
+        state.shape.node.classList.add("not_connected");
+        if (state.text)
+            state.text.node.classList.add("not_connected");
+    }
+    
+    $(document).ready(function() {
+        // Get URL Params
+        let params = getURLParams('f');
+        if (!params){ 
+            $(".sidebar").hide();
+            $("#sidebarToggle").hide();
+        }
+        else {
+            let sidebarToggle = document.querySelector(".sidebarToggle");
+            sidebarToggle.addEventListener('click', function () {
+                document.querySelector("body").classList.toggle("active");
+                document.querySelector(".sidebarToggle").classList.toggle("active");
+                nav.classList.toggle("nav-open");
+            });
+            $(".nav-overlay").attr("onclick", "change()");
+        }
+
+        $('#body-env').on('click', function () {
+            var detect = document.querySelectorAll(".OnFocus");
+            if (detect.length != 0) {
+                var dasdsadda = document.querySelector(".OnFocus");
+                $('div').removeClass('OnFocus');
+            }
+        });
+
+        $("#val-bttn").on('click', () => {
+            Validate();
+        });
+
+        $("#gb-bttn").on('click', () => {
+            window.location.href = "./AWET-Homepage.html";
+        })
+        
+        $(document).click(function (e) {
+            switch (e.which) {
+                case 1:
+                    graph.panningHandler.ignoreCell = false;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    graph.panningHandler.ignoreCell = true;
+                    //right Click
+                    break;
+            }
+        });
+    })
+</script>
 </html>

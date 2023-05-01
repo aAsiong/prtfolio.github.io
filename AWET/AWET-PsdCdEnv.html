@@ -18,6 +18,7 @@
         }
 
         .page {
+            min-width: 860px;
             height: 100%;
         }
 
@@ -128,13 +129,12 @@
         }
 
         .sdPanel {
-            width: 30%;
+            width: 40%;
             padding: 20px 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
-            border-left: 3px solid black;
         }
 
         .frs-dv { width: 90%; display: flex; flex-direction: column; gap: 10px; }
@@ -196,6 +196,7 @@
         }
 
         .majorCnter, .medCnter, .minCnr {
+            display: inline-flex;
             color: black;
             padding: 5px;
             border-radius: 10px;
@@ -474,11 +475,9 @@
                     <!-- Button Container -->
                     <div class="bttn-cntr">
                         <button type="button" id="gb-bttn" class="regButton" 
-                        style="font-size: 20px;" onclick="validate();">Go Back</button>
+                        style="font-size: 20px;">Go Back</button>
                         <button type="button" id="val-bttn" class="regButton" 
-                        style="font-size: 20px;" onclick="validate();">Validate</button>
-                        <button type="button" id="cptr-bttn" class="regButton" 
-                        style="font-size: 20px;" onclick="validate();">Capture</button>
+                        style="font-size: 20px;">Validate</button>
                     </div>
                 </section>
 
@@ -584,7 +583,6 @@
                 </button>
             </div>
         </section>
-        
     </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
@@ -593,17 +591,6 @@
 <script>
     var nav = document.querySelector(".nav");
     let h2 = document.getElementById("instructBody");
-
-    let initVar = 0, procVar = 0, ifElseVar = 0, whileVar = 0;
-    var breakThrgh = true;
-    var isEmpty = true;
-
-    var trueF = ["TRUE", "FALSE"];
-    var dttypes = ["str", "int", "bool", "char", "var"];
-    var cndtion = ["=", ">", "<", "==", "<=", ">=", "!="];
-    var storeValTypes = [];
-    var storeVals = [];
-
 
     function getURLParams(sParam) {
         // Declare Variables
@@ -627,6 +614,523 @@
         document.querySelector("body").classList.toggle("active");
         document.getElementById("sidebarToggle").classList.toggle("active");
         nav.classList.toggle("nav-open");
+    }
+
+    let initVar = 0, procVar = 0, ifElseVar = 0, whileVar = 0;
+    var breakThrgh = true;
+    var isEmpty = true;
+
+    const trueF = ["TRUE", "FALSE"];
+    const dttypes = ["str", "int", "bool", "char", "var"];
+    const cndtion = ["=", ">", "<", "==", "<=", ">=", "!="];
+
+    var medErr = 0, minErr = 0;
+
+    function isNum(val) {
+        return !isNaN(val)
+    }
+
+    function updateValMont(wKind, errorMsg, islog) {
+        var createP, homeDiv;
+        createP = document.createElement("p");
+        switch (wKind) {
+            case "0":
+                createP.style = "margin: 0; color: red;";
+                createP.className = "isMajorErr";
+                break;
+            case "1":
+                createP.style = "margin: 0; color: orange;";
+                createP.className = "isMediumErr";
+                break;
+            case "2":
+                createP.style = "margin: 0; color: yellow;";
+                createP.className = "isMinorErr";
+                break;
+            case "3":
+                createP.style = "margin: 0; font-size: 18px; color: black;";
+                createP.className = "isErr";
+                break;
+        }
+        createP.innerText = errorMsg;
+
+        if (!islog) {
+            homeDiv = document.getElementById("valMont");
+            homeDiv.append(createP);
+        }
+    }
+
+    var isMajor;
+    function Validate() {
+        $("#validate1").attr("disabled", true);
+        $("#captureOutput").attr('disabled', true);
+
+        var getValue;
+
+        // Counter
+        isMajor = false;
+        var isInit = false;
+        var isProcess = false;
+        medErr = 0, minErr = 0;
+
+        $("#valMont").empty();
+        $("#valLog").empty();
+
+        $(".inptMm input[type=checkbox]").each(function () {
+            $("#" + this.id).prop("checked", true);
+        })
+
+        getParentNode = document.getElementById("mainDiv");
+        updateValMont("3", "Nodes Count: " + getParentNode.hasChildNodes(), true);
+        if (getParentNode.hasChildNodes()) {
+            x = document.querySelectorAll('#mainDiv div');
+            if (x.length < 0) {
+                updateValMont("0", ">>NO NODES DETECTED!", true);
+                updateValMont("0", ">>EMPTY BODY AFTER INIT!", false);
+                isMajor = true;
+                isEmpty = false;
+            }
+            else {
+                if (!(x[0].id).includes("initialize")) {
+                    updateValMont("0", ">>INITIALIZE SECTION MISSING!", false);
+                    isMajor = true;
+                }
+                else if (!document.getElementById(x[0].id).hasChildNodes()) {
+                    updateValMont("1", ">>EMPTY INITIALIZE SECTION!", false);
+                    medErr += 1;
+                }
+                else {
+                    updateValMont("0", ">>Proceeding to Main Canvas", true);
+                    isInit = true;
+                    $("#" + x[0].id + " input[type=text]").each(function () {
+                        var theInput, getInput, searchInput, hold;
+                        $(this).css("background-color", "");
+                        if ($(this).val() == "") {
+                            updateValMont("1", ">>NULL VARIABLE INITIALIZATION", true);
+                            updateValMont("1", ">>EMPTY INITIALIZE DECLERATION!", false);
+                            medErr += 1
+                            $(this).css("background-color", "#FFCECE");
+                        }
+                        else {
+                            updateValMont("3", ">>INITIALIZE NOT NULL. Proceeding.", true);
+                            theInput = $(this).val();
+                            getInput = (theInput).indexOf(" ");
+                            if (getInput == -1) {
+                                updateValMont("1", ">>INCORRECT VARIABLE DECLERATION", false);
+                                medErr += 1;
+                                $(this).css("background-color", "#add8e6");
+                            }
+                            else {
+                                searchInput = (theInput).substring(0, getInput);
+                                if (dttypes.includes(searchInput)) {
+                                    theInput = theInput.replace(/\s+/g, '');
+                                    getType = $.trim(searchInput);
+                                    hold = getInput;
+                                    getInput = (theInput).indexOf("=");
+                                    if (getInput == -1) {
+                                        updateValMont("2", ">>INITIALIE FORMAT IS WRONG", false);
+                                        minErr += 1;
+                                    }
+                                    else {
+                                        updateValMont("3", ">>CHECK", true);
+                                        searchInput = (theInput).substring(hold, getInput);
+                                        hold = (theInput).substring((getInput + 1));
+                                        updateValMont("3", ">>VALUE CHECK: " + hold, true);
+                                        if (getType == "bool") {
+                                            hold = (hold.toUpperCase()).replaceAll('"', '');
+                                            if (!trueF.includes(hold)) {
+                                                updateValMont("2", "WRONG VALUE FOR DATA TYPE", false);
+                                                minErr += 1;
+                                            }
+                                        }
+                                        else if (getType.toUpperCase() == "INT") {
+                                            hold = $.trim(hold);
+                                            if (hold.includes("[")) {
+                                                updateValMont("3", ">>INT Array Detected!", true);
+                                                var checkComma = (hold).indexOf(",");
+                                                if (checkComma == -1) {
+                                                    checkComma = (hold).indexOf("]");
+                                                    var getVal = (hold).substring(1, checkComma);
+                                                    if (hold == "[]") {
+                                                        updateValMont("3", ">>EMPTY INT ARRAY", true);
+                                                    }
+                                                    else if (!isNum(getVal)) {
+                                                        updateValMont("2", ">>VALUE NOT NUMERIC", false);
+                                                        minErr += 1;
+                                                    }
+                                                }
+                                                else if (checkComma >= 1) {
+                                                    let storeVar;
+                                                    try {
+                                                        hold = hold.replace("[", '');
+                                                        hold = hold.replace("]", '');
+                                                        storeVar = hold.split(',');
+                                                        for (var p = 0; p < storeVar.length; p++) {
+                                                            // CHECK IF STORED VALUE IS NULL
+                                                            if (storeVar[p] != "" || storeVar[p] != null) {
+                                                                getVal = storeVar[p];
+                                                                updateValMont("3", ">>GETTING VAL: " + getVal, true);
+                                                                if (!isNum(getVal)) {
+                                                                    updateValMont("2", ">>VALUE NOT NUMERIC", false);
+                                                                    minErr += 1;
+                                                                }
+                                                            }
+                                                            else {
+                                                                updateValMont("2", ">>ARRAY VALUE IS NULL", false);
+                                                                minErr += 1;
+                                                            }
+                                                        }
+                                                    } catch (err) {
+                                                        updateValMont("2", "INCORRECT ARRAY DECLERATION", false);
+                                                        minErr += 1;
+                                                    }
+                                                }
+                                            }
+                                            else if (!isNum(hold)) {
+                                                updateValMont("2", "VALUE NOT NUMERIC", false);
+                                                minErr += 1;
+                                            }
+                                        }
+                                        else if (getType.toUpperCase() == "STR" || getType.toUpperCase() == "CHAR") {
+                                            if (hold.includes("[")) {
+                                                updateValMont("3", ">>STRING Array Detected!", true);
+                                                var checkComma = (hold).indexOf(",");
+                                                if (checkComma == -1) {
+                                                    checkComma = (hold).indexOf("]");
+                                                    var getVal = (hold).substring(0, checkComma);
+                                                    if (hold == "[]") {
+                                                        updateValMont("3", ">>EMPTY STRING ARRAY!", true);
+                                                    }
+                                                    else if (isNum(getVal)) {
+                                                        updateValMont("2", ">>VALUE IS NOT A STRING", false);
+                                                        minErr += 1;
+                                                    }
+                                                }
+                                                else if (checkComma >= 1) {
+                                                    let storeVar;
+                                                    try {
+                                                        hold = hold.replace("[", '');
+                                                        hold = hold.replace("]", '');
+                                                        storeVar = hold.split(',');
+                                                        for (var p = 0; p < storeVar.length; p++) {
+                                                            // CHECK IF STORED VALUE IS NULL
+                                                            if (storeVar[p] != "" || storeVar[p] != null) {
+                                                                getVal = storeVar[p];
+                                                                if (isNum(getVal)) {
+                                                                    updateValMont("2", "VALUE IS NOT A STRING", false);
+                                                                    minErr += 1;
+                                                                }
+                                                            }
+                                                            else {
+                                                                updateValMont("2", "ARRAY VALUE IS NULL", false);
+                                                                minErr += 1;
+                                                            }
+                                                        }
+                                                    } catch (err) {
+                                                        updateValMont("2", "INCORRECT ARRAY DECLERATION", false);
+                                                        minErr += 1;
+                                                    }
+                                                }
+                                            }
+                                            else if (isNum(hold)) {
+                                                updateValMont("2", "VALUE IS NOT A STRING", false);
+                                                minErr += 1;
+                                            }
+                                        }
+                                    }
+                                }
+                                else {
+                                    updateValMont("2", "WRONG DATA TYPE", false);
+                                    minErr += 1;
+                                }
+                            }
+                        }
+                    })
+                }
+
+                var test = document.getElementById("mainDiv").childElementCount;
+                for (var i = 0; i < test; i++) {
+                    var getNext = document.getElementById("mainDiv").children[i].id;
+                    if (getNext.includes("process")) {
+                        isProcess = true;
+                        updateValMont("3", ">>IS PROCESS", true);
+                        processCurrent("", getNext);
+                    }
+                    else if (getNext.includes("ifElseDiv")) {
+                        updateValMont("3", ">>IS IF-ELSE", true);
+                        ifElseCurrent("", getNext);
+                    }
+                    else if (getNext.includes("loopDiv")) {
+                        updateValMont("3", ">>IS WHILE-LOOP", true);
+                        whileCurrent("", getNext);
+                    }
+                }
+                //if (!(x[i].id).includes("process")) {
+                //    y = document.querySelector("#" + x[i].id + " ")
+                //}
+            }
+        }
+        else {
+            isMajor = true;
+            updateValMont("0", "CANVAS IS EMPTY!", false);
+        }
+
+        var studScore = 0;
+        $("#studTotalScore").val(studScore);
+        $("#postScoreHere").text(studScore);
+
+        if (isInit && isProcess) {
+            updateValMont("3", "COMPLETE PSEUDOCODE STRUCTURE!", true);
+            if (!isMajor) {
+                var totalDeductions = (medErr * 0.1) + (minErr * 0.05);
+                studScore = Math.floor(getStudScore - (getStudScore * totalDeductions));
+                if ((getStudScore * totalDeductions) > studScore)
+                    studScore = 0;
+                $("#studTotalScore").val(studScore);
+                $("#postScoreHere").text(studScore);
+            }
+            else if (isMajor) {
+                studScore = 0;
+                $("#studTotalScore").val("0");
+                $("#postScoreHere").text("0");
+            }
+        }
+        else {
+            updateValMont("3", "PSEUDOCODE STRUCTURE NOT COMPLETE!", true);
+        }
+
+        $("#validate1").removeAttr("disabled");
+
+        if (!isMajor) {
+            $("#captureOutput").removeAttr("disabled");
+        }
+
+        if (minErr == 0 && medErr == 0 && !isMajor)
+            $("#hdifnoErr").show();
+        else {
+            $("#hdifnoErr").hide();
+        }
+
+    }
+
+    let procArray = ["INITIALIZE", "INPUT", "OUTPUT", "CALCULATE", "INCREMENT", "DECREMENT"];
+    function processCurrent(breakThrgh, currentID) {
+        var getDropDwn, getInput, checkCont;
+        getDropDwn = $("#" + currentID).find(":selected").text();
+        getInput = $("#" + currentID + " input").val();
+
+        if (!procArray.includes(getDropDwn)) {
+            updateValMont("1", "INVALID PROCESS ACTION!", true);
+            medErr += 1;
+        }
+        else {
+            // Validate getInput here - FIRST
+            // Then validate the course of action
+            if (getInput != "") {
+                $("#" + currentID + " input").css("background-color", "");
+                if (/INPUT|OUTPUT/.test(getDropDwn)) {
+                    // VALIDATE IF INPUT and OUTPUT
+                }
+                else if (/CALCULATE|INCREMENT|DECREMENT/.test(getDropDwn)) {
+                    // Make sure the values here are numeric
+                    //if (!isNum(getValue)) {
+                    //    updateValMont("2", "VALUE NOT NUMERIC", false);
+                    //    minErr += 1;
+                    //}
+                }
+                else if (/INITIALIZE/.test(getDropDwn)) {
+                    // VALIDATE IF INITIALIZE HERE
+                }
+            }
+            else {
+                updateValMont("0", "PROCESS VALUE IS NULL!", false);
+                isMajor = true;
+                $("#" + currentID + " input").css("background-color", "#FFCECE");
+            }
+        }
+    }
+
+    var all = "<>=!";
+    function validateCondition(getCond) {
+        // Validate Condition Here
+        var equalsCnt = 0;
+        var greatCnt = 0;
+        var lessCnt = 0;
+        var excCnt = 0;
+        for (var i = 0; i < all.length; i++) {
+            var char = all.charAt(i);
+            var getCount = getCond.split(char).length - 1;
+            for (var j = 0; j < getCount; j++) {
+                switch (char) {
+                    case "=":
+                        equalsCnt += 1;
+                        break;
+                    case "<":
+                        greatCnt += 1;
+                        break;
+                    case ">":
+                        lessCnt += 1;
+                        break;
+                    case "!":
+                        excCnt += 1;
+                        break;
+                }
+            }
+        }
+        updateValMont("3", equalsCnt + ", " + greatCnt + ", " + lessCnt + ", " + excCnt, true);
+        getConder = getCond.replace(/ /g, '');
+        var position = "";
+        if (equalsCnt == 2 && greatCnt == 0 && lessCnt == 0 && excCnt == 0)
+            position = "==";
+        else if (equalsCnt == 0 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+            position = "<";
+        else if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+            position = ">";
+        else if (equalsCnt == 1 && greatCnt == 1 && lessCnt == 0 && excCnt == 0)
+            position = "<=";
+        else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 1 && excCnt == 0)
+            position = ">=";
+        else if (equalsCnt == 1 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+            position = "!=";
+        else
+            position = ""
+
+        if (position != "") {
+            var getRight, getLeft, getRRy;
+            getRRy = (getConder.replace(position, ',')).split(',');
+            if (getRRy.length != 2) {
+                updateValMont("2", "INCORRECT CONDITIONAL FORMAT", false);
+                minErr += 1;
+                return false;
+            }
+            else {
+                getRight = getRRy[0];
+                getLeft = getRRy[1];
+            }
+        }
+        else {
+            if (equalsCnt == 0 && greatCnt == 0 && lessCnt == 0 && excCnt == 1)
+                getRight = getConder.replace('!', '');
+            else
+                getRight = getConder;
+        }
+        return getConder;
+    }
+
+    function whileCurrent(breakThrgh, currentID) {
+        var getCond = $("#" + currentID).children("p:first-child").children("input").val();
+        if (getCond == "" || getCond == null) {
+            updateValMont("0", "WHILE-CONDITION VALUE IS NULL!", false);
+            isMajor = true;
+            $("#" + currentID).children("p:first-child").children("input").css("background-color", "#FFCECE");
+        }
+        else {
+            $("#" + currentID).children("p:first-child").children("input").css("background-color", "");
+            if (!validateCondition(getCond))
+                return false;
+        }
+
+        var getTheID = $('#' + currentID + ' .loopProg-Container-insideDiv').attr('id');
+        var getElem = document.getElementById(currentID);
+        if (getElem.hasChildNodes()) {
+            var test = document.getElementById(getTheID).childElementCount;
+            for (var i = 0; i < test; i++) {
+                var getNext = document.getElementById(getTheID).children[i].id;
+                if (getNext.includes("process")) {
+                    isProcess = true;
+                    updateValMont("3", ">>IS PROCESS", true);
+                    processCurrent("", getNext);
+                }
+                else if (getNext.includes("ifElseDiv")) {
+                    updateValMont("3", ">>IS IF-ELSE", true);
+                    ifElseCurrent("", getNext);
+                }
+                else if (getNext.includes("loopDiv")) {
+                    updateValMont("3", ">>IS WHILE-LOOP", true);
+                    whileCurrent("", getNext);
+                }
+            }
+        }
+        else {
+            updateValMont("0", ">>WHILE-BODY CANNOT BE EMPTY!", false);
+            medErr += 1;
+        }
+    }
+
+    function ifElseCurrent(breakThrgh, currentID) {
+        var isElseIf = false;
+        var getCond = $("#" + currentID).children("p:first-child").children("input").val();
+        if (getCond == "" || getCond == null) {
+            updateValMont("0", "IF-ELSE CONDITION VALUE IS NULL!", false);
+            medErr += 1;
+            $("#" + currentID).children("p:first-child").children("input").css("background-color", "#FFCECE");
+        }
+        else {
+            $("#" + currentID).children("p:first-child").children("input").css("background-color", "");
+            if (!validateCondition(getCond))
+                return false;
+        }
+
+        var selection = $("#" + currentID + " > select > option:selected").text();
+        if (selection == "Else If") {
+            var getSelect = $("#" + currentID + " > select").attr("id");
+            var getSecondCond = document.getElementById(getSelect).nextElementSibling.value;
+            if (getSecondCond == "") {
+                updateValMont("0", "ELSE-IF-THEN CONDITION VALUE IS NULL!", false);
+                medErr += 1;
+                getSecondCond = document.getElementById(getSelect).nextElementSibling.id;
+                $("#" + getSecondCond).css("background-color", "#FFCECE")
+            }
+            else {
+                getSecondCond = document.getElementById(getSelect).nextElementSibling.id;
+                $("#" + getSecondCond).css("background-color", "")
+                if (!validateCondition(getCond))
+                    return false;
+                else
+                    isElseIf = true;
+            }
+        }
+
+        $('#' + currentID + '> .ifElseContainer-insideDiv').each(function () {
+            //alert(currentID);
+            var getElem = document.getElementById(this.id);
+            updateValMont("3", "IS NODES: " + getElem.hasChildNodes(), true);
+            if (getElem.hasChildNodes()) {
+                var test = document.getElementById(this.id).childElementCount;
+                for (var i = 0; i < test; i++) {
+                    var getNext = document.getElementById(this.id).children[i].id;
+                    if (getNext.includes("process")) {
+                        isProcess = true;
+                        updateValMont("3", ">>IS PROCESS", true);
+                        processCurrent("", getNext);
+                    }
+                    else if (getNext.includes("ifElseDiv")) {
+                        updateValMont("3", ">>IS IF-ELSE", true);
+                        ifElseCurrent("", getNext);
+                    }
+                    else if (getNext.includes("loopDiv")) {
+                        updateValMont("3", ">>IS WHILE-LOOP", true);
+                        whileCurrent("", getNext);
+                    }
+                    //else if (getNext.includes("loopProgDivMain"))
+                    //    getParents.push(i);
+                }
+                updateValMont("3", "GOING BACK!", true);
+            }
+            else {
+                var test = document.getElementById(this.id).childElementCount;
+                if (!(this.id).includes("THEN")) {
+                    updateValMont("0", ">>Main IF cannot be empty!", false);
+                    medErr += 1;
+                }
+
+                if (selection == "Else If") {
+                    if (test == 0 && (this.id).includes("THEN")) {
+                        updateValMont("0", ">>ELSE-IF-BODY cannot be empty!", false);
+                        medErr += 1;
+                    }
+                }
+            }
+        })
     }
     
     $(document).ready(function() {
@@ -653,6 +1157,14 @@
                 $('div').removeClass('OnFocus');
             }
         });
+
+        $("#val-bttn").on('click', () => {
+            Validate();
+        });
+
+        $("#gb-bttn").on('click', () => {
+            window.location.href = "./AWET-Homepage.html";
+        })
     })
 
     function highlight(clickedClass) {
