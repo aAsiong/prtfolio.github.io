@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <title>Jonas' Web Portfolio</title>
     <style>
         * {
@@ -44,6 +45,7 @@
             width: inherit;
             height: fit-content;
             padding: 20px 0;
+            margin-bottom: 20px;
             background-color: transparent;
         }
 
@@ -350,7 +352,7 @@
                     font-size: 17px;
                     font-family: "Source Sans Pro", sans-serif;
                     font-weight: 400;
-                    color: #000000;
+                    color: white;
                     clear: both
                 }
 
@@ -360,6 +362,7 @@
                         margin-top: -35px;
                         margin-left: -15px;
                         margin-bottom: 10px;
+                        color: black;
                         font-size: 20px;
                         font-weight: 400;
                         background-color: white;
@@ -811,6 +814,91 @@
                 color:rgba(0, 0, 0, 0.8);
             }
 
+        .work {
+            display: flex;
+            flex-direction: column;
+            background-color: white !important;
+            background-size: 70%;
+            background-image: url('Website Portfolio/Pictures/sercomm.png') !important;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+            
+            .work > div:nth-child(1) h1  {
+                text-align: center;
+                margin: 0;
+                font-size: 40px;
+                font-weight: normal;
+            }
+
+            .work > div:nth-child(2) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .work .text-container.skills { 
+                min-width: 600px;
+                max-width: 1300px;
+                min-height: fit-content;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 1fr;
+                gap: 15px 5px; 
+                grid-template-areas: 
+                    "merge-col up-col"
+                    "merge-col low-col";
+                font-size: 17px;
+                font-family: "Source Sans Pro", sans-serif;
+                font-weight: 400;
+                color: white;
+                clear: both
+            }
+
+                .work > div > div > div.up-col {
+                    border: 5px solid white;
+                    grid-area: up-col;
+                    background-color: rgba(213,213,213, 0.8);
+                }
+
+                .work > div > div > div.low-col { 
+                    border: 5px solid white;
+                    grid-area: low-col;
+                    background-color: rgba(213,213,213, 0.8);
+                }
+
+                    .work > div > div > div.low-col ul li { list-style-type: none; }
+
+                .work > div > div > div.merge-col {
+                    font-size: 20px;
+                    color: black;
+                    border: 5px solid white;
+                    grid-area: merge-col;
+                    background-color: rgba(213,213,213, 0.8);
+                }
+
+                    .work > div > div > div.merge-col > .project-description {
+                        height: 100%;
+                        border: 3px solid white;
+                        font-size: 20px;
+                        line-height: 1.5;
+                        z-index: 0;
+                    }
+        
+        @media screen and (max-width: 570px) {
+            * {
+                padding: revert;
+            }
+
+            #bckgrnd-tab > section:nth-child(3) {
+                margin: 0;
+            }
+
+            .text-container.skills {
+                display: flex;
+                font-size: 25px;
+            }
+        }
+
         @media screen and (max-width: 750px) {
                 .profile-card {
                     width: 330px;
@@ -856,7 +944,13 @@
                     box-sizing: border-box;
                 }
 
+                .section-card > .work > div:nth-child(2) > div { display: flex; }
+                .section-card > .work > div:nth-child(2) > .text-container.skills div { text-align: center !important; }
                 .proj-container { position: relative; }
+
+                    .proj-container a {
+                        display: none;
+                    }
 
                     .proj-container:nth-child(1) { background-image: none; }
                     .proj-container:nth-child(2) { background-image: none; }
@@ -962,14 +1056,12 @@
                     </div>
                 </section>
             </div>
-            <hr class="divider" />
         </section>
-        
 
         <nav class="mid-navbar">
             <section class="navbar-container">
                 <div><a id="hmBttn">Home</a></div>
-                <div><a id="prjBttn">Projects</a></div>
+                <div><a id="prjBttn">Personal Projects</a></div>
                 <div><a id="srvBttn">C. Vitae</a></div>
                 <div><a id="appBttn">Contact Me</a></div>
             </section>
@@ -1092,7 +1184,70 @@
                         </div>
                     </div>
                 </section>
-                <hr class="divider" style="margin-top: 0; margin-bottom: 20px;" />
+
+                <hr class="divider" />
+                <!-- WORK EXPERIENCCE HERE 10/02/2024 -->
+                <section class="section-card"
+                    style="margin: 0;
+                        flex-direction: column;">
+                    <div class="title-container"
+                        style="width: 100%;
+                            text-align: center;
+                            border-bottom: 5px black solid">
+                        Work Experience
+                    </div>
+                    
+                    <section class="work proj-container">
+                    <div>
+                        <h1>SERCOMM Philippines</h1>
+                    </div>
+                    <div>
+                        <div class="text-container skills"
+                            style="width: 100%;">
+                            <div class="merge-col" style="display: flex; flex-direction: column;">
+                                <b>SERCOMM Philippines</b> is a subsidiary of SERCOMM Corporation, specializing in telecommunications and networking solutions.
+                                <br />
+                                <br />
+                                It is known for designing and manufacturing routers, modems, gateways, and other networking equipment. With a focus on innovation and quality, SERCOMM Philippines contributes to the advancement of telecommunications technology globally.
+                                <br />
+                                <br />
+                                <div class="project-description">
+                                    <h4>Job History</h4>
+                                    <table style="color: black; border-bottom: black solid; width: 100%;">
+                                        <tr>
+                                         <td style="text-align: left;">Assistant IT Specialist</td>
+                                         <td>&nbsp;</td>
+                                         <td style="text-align: right;">2023-Present</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="up-col" style="height: fit-content; color: black; text-align: right;">
+                                <h3 style="margin: 0;">Web Stack</h3>
+                                <span class="badges" style="background-color: #F16529;">HTML</span>
+                                <span class="badges" style="color: white; background-color: #2965F1;">FineReport</span>
+                                <span class="badges" style="background-color: #E4A126;">JavaScript</span>
+                                <span class="badges" style="color: #000000; background-color: #E4A126;">JQuery</span>
+                                <span class="badges" style="color: white; background-color: #D52923;">MSSQL</span>
+                            </div>
+                            <div class="low-col" style="color: black; text-align: right;">
+                                <h3 style="margin: 0;">Skills Developed</h3>
+                                <ul style="font-size: 20px;">
+                                    <li><b>FineReport</b></li>
+                                    <li>Data Presentation</li>
+                                    <li>Database Management</li>
+                                    <li>P-SQL and T-SQL</li>
+                                    <li><b>Project Development Flow</b></li>
+                                    <li>BASIC DOM Manipualtion using JS and JQuery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                </section>
+                <hr class="divider" 
+                    style="margin-bottom: 20px;" />
+                <!-- WORK EXPERIENCE ENDS HERE -->
                 
                 <section class="section-card" style="margin: 0; flex-direction: column;">
                     <div class="cert">
@@ -1452,8 +1607,6 @@
             </div>
         </seciton>
     </main>
-
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script lang="javascript">
         // For main Nav selection
         let getInnerElem;
