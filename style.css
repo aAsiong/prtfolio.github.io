@@ -404,6 +404,18 @@ table {
         border-bottom: 3px solid white;
     }
 
+    .project-description table tr { margin-bottom: 5px; }
+    .project-description table:last-child tr { margin-bottom: unset; }
+
+    .project-description table tr td {
+        font-weight: 900;
+        border-bottom: 3px solid white;
+    }
+
+        .project-description table tr:last-child td {
+            border-bottom: unset;
+        }
+
     table tr:nth-child(2) td:last-child {
         text-align: right;
     }
